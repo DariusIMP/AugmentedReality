@@ -1,0 +1,24 @@
+﻿1
+00:00:00,000 --> 00:00:07,533
+Al elevar la tensión aplicada sobre las bobinas, se genera un campo magnético rotante cuyo sentido depende de la polaridad de los bornes.
+
+2
+00:00:07,530 --> 00:00:12,022
+Este principio físico puede ser aprovechado para constuir un motor. 
+
+3
+00:00:12,020 --> 00:00:19,155
+La jaula ubicada entre las bobinas se convierte en un elemento que provee potencia mecánica a partir de la energía eléctrica proporcionada.
+
+4
+00:00:19,644 --> 00:00:22,511
+A mayor tensión, mayor velocidad de la jaula.
+
+5
+00:00:22,510 --> 00:00:28,533
+Sin embargo hay que notar que la velocidad de rotación de la jaula no es la misma que la velocidad de rotación del campo magnético.
+
+6
+00:00:28,688 --> 00:00:33,711
+Los motores que utilizan este principio son los que se denominan motores asincrónicos trifásicos.
+

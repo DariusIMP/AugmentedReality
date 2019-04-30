@@ -1,0 +1,36 @@
+﻿1
+00:00:00,000 --> 00:00:05,155
+Una vez más imaginemos que el auto circula con rapidez constante sobre una circunferencia peraltada
+
+2
+00:00:05,150 --> 00:00:09,600
+pero esta vez asfaltada con rozamiento tal y como teníamos al principio de todo. 
+
+3
+00:00:10,000 --> 00:00:12,555
+A diferencia de un caso de peralte sin rozamiento 
+
+4
+00:00:12,550 --> 00:00:16,777
+en el que para no salirnos tenemos que conducir a una rapidez justa y constante, 
+
+5
+00:00:16,820 --> 00:00:23,111
+en la vida real tenemos un rango de velocidades dentro del cual podemos encarar una curva peraltada sin salirnos de la misma 
+
+6
+00:00:23,110 --> 00:00:26,266
+y esto se debe al rozamiento que se opone al deslizamiento.
+
+7
+00:00:26,555 --> 00:00:30,088
+Si el auto está por irse de pista hacia afuera porque va muy rápido,
+
+8
+00:00:30,088 --> 00:00:32,080
+el rozamiento irá hacia adentro.
+
+9
+00:00:32,080 --> 00:00:37,022
+Si el auto está por irse hacia adentro porque su velocidad es muy baja, el rozamiento irá hacia afuera.
+

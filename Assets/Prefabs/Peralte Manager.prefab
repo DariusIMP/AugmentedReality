@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1331957213575748}
+  m_IsPrefabAsset: 1
+--- !u!1 &1331957213575748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4955001566983160}
+  - component: {fileID: 114811808212165956}
+  m_Layer: 0
+  m_Name: Peralte Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4955001566983160
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331957213575748}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: -0, z: 0.34}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &114811808212165956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331957213575748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cce1b8977d1eb842b1f50a8a624ce00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masa: 5
+  velocidad: 40
+  mu: 0.4
+  FBDObject: {fileID: 1465983918314610, guid: e4cf8d0612ba318479921d22661a1d95, type: 2}
+  mcuViewPrefab: {fileID: 1141612362877474, guid: 6089f407096804f4b8b9afbea062f2d3,
+    type: 2}
+  sinRozamientoPrefab: {fileID: 1691007726499546, guid: 53bfaad565eb89c47bf8343ecf998469,
+    type: 2}
+  vMaxPrefab: {fileID: 1753030120764288, guid: b1fc2f8ea5473154285d1a0b3cd24aa1, type: 2}
+  vMinPrefab: {fileID: 1543239665269010, guid: b4787159150fa564cadbe1fb5549d202, type: 2}

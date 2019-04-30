@@ -1,0 +1,61 @@
+﻿1
+00:00:00,000 --> 00:00:05,000
+Como decíamos antes, para la velocidad máxima la fuerza de rozamiento va hacia adentro.
+
+2
+00:00:05,377 --> 00:00:09,311
+Ahora descompongamos la normal y el rozamiento en los ejes X e Y.
+
+3
+00:00:10,155 --> 00:00:16,622
+Para que las fuerzas verticales se anulen deben cancelarse la componente vertical de la normal con la del rozamiento y el peso.
+
+4
+00:00:16,620 --> 00:00:23,933
+Entonces en la componente y, nos queda que el peso mas la fuerza de rozamiento en y es igual a la normal en y.
+
+5
+00:00:24,422 --> 00:00:27,755
+Esto es lo mismo que decir que la masa por la gravedad es igual a 
+
+6
+00:00:27,750 --> 00:00:33,288
+N por coseno de theta - N por mu por seno de theta, donde mu es el coeficiente de rozamiento.
+
+7
+00:00:34,155 --> 00:00:40,311
+En cuanto a la ecuación en X, hay dos fuerzas que contribuyen con sus componentes horizontales a la fuerza centrípeta:
+
+8
+00:00:40,310 --> 00:00:42,955
+la de rozamiento y la normal.
+
+9
+00:00:43,555 --> 00:00:46,933
+Como ambas componentes van en dirección al centro, se suman.
+
+
+10
+00:00:47,177 --> 00:00:52,355
+Entonces la fuerza centrípeta es la suma de la normal en x y la fuerza de rozamiento en x.
+
+11
+00:00:52,350 --> 00:00:56,088
+Y esto es como decir que la masa por la velocidad al cuadrado
+
+12
+00:00:56,080 --> 00:00:59,888
+sobre el radio de la circunferencia es igual a
+
+13
+00:00:59,880 --> 00:01:03,777
+N por el seno de theta mas N por mu por coseno de theta.
+
+14
+00:01:03,977 --> 00:01:06,088
+Dividimos los componentes como antes
+
+15
+00:01:06,080 --> 00:01:09,755
+y simplificamos la normal y la masa y despejamos así la velocidad.
+

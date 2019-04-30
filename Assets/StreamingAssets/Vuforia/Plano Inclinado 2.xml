@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Plano Inclinado 2"/>
+</Tracking>
+
+<Assembly name="Plano Inclinado 2s_assembly">
+<Part name="Plano Inclinado 2" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="0.00963723 0.0675536 1.1506" rotation="AD: 0.9999999996528446 0.003992998594959018 -0.007480485137545831 236.184">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

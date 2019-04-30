@@ -1,0 +1,15 @@
+ManifestFileVersion: 0
+CRC: 3143884658
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bde0bcccde9ecdc52546fefeddd83470
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 31d6cfe0d16ae931b73c59d7e0c089c0
+HashAppended: 0
+ClassTypes: []
+Assets:
+- Assets/Scenes/AR2.unity
+- Assets/Scenes/AR2B.unity
+Dependencies: []

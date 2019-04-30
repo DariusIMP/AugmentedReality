@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Tuerca"/>
+</Tracking>
+
+<Assembly name="Tuercas_assembly">
+<Part name="Tuerca" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="-1.04083e-17 0.00417029 0.141428" rotation="AD: 0.9985082586179337 0.13721351196178708 -0.45616745699072275 210.378">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

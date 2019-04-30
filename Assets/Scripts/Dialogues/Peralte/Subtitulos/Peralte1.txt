@@ -1,0 +1,24 @@
+﻿1
+00:00:00,511 --> 00:00:03,977
+El peralte es la inclinación lateral de un camino en curva, 
+
+2
+00:00:03,970 --> 00:00:06,244
+donde el borde exterior es más alto que el interior. 
+
+3
+00:00:06,240 --> 00:00:10,666
+La rapidez del auto y la magnitud de su velocidad son constantes,
+
+4
+00:00:10,660 --> 00:00:13,888
+pero en cada instante cambia de dirección debido al peralte,
+
+5
+00:00:13,880 --> 00:00:16,244
+ que impide que el vehículo se salga de la pista. 
+
+6
+00:00:16,240 --> 00:00:21,133
+Así el vehículo tiene aceleración normal (o centrípeta) pero no tangencial.
+

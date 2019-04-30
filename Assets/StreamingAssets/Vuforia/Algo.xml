@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Algo"/>
+</Tracking>
+
+<Assembly name="Algos_assembly">
+<Part name="Algo" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="1.8325e-05 0.080061 0.550635" rotation="AD: 0.9999223366887401 -0.01772350846271548 -0.9892144841658606 178.541">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

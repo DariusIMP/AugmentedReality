@@ -1,0 +1,76 @@
+﻿1
+00:00:00,000 --> 00:00:03,644
+El caso de la velocidad mínima es análogo al de la velocidad máxima.
+
+2
+00:00:03,640 --> 00:00:08,288
+La diferencia principal radica en que si la velocidad del auto cae por debajo de la mínima, 
+
+3
+00:00:08,288 --> 00:00:10,280
+comenzará a caerse hacia adentro.
+
+4
+00:00:10,280 --> 00:00:13,288
+Como la fuerza de rozamiento se opone al deslizamiento,
+
+5
+00:00:13,377 --> 00:00:16,577
+esta tendrá dirección hacia afuera para esta velocidad.
+
+6
+00:00:16,933 --> 00:00:20,088
+Descomponiendo en las componentes XY como antes,
+
+7
+00:00:20,080 --> 00:00:24,822
+vemos que ahora la fuerza de rozamiento en X queda hacia afuera y la componente vertical hacia arriba.
+
+8
+00:00:25,533 --> 00:00:28,400
+La ecuación vertical ahora queda del siguiente modo:
+
+9
+00:00:28,400 --> 00:00:33,066
+el peso es igual a la normal en y más la fuerza de rozamiento en y.
+
+10
+00:00:33,060 --> 00:00:35,600
+Y es lo mismo que decir que la masa por la gravedad es igual a
+
+11
+00:00:35,600 --> 00:00:39,555
+N por coseno de theta más N por mu por seno de theta.
+
+12
+00:00:39,866 --> 00:00:42,688
+La componente horizontal, en cambio, queda del siguiente modo:
+
+13
+00:00:42,680 --> 00:00:47,200
+la fuerza centrípeta es igual a la normal en x menos la fuerza de rozamiento en x.
+
+14
+00:00:47,933 --> 00:00:51,266
+O lo que es lo mismo la masa por la velocidad al cuadrado sobre el radio
+
+15
+00:00:51,260 --> 00:00:54,977
+es igual a N por seno de theta - N por mu por coseno de theta.
+
+16
+00:00:55,755 --> 00:00:58,755
+Dividiendo componentes obtenemos la siguiente ecuación:
+
+17
+00:00:58,750 --> 00:01:03,822
+y después de eso despejamos la velocidad mínima llegando a su expresión final.
+
+18
+00:01:04,600 --> 00:01:09,622
+Como chequeo rápido, podemos ver fácilmente que la velocidad mínima es más pequeña que la máxima,
+
+19
+00:01:09,620 --> 00:01:13,911
+ ya que el numerador es más pequeño y el denominador es más grande.
+

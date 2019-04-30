@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Viscosidad3"/>
+</Tracking>
+
+<Assembly name="Viscosidad3s_assembly">
+<Part name="Viscosidad3" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="-0.0157031 0.0139065 4.31948" rotation="AD: 0.999995811215261 0.0040954008146159284 -0.9989873765128663 180.332">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

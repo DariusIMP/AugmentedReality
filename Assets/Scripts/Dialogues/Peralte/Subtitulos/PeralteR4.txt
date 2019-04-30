@@ -1,0 +1,8 @@
+﻿1
+00:00:00,000 --> 00:00:05,933
+Con rozamiento podemos ver que nos queda un rango de velocidades dentro del cual el auto se mantiene en pista.
+
+2
+00:00:06,000 --> 00:00:12,533
+Esto se corresponde más con la realidad, donde uno no debe mantener una velocidad exacta para no despistarse.
+

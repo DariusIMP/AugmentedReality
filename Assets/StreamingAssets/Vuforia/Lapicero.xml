@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Lapicero"/>
+</Tracking>
+
+<Assembly name="Lapiceros_assembly">
+<Part name="Lapicero" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="2.19703e-15 0.0415539 0.219701" rotation="AD: -0.9789513934030128 -0.30021128825691606 0.9884133340272359 156.398">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

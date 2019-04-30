@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: 400eb00d804e54a00aa223d2deb49f08
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: anneau
+    100002: Camero_2010___Low_Poly1
+    100004: Earth
+    100006: EarthOrbit
+    100008: Jupiter
+    100010: JupiterOrbit
+    100012: LightPreset
+    100014: Mars
+    100016: MarsOrbit
+    100018: Mercury
+    100020: MercuryOrbit
+    100022: Neptune
+    100024: NeptuneOrbit
+    100026: Saturn
+    100028: Saturne_001
+    100030: SaturnOrbit
+    100032: //RootNode
+    100034: Sun
+    100036: Uranus
+    100038: UranusOrbit
+    100040: Venus
+    100042: VenusOrbit
+    400000: anneau
+    400002: Camero_2010___Low_Poly1
+    400004: Earth
+    400006: EarthOrbit
+    400008: Jupiter
+    400010: JupiterOrbit
+    400012: LightPreset
+    400014: Mars
+    400016: MarsOrbit
+    400018: Mercury
+    400020: MercuryOrbit
+    400022: Neptune
+    400024: NeptuneOrbit
+    400026: Saturn
+    400028: Saturne_001
+    400030: SaturnOrbit
+    400032: //RootNode
+    400034: Sun
+    400036: Uranus
+    400038: UranusOrbit
+    400040: Venus
+    400042: VenusOrbit
+    2100000: Mercury
+    2100002: Neptune
+    2100004: Uranus
+    2100006: Jupiter
+    2100008: Mars
+    2100010: Earth
+    2100012: Venus
+    2100014: SunTex__sun_tex_jpeg
+    2100016: SaturnRings
+    2100018: Saturn
+    2300000: anneau
+    2300002: Earth
+    2300004: EarthOrbit
+    2300006: Jupiter
+    2300008: JupiterOrbit
+    2300010: Mars
+    2300012: MarsOrbit
+    2300014: Mercury
+    2300016: MercuryOrbit
+    2300018: Neptune
+    2300020: NeptuneOrbit
+    2300022: Saturne_001
+    2300024: SaturnOrbit
+    2300026: Sun
+    2300028: Uranus
+    2300030: UranusOrbit
+    2300032: Venus
+    2300034: VenusOrbit
+    3300000: anneau
+    3300002: Earth
+    3300004: EarthOrbit
+    3300006: Jupiter
+    3300008: JupiterOrbit
+    3300010: Mars
+    3300012: MarsOrbit
+    3300014: Mercury
+    3300016: MercuryOrbit
+    3300018: Neptune
+    3300020: NeptuneOrbit
+    3300022: Saturne_001
+    3300024: SaturnOrbit
+    3300026: Sun
+    3300028: Uranus
+    3300030: UranusOrbit
+    3300032: Venus
+    3300034: VenusOrbit
+    4300000: MercuryOrbit
+    4300002: Mercury
+    4300004: NeptuneOrbit
+    4300006: Neptune
+    4300008: UranusOrbit
+    4300010: Uranus
+    4300012: SaturnOrbit
+    4300014: JupiterOrbit
+    4300016: Jupiter
+    4300018: MarsOrbit
+    4300020: Mars
+    4300022: EarthOrbit
+    4300024: Earth
+    4300026: VenusOrbit
+    4300028: Venus
+    4300030: Sun
+    4300032: anneau
+    4300034: Saturne_001
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,24 @@
+﻿1
+00:00:00,133 --> 00:00:02,177
+Pero… momento, 
+
+2
+00:00:02,170 --> 00:00:06,066
+hay solo una velocidad para la cual el auto se mantiene en la pista?
+
+3
+00:00:06,060 --> 00:00:09,355
+ Si va un poquito más rápido o un poquito más lento... 
+
+4
+00:00:09,350 --> 00:00:11,933
+se nos va el auto para afuera o para adentro? 
+
+5
+00:00:11,940 --> 00:00:12,933
+No.
+
+6
+00:00:12,930 --> 00:00:15,511
+En la vida real también hay rozamiento.
+

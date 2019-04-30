@@ -1,0 +1,22 @@
+﻿1
+00:00:00,000 --> 00:00:02,967
+Los elementos que vamos a utilizar son: 
+ - Bobinas
+
+2
+00:00:02,967 --> 00:00:05,967
+(que son las que generan el campo magnético rotante)
+
+3
+00:00:06,034 --> 00:00:07,500
+- rotor jaula
+
+4
+00:00:07,500 --> 00:00:10,767
+(oficia de eje del motor eléctrico cuyo principio queremos mostrar)
+
+5
+00:00:10,767 --> 00:00:14,500
+- Transformador 
+ - Fuente de corriente alterna trifásica
+

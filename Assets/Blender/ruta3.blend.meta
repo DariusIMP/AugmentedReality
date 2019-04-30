@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: e91569825af7c4730a73a447b3060012
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Auto
+    100002: Cube_001
+    100004: Cube_001_Cube_005
+    100006: Cube_002_Cube_013
+    100008: Cube_003_Cube_007
+    100010: Cube_004_Cube_006
+    100012: Cylinder_Cylinder_002
+    100014: NurbsCircle_001
+    100016: Plane_002
+    100018: //RootNode
+    100020: Text
+    100022: Text_001
+    100024: Text_002
+    400000: Auto
+    400002: Cube_001
+    400004: Cube_001_Cube_005
+    400006: Cube_002_Cube_013
+    400008: Cube_003_Cube_007
+    400010: Cube_004_Cube_006
+    400012: Cylinder_Cylinder_002
+    400014: NurbsCircle_001
+    400016: Plane_002
+    400018: //RootNode
+    400020: Text
+    400022: Text_001
+    400024: Text_002
+    2100000: Ruta_003
+    2100002: chrome
+    2100004: black_01
+    2100006: rubber
+    2100008: rims
+    2100010: disk
+    2100012: black_02
+    2100014: window
+    2100016: light_cover_front
+    2100018: light_cover_back
+    2100020: light
+    2100022: orange_chrome
+    2100024: mirror
+    2100026: red_chrome
+    2100028: white
+    2100030: car_paint
+    2300000: Cube_001
+    2300002: Cube_001_Cube_005
+    2300004: Cube_002_Cube_013
+    2300006: Cube_003_Cube_007
+    2300008: Cube_004_Cube_006
+    2300010: Cylinder_Cylinder_002
+    2300012: NurbsCircle_001
+    2300014: Plane_002
+    2300016: Text
+    2300018: Text_001
+    2300020: Text_002
+    3300000: Cube_001
+    3300002: Cube_001_Cube_005
+    3300004: Cube_002_Cube_013
+    3300006: Cube_003_Cube_007
+    3300008: Cube_004_Cube_006
+    3300010: Cylinder_Cylinder_002
+    3300012: NurbsCircle_001
+    3300014: Plane_002
+    3300016: Text
+    3300018: Text_001
+    3300020: Text_002
+    4300000: NurbsCircle_001
+    4300002: Plane_002
+    4300004: Text
+    4300006: Text_001
+    4300008: Text_002
+    4300010: Cylinder_Cylinder_002
+    4300012: Cube_004_Cube_006
+    4300014: Cube_003_Cube_007
+    4300016: Cube_002_Cube_013
+    4300018: Cube_001_Cube_005
+    4300020: Cube_001
+    7400000: Auto Moviendose
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Auto Moviendose
+      takeName: Default Take
+      firstFrame: -1
+      lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves:
+      - name: Curve
+        curve:
+          serializedVersion: 2
+          curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          preInfinity: 3
+          postInfinity: 3
+          rotationOrder: 0
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

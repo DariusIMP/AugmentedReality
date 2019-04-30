@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Pelotadetenis2"/>
+</Tracking>
+
+<Assembly name="Pelotadetenis2s_assembly">
+<Part name="Pelotadetenis2" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="9.9957e-05 0.0575699 8.00913" rotation="AD: -0.9999999999999925 0.0005066746842525385 -0.00039627517803172724 76.0586">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

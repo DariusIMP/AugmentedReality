@@ -1,0 +1,44 @@
+﻿1
+00:00:00,000 --> 00:00:06,022
+Imaginemos que nuestro vehículo circula a una velocidad constante sobre una pista de hielo sin rozamiento.
+
+2
+00:00:06,020 --> 00:00:10,333
+ Si la pista fuera plana, el vehículo se saldría de la pista. 
+
+3
+00:00:10,330 --> 00:00:13,266
+Gracias al peralte, que ejerce una fuerza hacia adentro, 
+
+4
+00:00:13,260 --> 00:00:16,511
+se mantendrá en pista, siempre que su velocidad sea la adecuada. 
+
+5
+00:00:17,044 --> 00:00:19,977
+¿Cuáles son las fuerzas que interactúan en este problema?
+
+6
+00:00:20,600 --> 00:00:25,044
+Si el problema es sin rozamiento, las únicas fuerzas que habrá serán la Normal
+
+7
+00:00:25,044 --> 00:00:26,466
+ y el Peso.
+
+8
+00:00:27,177 --> 00:00:28,844
+Cómo no hay ninguna otra fuerza, 
+
+9
+00:00:28,840 --> 00:00:31,822
+la resultante de estas dos fuerzas será la Fuerza Centrípeta 
+
+10
+00:00:31,888 --> 00:00:34,777
+y en particular es una de las componentes de la Normal 
+
+11
+00:00:34,770 --> 00:00:38,288
+la que proporciona esa Fuerza Centrípeta necesaria para tomar la curva
+
