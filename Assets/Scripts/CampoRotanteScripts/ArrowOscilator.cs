@@ -15,6 +15,7 @@ public class ArrowOscilator : MonoBehaviour
     public float timeFactor = 1f;
     public double desfasaje = 0;
 
+
     private Transform head;
     private Transform body;
     private bool inverted;
@@ -25,7 +26,12 @@ public class ArrowOscilator : MonoBehaviour
         body = gameObject.transform.Find("Body");
         inverted = length < 0;
         resize(length);
-        desfasaje = desfasaje * Math.PI / 180;
+        setDesfasaje(desfasaje);
+    }
+
+    public void setDesfasaje(double desfasaje)
+    {
+        this.desfasaje = desfasaje * Math.PI / 180;
     }
 
     public void resize(float length)
@@ -49,17 +55,7 @@ public class ArrowOscilator : MonoBehaviour
         if (l < 0 && !inverted)
         {
             inverted = true;
-            if (gameObject.name == "Fase S")
-            {
-                Debug.Log(head.transform.rotation.y);
-            }
-            //head.transform.rotation = Quaternion.Inverse(head.transform.rotation);
             head.transform.Rotate(0, 180, 0);
-
-            if (gameObject.name == "Fase S")
-            {
-                Debug.Log(head.transform.rotation.y);
-            }
         }
         if (l >= 0 && inverted)
         {
