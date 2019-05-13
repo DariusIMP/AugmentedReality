@@ -13,6 +13,7 @@ namespace Campo_Rotante_Scripts
         public float speed;
         public bool invertedField = false;
         private int inversionFactor = 1;
+        private int speedFactor = 25;
 
         public void Flip()
         {
@@ -25,6 +26,12 @@ namespace Campo_Rotante_Scripts
                 IndicadorFaseS.GetComponentInChildren<Text>().text = "Fase S";
                 ChangeMaterial(CablesFaseR, PCableMaterial);
                 ChangeMaterial(CablesFaseS, NCableMaterial);
+            }
+            else if (this.speed.Equals(0))
+            {
+                VectorFaseS.SetActive(false);
+                VectorFaseR.SetActive(false);
+                VectorFaseT.SetActive(false);
             }
             else
             {
@@ -65,6 +72,14 @@ namespace Campo_Rotante_Scripts
         public void setSpeed(float speed)
         {
             this.speed = inversionFactor * speed;
+            setArrowsSpeed();
+        }
+
+        public void setArrowsSpeed()
+        {
+            VectorFaseR.GetComponent<ArrowOscilator>().timeFactor = speed/speedFactor;
+            VectorFaseS.GetComponent<ArrowOscilator>().timeFactor = speed/speedFactor;
+            VectorFaseT.GetComponent<ArrowOscilator>().timeFactor = speed/speedFactor;
         }
     }
 }

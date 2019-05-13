@@ -10,7 +10,7 @@ namespace Campo_Rotante_Scripts
         // Update is called once per frame
         void Update()
         {
-            transform.Rotate(Vector3.up, -speed * Time.deltaTime);
+            transform.Rotate(Vector3.up, speed * Time.deltaTime);
         }
 
         public void setSpeed(float speed)
