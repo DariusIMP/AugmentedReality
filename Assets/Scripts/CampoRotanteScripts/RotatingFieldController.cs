@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Campo_Rotante_Scripts
 {
@@ -7,6 +8,7 @@ namespace Campo_Rotante_Scripts
         public GameObject VectorFaseS, VectorFaseT, VectorFaseR;
         public GameObject CentralObject;
         public GameObject CablesFaseR, CablesFaseS;
+        public GameObject IndicadorFaseS, IndicadorFaseT, IndicadorFaseR;
         public Material PCableMaterial, NCableMaterial;
         public float speed;
         public bool invertedField = false;
@@ -19,7 +21,8 @@ namespace Campo_Rotante_Scripts
                 VectorFaseR.GetComponent<ArrowOscilator>().setDesfasaje(0f);
                 VectorFaseS.GetComponent<ArrowOscilator>().setDesfasaje(120f);
                 VectorFaseT.GetComponent<ArrowOscilator>().setDesfasaje(240f);
-
+                IndicadorFaseR.GetComponentInChildren<Text>().text = "Fase R";
+                IndicadorFaseS.GetComponentInChildren<Text>().text = "Fase S";
                 ChangeMaterial(CablesFaseR, PCableMaterial);
                 ChangeMaterial(CablesFaseS, NCableMaterial);
             }
@@ -28,7 +31,8 @@ namespace Campo_Rotante_Scripts
                 VectorFaseR.GetComponent<ArrowOscilator>().setDesfasaje(0f);
                 VectorFaseT.GetComponent<ArrowOscilator>().setDesfasaje(120f);
                 VectorFaseS.GetComponent<ArrowOscilator>().setDesfasaje(240f);
-
+                IndicadorFaseR.GetComponentInChildren<Text>().text = "Fase S";
+                IndicadorFaseS.GetComponentInChildren<Text>().text = "Fase R";
                 ChangeMaterial(CablesFaseR, NCableMaterial);
                 ChangeMaterial(CablesFaseS, PCableMaterial);
             }
