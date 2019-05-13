@@ -8,12 +8,13 @@ namespace Campo_Rotante_Scripts
         public GameObject CentralObject;
         public GameObject CablesFaseR, CablesFaseS;
         public Material PCableMaterial, NCableMaterial;
-        public float speed = 0;
+        public float speed;
         public bool invertedField = false;
+        private int inversionFactor = 1;
 
         public void Flip()
         {
-            if (this.speed < 0)
+            if (this.speed > 0)
             {
                 VectorFaseR.GetComponent<ArrowOscilator>().setDesfasaje(0f);
                 VectorFaseS.GetComponent<ArrowOscilator>().setDesfasaje(120f);
@@ -51,20 +52,15 @@ namespace Campo_Rotante_Scripts
         public void invertField()
         {
             invertedField = !invertedField;
-            setSpeed(speed);
+            inversionFactor = -inversionFactor;
+            speed = -speed;
             Flip();
+            CentralObject.GetComponent<Spin>().speed *= -1;
         }
 
         public void setSpeed(float speed)
         {
-            if (!invertedField)
-            {
-                this.speed = speed;
-            }
-            else
-            {
-                this.speed = -speed;
-            }
+            this.speed = inversionFactor * speed;
         }
     }
 }
