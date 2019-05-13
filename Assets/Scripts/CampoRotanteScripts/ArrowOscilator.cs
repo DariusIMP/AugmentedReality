@@ -18,7 +18,7 @@ public class ArrowOscilator : MonoBehaviour
 
     private Transform head;
     private Transform body;
-    private bool inverted;
+    private bool inverted = true;
 
     void Start()
     {
