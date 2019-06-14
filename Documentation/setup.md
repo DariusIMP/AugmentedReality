@@ -45,8 +45,16 @@ Hay 2 formas:
 
   Es una herramienta que viene integrada a Unity y permite constituir equipos de no más de 3 desarrolladores, debiéndose pagar una cuota en dólares una vez superado ese límite.
   Estuvimos usando durante un tiempo esta herramienta pero es bastante poco recomendable por ser incómoda dado que hay un único branch sobre el que trabajar y tiene además el límite de 3 desarrolladores mencionado.
-  
+
 * **Git**:
 
   Es el programa que estamos usando en la actualidad.
 Hay que notar que Unity es un programa que por atrás genera muchísimos archivos de tipo .yml y otros tipos más, por lo que hay que tener cuidado con qué se puede ignorar. El archivo .gitignore que tenemos configurado está funcionando bien.
+
+## Instalación
+
+En un primer lugar se debe instalar Unity con Vuforia (en el mismo proceso de instalación). Es importante estar atentos a las opciones de instalación de módulos dado que es ahí que nos dan la oportunidad de instalar Vuforia, Visual Studio y soporte para Android:
+
+<img src="Images/UnityInstallation.png"/>
+
+Una vez completada la instalación, el paso siguiente es instalar Blender. Si no se tiene blender instalado no se van a ver los proyectos de blender que hay importados en este proyecto, por lo que en las escenas de Unity algunos objetos no se verán. **Si se tiene instalado Blender y sucede este problema, es necesario hacer un *Assets->Reimport All* en Unity.**
