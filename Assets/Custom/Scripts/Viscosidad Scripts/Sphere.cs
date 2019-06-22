@@ -19,13 +19,16 @@ namespace Viscosidad_Scripts
 
 		private void OnTriggerEnter(Collider other)
 		{
+            Debug.Log("Entro");
 			countStarted = !countStarted;
 			if (countStarted)
 			{
+                Debug.Log("Count started");
 				timer.ClickPlay();
 			}
 			else
 			{
+                Debug.Log("Not count started");
 				timer.ClickStop();
 			}
 		}
@@ -33,6 +36,7 @@ namespace Viscosidad_Scripts
 		public void DisponerEsfera()
 		{
 			animator.Play("idle");
+            countStarted = false;
 		}
 	
 		public void SoltarEsfera()

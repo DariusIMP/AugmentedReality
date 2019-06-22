@@ -41,10 +41,11 @@ namespace Viscosidad_Scripts
             playing = false;  
         }
 
-        public void ClickRestart()
+        public void Restart()
         {
             theTime = 0;
             text.text = "00:00:00:00";
+            playing = false;
         }
     }
 }
