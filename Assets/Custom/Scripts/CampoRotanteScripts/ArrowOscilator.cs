@@ -1,66 +1,46 @@
-﻿
-using System;
+﻿using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-
-public class ArrowOscilator : MonoBehaviour
+namespace Custom.Scripts.CampoRotanteScripts
 {
-    private static float MIN_SCALE = 10E-10f;
-
-    // Length of the arrow.
-    public float length = 1f;
-    // Scale of the length of the arrow.
-    public float scaleFactor = 0.1f;
-    public float timeFactor = 1f;
-    public double desfasaje = 0;
-
-
-    private Transform head;
-    private Transform body;
-    private bool inverted = true;
-
-    void Start()
+    public class ArrowOscilator : CampoRotanteArrowController
     {
-        head = gameObject.transform.Find("Head");
-        body = gameObject.transform.Find("Body");
-        inverted = length < 0;
-        resize(length);
-        setDesfasaje(desfasaje);
-    }
+        private static float MIN_SCALE = 10E-10f;
 
-    public void setDesfasaje(double desfasaje)
-    {
-        this.desfasaje = desfasaje * Math.PI / 180;
-    }
+        public float timeFactor = 1f;
+        public double desfasaje;
 
-    public void resize(float length)
-    {
-        float l = Math.Abs(length) * scaleFactor;
-        gameObject.SetActive(true);
-        head.localPosition = new Vector3(l, 0, 0);
-        body.localScale = new Vector3(-l, body.localScale.y, body.localScale.z);
-    }
-
-    public void setScaleFactor(float factor)
-    {
-        scaleFactor = factor;
-    }
-
-    private void Update()
-    {
-        float l = length  * (float)Math.Sin(Time.realtimeSinceStartup * timeFactor - desfasaje);
-        head.localPosition = new Vector3(l, 0, 0);
-        body.localScale = new Vector3(-l, body.localScale.y, body.localScale.z);
-        if (l < 0 && !inverted)
+        void Start()
         {
-            inverted = true;
-            head.transform.Rotate(0, 180, 0);
+            base.Start();
+            setDesfasaje(desfasaje);
         }
-        if (l >= 0 && inverted)
+
+        public void setDesfasaje(double desfasaje)
         {
-            inverted = false;
-            head.transform.Rotate(0, 180, 0);
+            this.desfasaje = desfasaje * Math.PI / 180;
+        }
+        
+        public void setScaleFactor(float factor)
+        {
+            scaleFactor = factor;
+        }
+        
+        private void Update()
+        {
+            float l = length  * (float)Math.Sin(Time.realtimeSinceStartup * timeFactor - desfasaje);
+            head.localPosition = new Vector3(l, 0, 0);
+            body.localScale = new Vector3(-l, body.localScale.y, body.localScale.z);
+            if (l < 0 && !inverted)
+            {
+                inverted = true;
+                head.transform.Rotate(0, 180, 0);
+            }
+            if (l >= 0 && inverted)
+            {
+                inverted = false;
+                head.transform.Rotate(0, 180, 0);
+            }
         }
     }
 }
