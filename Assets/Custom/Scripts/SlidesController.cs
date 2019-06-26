@@ -16,7 +16,8 @@ public class SlidesController : MonoBehaviour
     public GameObject Columns;
     public GameObject Slabs;
     public GameObject Walls;
-    //public GameObject Beams;
+    public GameObject Beams;
+    public GameObject SlabsDistribution;
 
 
     // Start is called before the first frame update
@@ -25,11 +26,11 @@ public class SlidesController : MonoBehaviour
         slides = new List<ConstructionSlide>()
         {
             new ConstructionSlide("Edificio", Columns, Slabs, Walls),
-            new ConstructionSlide("Estructura", Columns, Slabs /*, Beams*/),
-            new ConstructionSlide("Carga de losas", Columns, Slabs, SlabsLoads /*, Beams*/),
-            new ConstructionSlide("Distribución de cargas", Columns, Slabs /*, Beams, SlabsDistribution*/),
-            new ConstructionSlide("Distribución sobre columnas", TransparentWalls, Columns),
-            new ConstructionSlide("Momentos", Columns, Momentums /*, Beams*/)
+            new ConstructionSlide("Estructura", Columns, Beams),
+            new ConstructionSlide("Carga de losas", Columns, Slabs, SlabsLoads, Beams),
+            new ConstructionSlide("Distribución de cargas", Columns, Slabs, Beams /*, SlabsDistribution*/),
+            new ConstructionSlide("Distribución sobre columnas", TransparentWalls),
+            new ConstructionSlide("Momentos", Columns, Momentums, Beams)
         };
 
         foreach (ConstructionSlide slide in slides)
