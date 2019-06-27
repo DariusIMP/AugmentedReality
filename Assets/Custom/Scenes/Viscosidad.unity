@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44659364, g: 0.4964301, b: 0.5748256, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1390,6 +1390,11 @@ PrefabInstance:
       propertyPath: text
       value: E
       objectReference: {fileID: 0}
+    - target: {fileID: 114108522590609490, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114861481194951420, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
         type: 3}
       propertyPath: m_Text
@@ -1410,11 +1415,6 @@ PrefabInstance:
     - target: {fileID: 1906318171647638, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114108522590609490, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246557130829230, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
       propertyPath: m_Layer
@@ -2060,6 +2060,11 @@ PrefabInstance:
       propertyPath: text
       value: P
       objectReference: {fileID: 0}
+    - target: {fileID: 114108522590609490, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114861481194951420, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
         type: 3}
       propertyPath: m_Text
@@ -2084,11 +2089,6 @@ PrefabInstance:
     - target: {fileID: 1906318171647638, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114108522590609490, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246557130829230, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
       propertyPath: m_Layer
@@ -2262,89 +2262,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572848320}
   m_CullTransparentMesh: 0
---- !u!1 &642947518
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 642947519}
-  - component: {fileID: 642947521}
-  - component: {fileID: 642947520}
-  m_Layer: 5
-  m_Name: TimerReal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &642947519
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642947518}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 572848321}
-  - {fileID: 1946480850}
-  m_Father: {fileID: 450355922}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &642947520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642947518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 686da8461879c48fe8b760301af2a76e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
---- !u!222 &642947521
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642947518}
-  m_CullTransparentMesh: 0
---- !u!43 &667747883
+--- !u!43 &631501112
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh16660
+  m_Name: ImageTargetMesh83366
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2487,7 +2411,7 @@ Mesh:
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.5, y: 0, z: 0.5}
+    m_Extent: {x: 0.5, y: 0, z: 0.1569865}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -2498,6 +2422,82 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &642947518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642947519}
+  - component: {fileID: 642947521}
+  - component: {fileID: 642947520}
+  m_Layer: 5
+  m_Name: TimerReal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &642947519
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642947518}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 572848321}
+  - {fileID: 1946480850}
+  m_Father: {fileID: 450355922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &642947520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642947518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 686da8461879c48fe8b760301af2a76e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &642947521
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642947518}
+  m_CullTransparentMesh: 0
 --- !u!1 &677692878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,12 +2673,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6bada54567e5d4499f3641d993785b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  density: 0.00093
-  viscosity: 0.12
+  density: 1
+  viscosity: 7
   diameter: 0.01
-  mass: 0.0018
+  mass: 0.018
   paso: 0.001
-  n: 2000
+  n: 6000
   y0: 0.1
   speed: 1
 --- !u!1 &690372956
@@ -4048,6 +4048,11 @@ PrefabInstance:
       propertyPath: text
       value: A
       objectReference: {fileID: 0}
+    - target: {fileID: 114108522590609490, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114861481194951420, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
         type: 3}
       propertyPath: m_Text
@@ -4068,11 +4073,6 @@ PrefabInstance:
     - target: {fileID: 1906318171647638, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114108522590609490, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1246557130829230, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
       propertyPath: m_Layer
@@ -4764,7 +4764,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990739057}
-  m_Mesh: {fileID: 667747883}
+  m_Mesh: {fileID: 631501112}
 --- !u!23 &990739059
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4782,7 +4782,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1319830781}
+  - {fileID: 1467199697}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6299,34 +6299,6 @@ Transform:
   m_Father: {fileID: 535436168}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1319830781
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'CetecLogoMaterial
-
-    19712'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ddf2c57d4e164407baa9a00b11fce4d8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!21 &1321640000
 Material:
   serializedVersion: 6
@@ -6523,6 +6495,34 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!21 &1467199697
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'CetecLogoMaterial
+
+    83376'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: ddf2c57d4e164407baa9a00b11fce4d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1471110401
 GameObject:
   m_ObjectHideFlags: 0
@@ -6758,6 +6758,11 @@ PrefabInstance:
       propertyPath: text
       value: E
       objectReference: {fileID: 0}
+    - target: {fileID: 114108522590609490, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114861481194951420, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
         type: 3}
       propertyPath: m_Text
@@ -6779,19 +6784,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1246557130829230, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 224641555427357864, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 114108522590609490, guid: 8c31193bec3d4144fad49f1ee3a5a21f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1246557130829230, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c31193bec3d4144fad49f1ee3a5a21f, type: 3}
@@ -8068,7 +8068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1912524653
 MonoBehaviour:
   m_ObjectHideFlags: 0
