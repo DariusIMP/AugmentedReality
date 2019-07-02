@@ -5,13 +5,13 @@ using UnityEngine;
 public class ConstructionSlide 
 {
 
-    private readonly List<GameObject> elements;
+    private readonly ICollection<GameObject> elements;
     public string Name;
     
 
     public ConstructionSlide(string name, params GameObject[] elements)
     {
-        this.elements = new List<GameObject>(collection: elements);
+        this.elements = new HashSet<GameObject>(collection: elements);
         this.Name = name;
     }
 
