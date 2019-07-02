@@ -9,7 +9,6 @@ namespace Viscosidad_Scripts
 
 		public GameObject cronometro;
 		public Animator animator;
-		public Animation animation;
 //	
 		// Use this for initialization
 		void Start ()

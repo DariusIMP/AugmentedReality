@@ -98,7 +98,7 @@ namespace Viscosidad_Scripts
 		/** Set the transform local position given a Y position in physical units (meters). */
 		private void setPhysicalPosition(double y)
 		{
-			transform.localPosition = new Vector3(0f, (float) physicalToLocalPosition(problemSolver.getY(time)), 0f);
+			transform.localPosition = new Vector3(0f, (float) physicalToLocalPosition(y), 0f);
 		}
 		
 		/** Transforms a physical position in meters to one in Unity-space units for the ball's local position. */
