@@ -17,6 +17,7 @@ public class SlidesController : MonoBehaviour
     public GameObject Slabs;
     public GameObject Walls;
     public GameObject Beams;
+    public GameObject MiniBeams;
     public GameObject SlabsDistribution;
 
 
@@ -28,9 +29,9 @@ public class SlidesController : MonoBehaviour
             new ConstructionSlide("Edificio", Columns, Slabs, Walls),
             new ConstructionSlide("Estructura", Columns, Beams),
             new ConstructionSlide("Carga de losas", Columns, Slabs, SlabsLoads, Beams),
-            new ConstructionSlide("Distribución de cargas", Columns, Slabs, Beams /*, SlabsDistribution*/),
+            new ConstructionSlide("Distribución de cargas", Columns, Slabs, Beams, SlabsDistribution),
             new ConstructionSlide("Distribución sobre columnas", TransparentWalls),
-            new ConstructionSlide("Momentos", Columns, Momentums, Beams)
+            new ConstructionSlide("Momentos", Columns, Momentums, MiniBeams)
         };
 
         foreach (ConstructionSlide slide in slides)

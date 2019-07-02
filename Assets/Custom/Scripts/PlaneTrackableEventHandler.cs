@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlaneTrackableEventHandler : DefaultTrackableEventHandler
 {
 
-    public GameObject slideButtons;
+    public GameObject slidesButtons;
 
 
     protected override void OnTrackingFound()
     {
         base.OnTrackingFound();
-        slideButtons.SetActive(true);
+        slidesButtons.SetActive(true);
     }
 
     protected override void OnTrackingLost()
     {
         base.OnTrackingLost();
-        slideButtons.SetActive(false);
+        slidesButtons.SetActive(false);
     }
 }
