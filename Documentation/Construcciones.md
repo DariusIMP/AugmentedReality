@@ -6,7 +6,7 @@
 El proyecto de Construcciones consta en poder filmar un plano de construcción ya predeterminado y, con realidad aumentada (RA) poder mostrar virtualmente los diferentes componentes de la construcción, pudiendo visualizar gráficamente cómo las cargas de las losas se distribuyen a lo largo de las vigas y las columnas.
 
 
-## Usabilidad
+## Manual de usuario
 
 La funcionalidad de esta aplicación se limita a aumentar el edificio sobre la hoja de papel y mostrar cómo se distribuyen las cargas de las losas por las columnas y vigas. Toda esta información se presenta en forma de slides (o diapositivas) que se van controlando con dos botones (para ir a la siguiente o a la anterior). Dada la reducida complejidad la interfaz de usuario es muy sencilla. A continuación se ilustra una captura de pantalla y se explican los botones presentes
 
