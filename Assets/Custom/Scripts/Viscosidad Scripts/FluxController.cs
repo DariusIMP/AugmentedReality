@@ -6,12 +6,15 @@ using System;
 namespace Viscosidad_Scripts
 {
 	/** Runs a simulation of the flux problem and */
-	public class FluxController : MonoBehaviour 
-	{
-		/* --- Flux problem parameters --- */
-	
-		/** Flux density. */
-		public double density;
+	public class FluxController : MonoBehaviour
+    {
+        /** Minimum value of change between */
+        private const double SPEED_EPSILON = 0.001;
+
+        /* --- Flux problem parameters --- */
+
+        /** Flux density. */
+        public double density;
 	
 		/** Flux Viscosity */
 		public double viscosity;
@@ -37,7 +40,9 @@ namespace Viscosidad_Scripts
 		
 		/** Speed at which the simulation will be shown. */
 		public double speed = 1;
-	
+
+        public GameObject marcadorLimite;
+
 		private FluxProblemSolver problemSolver;
 		
 		public void Start () 
@@ -84,14 +89,28 @@ namespace Viscosidad_Scripts
 		public void Update () 
 		{
 			if (!running) return;
-			time += Time.deltaTime * speed;
+            double deltaTime = Time.deltaTime * speed;
+			time += deltaTime;
 			updatePosition(time);
+            checkTerminalVelocity(time - deltaTime, time);
 			//Debug.Log ("y(" + time + ") = " + transform.localPosition);
 		}
+
+        private void checkTerminalVelocity(double prevTime, double now)
+        {
+            double deltaVelocity = problemSolver.getVelocity(prevTime) - problemSolver.getVelocity(now);
+            if (!marcadorLimite.activeSelf && deltaVelocity < SPEED_EPSILON)
+            {
+                double y = problemSolver.getY(now);
+                marcadorLimite.transform.localPosition = new Vector3(0, (float)physicalToLocalPosition(y), 0);
+                marcadorLimite.SetActive(true);
+            }
+        }
 
 		private void updatePosition(double time)
 		{
 			setPhysicalPosition(problemSolver.getY(time));
+            
 		}
 	
 		/** Set the transform local position given a Y position in physical units (meters). */
