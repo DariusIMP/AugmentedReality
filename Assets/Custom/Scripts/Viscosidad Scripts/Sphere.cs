@@ -9,7 +9,6 @@ namespace Viscosidad_Scripts
 
 		public GameObject cronometro;
 		public Animator animator;
-		public Animation animation;
 //	
 		// Use this for initialization
 		void Start ()
@@ -19,7 +18,7 @@ namespace Viscosidad_Scripts
 
 		private void OnTriggerEnter(Collider other)
 		{
-            Debug.Log("Entro");
+            Debug.Log("Entro a " + other.gameObject.name);
 			countStarted = !countStarted;
 			if (countStarted)
 			{

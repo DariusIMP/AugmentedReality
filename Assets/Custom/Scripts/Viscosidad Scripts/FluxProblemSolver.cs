@@ -24,30 +24,21 @@ namespace Viscosidad_Scripts
         private Integration integ;
         private RK4 rk4;
         
-        public FluxProblemSolver(FluxProblem fluxProblem, int n, double step, double y0)
+        public FluxProblemSolver(FluxProblem fluxProblem, double step, double y0)
         {
             this.fluxProblem = fluxProblem;
             this.y0 = y0;
             
             // Solve the problem.
             t0 = Math.Sqrt(2 * y0 / g);
-            rk4 = new RK4 (n, step, t0, -t0*g, f);
+            rk4 = new RK4 (step, t0, -t0*g, f, minPos);
             Debug.Log ("v(t) calculated");
 		
-            integ = new Integration (rk4.getResults (), 0, t0,n, step); 
+            integ = new Integration (rk4.getResults(), 0, t0, step); 
             Debug.Log ("x(t) calculated");
 
-            // Calculate final time. Default will be the last time simulated.
-            tf = step * n + t0;
-            bool found = false;
-            for (double t = t0; t <= tf && !found; t += step)
-            {
-                if (integ.getResultAt(t) < minPos)
-                {
-                    tf = t;
-                    found = true;
-                }
-            }
+            tf = step * rk4.getResults().Length + t0;
+            Debug.Log("Final time calculated: " + tf);
         }
         
         /** Function adaptor for the flux problem to enter it as a state equation for Runge Kutta 4. */

@@ -11,7 +11,7 @@ namespace Viscosidad_Scripts
 		double[] func;
 
 		// Amounts of members to evaluate.
-		double n;
+		int n;
 		
 		/** Time difference between each calculation. */
 		double step;
@@ -19,9 +19,9 @@ namespace Viscosidad_Scripts
 		/** Time for the initial solution */
 		private double t0;
 		
-		public Integration (double[] func, double initialValue, double initialTime, int n, double step) {
+		public Integration (double[] func, double initialValue, double initialTime, double step) {
 			this.func = func;
-			this.n = n;
+			this.n = func.Length;
 			this.step = step;
 			t0 = initialTime;
 			results = new double[n];
@@ -30,10 +30,13 @@ namespace Viscosidad_Scripts
 		}
 
 		public void solve() {
-			// Most basic numeric integration: quadrature method.
-			for (int i = 1; i < n; ++i) {
+            // Most basic numeric integration: quadrature method.
+            int i;
+			for (i = 1; i < n; ++i) {
 				results [i] = results [i - 1] + func [i] * step;
 			}
+
+            Debug.Log(string.Format("Integration finished. Summary: last value was results[{0}] == {1}", i-1, results[i-1]));
 		}
 
 		/**
@@ -42,9 +45,8 @@ namespace Viscosidad_Scripts
 		 */
 		public double getResultAt(double t) {
 			int position = (int) ((t-t0) / step);
-			if (position >= n) return results[position - 1];
-			if (position < 0) return results[0];
-			return results[position];
+            position = System.Math.Max(0, System.Math.Min(position, n));
+            return results[position];
 		}
 	}
 }

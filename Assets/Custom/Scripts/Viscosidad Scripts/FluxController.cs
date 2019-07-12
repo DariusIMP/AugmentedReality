@@ -11,20 +11,19 @@ namespace Viscosidad_Scripts
 		/* --- Flux problem parameters --- */
 	
 		/** Flux density. */
-		public double density = 0.00093;
+		public double density;
 	
 		/** Flux Viscosity */
-		public double viscosity = 0.12;
+		public double viscosity;
 	
 		/** Ball diameter. */
-		public double diameter = 0.01;
+		public double diameter;
 		
 		/** Ball mass. */
-		public double mass = 0.01;
+		public double mass;
 	
 		/* --- Numeric resolution parameters --- */
-		public double paso = 0.001;
-		public int n = 2000;
+		public double paso;
 		
 		/* Distance to the surface in meters. */
 		public double y0 = 0.1;
@@ -45,7 +44,7 @@ namespace Viscosidad_Scripts
 		{
 			Debug.Log ("Preparing flux controller");
 			var fluxProblem = new FluxProblem (density, diameter, viscosity, mass);
-			problemSolver = new FluxProblemSolver(fluxProblem, n, paso, y0);
+			problemSolver = new FluxProblemSolver(fluxProblem, paso, y0);
 			reset();
 		}
 		
@@ -98,7 +97,7 @@ namespace Viscosidad_Scripts
 		/** Set the transform local position given a Y position in physical units (meters). */
 		private void setPhysicalPosition(double y)
 		{
-			transform.localPosition = new Vector3(0f, (float) physicalToLocalPosition(problemSolver.getY(time)), 0f);
+			transform.localPosition = new Vector3(0f, (float) physicalToLocalPosition(y), 0f);
 		}
 		
 		/** Transforms a physical position in meters to one in Unity-space units for the ball's local position. */

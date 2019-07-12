@@ -6,6 +6,8 @@ namespace Viscosidad_Scripts
 	{
 
 		public GameObject BotonDisponer, BotonSoltar, BotonCronometrar, BotonDetener;
+        public GameObject Sphere;
+
 
 		void Start () {
 			BotonSoltar.SetActive(true);
@@ -18,6 +20,7 @@ namespace Viscosidad_Scripts
 		{
 			BotonSoltar.SetActive(true);
 			BotonDisponer.SetActive(false);
+            Sphere.GetComponent<Sphere>().DisponerEsfera();
 		}
 
 		public void onSoltarClicked()
