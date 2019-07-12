@@ -25,7 +25,7 @@ namespace Viscosidad_Scripts
 		 * y0 = y(t0). Initial value for the variable wanted.
 		 * t0 = time at which the process starts.
 		 * f = The function that calculates the derivative given the time and the value of y.
-         * 
+         * integralStop = the calculation will stop when the integral of the result reaches this value 
 		 */
 		public RK4(double h, double t0, double y0, Func<double, double, double> f, double integralStop) {
 			this.f = f;

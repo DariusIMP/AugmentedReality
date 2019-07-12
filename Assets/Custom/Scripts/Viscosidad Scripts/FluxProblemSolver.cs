@@ -24,7 +24,7 @@ namespace Viscosidad_Scripts
         private Integration integ;
         private RK4 rk4;
         
-        public FluxProblemSolver(FluxProblem fluxProblem, int n, double step, double y0)
+        public FluxProblemSolver(FluxProblem fluxProblem, double step, double y0)
         {
             this.fluxProblem = fluxProblem;
             this.y0 = y0;
@@ -38,6 +38,7 @@ namespace Viscosidad_Scripts
             Debug.Log ("x(t) calculated");
 
             tf = step * rk4.getResults().Length + t0;
+            Debug.Log("Final time calculated: " + tf);
         }
         
         /** Function adaptor for the flux problem to enter it as a state equation for Runge Kutta 4. */
