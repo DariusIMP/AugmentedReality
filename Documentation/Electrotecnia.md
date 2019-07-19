@@ -33,16 +33,16 @@ En cuanto a la interfaz, se provee de varias opciones al usuario:
 
 Permite activar y desactivar los indicadores
 
-**Botón y slider de tensión **
+**Botón y slider de tensión:**
 
 Permite incrementar o reducir la tensión, resultando en la aceleración o desaceleración de la rotación del campo magnético.
 
 <img src="Images/Electrotecnia/Electrotecnia6.png">
 
-**Botón de reversibilidad del campo magnético**
+**Botón de reversibilidad del campo magnético:**
 
 Para revertir el campo magnético. Al presionarlo se notará que se intercambiaron las fases de dos bobinas.
 
-** Botón de campo magnético**
+**Botón de campo magnético:**
 
 Activa o desactiva los vectores de campo magnético.
