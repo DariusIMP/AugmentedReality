@@ -25,5 +25,5 @@ En este proyecto se han generado una serie de archivos ejecutables para Android:
 ## Construcciones
 1. [Construcciones](https://drive.google.com/open?id=1mvAOrM9Am0wqkMKRWvhyljbOGPQZsbq6)
 
-## Otros
+## Otros
 1. [Sistema Solar](https://drive.google.com/open?id=1h1vP5mgV0w1NS3RFzfMVCeX_cBbL9gTh)
