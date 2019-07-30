@@ -96,6 +96,11 @@ namespace Viscosidad_Scripts
 			//Debug.Log ("y(" + time + ") = " + transform.localPosition);
 		}
 
+        public void dispose()
+        {
+            marcadorLimite.SetActive(false);
+        }
+
         private void checkTerminalVelocity(double prevTime, double now)
         {
             double deltaVelocity = problemSolver.getVelocity(prevTime) - problemSolver.getVelocity(now);

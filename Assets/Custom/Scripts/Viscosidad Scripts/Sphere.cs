@@ -36,6 +36,7 @@ namespace Viscosidad_Scripts
 		{
 			animator.Play("idle");
             countStarted = false;
+            GetComponent<FluxController>().dispose();
 		}
 	
 		public void SoltarEsfera()
