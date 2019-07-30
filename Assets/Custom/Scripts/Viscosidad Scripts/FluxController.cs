@@ -106,8 +106,10 @@ namespace Viscosidad_Scripts
             double deltaVelocity = problemSolver.getVelocity(prevTime) - problemSolver.getVelocity(now);
             if (!marcadorLimite.activeSelf && deltaVelocity < SPEED_EPSILON)
             {
-                double y = problemSolver.getY(now);
-                marcadorLimite.transform.localPosition = new Vector3(0, (float)physicalToLocalPosition(y), 0);
+                double yValue = problemSolver.getY(now);
+                double tubeHeight = 100 * yValue + 160;
+                marcadorLimite.transform.localPosition = new Vector3(0, (float)physicalToLocalPosition(yValue), 0);
+                marcadorLimite.GetComponent<DistanceMarker>().SetDistance(tubeHeight);
                 marcadorLimite.SetActive(true);
             }
         }
