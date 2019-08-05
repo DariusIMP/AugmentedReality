@@ -13,16 +13,16 @@ namespace Viscosidad_Scripts
 
         /* --- Flux problem parameters --- */
 
-        /** Flux density. */
+        /** Flux density (kg/m3) */
         public double density;
 	
-		/** Flux Viscosity */
+		/** Flux Viscosity (Pa s) */
 		public double viscosity;
 	
-		/** Ball diameter. */
+		/** Ball diameter (m) */
 		public double diameter;
 		
-		/** Ball mass. */
+		/** Ball mass (kg) */
 		public double mass;
 	
 		/* --- Numeric resolution parameters --- */
