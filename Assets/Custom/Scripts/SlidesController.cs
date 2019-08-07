@@ -26,12 +26,12 @@ public class SlidesController : MonoBehaviour
     {
         slides = new List<ConstructionSlide>()
         {
-            new ConstructionSlide("Edificio", Columns, Slabs, Walls),
-            new ConstructionSlide("Estructura", Columns, Beams),
-            new ConstructionSlide("Carga de losas", Columns, Slabs, SlabsLoads, Beams),
-            new ConstructionSlide("Distribución de cargas", Columns, Slabs, Beams, SlabsDistribution),
-            new ConstructionSlide("Distribución sobre columnas", TransparentWalls),
-            new ConstructionSlide("Momentos", Columns, Momentums, MiniBeams)
+            new ConstructionSlide("Estructura y muros", Columns, Slabs, Walls, Beams),
+            new ConstructionSlide("Vigas y columnas", Columns, Beams),
+            new ConstructionSlide("Carga en losas", Columns, Slabs, SlabsLoads, Beams),
+            new ConstructionSlide("Método de los trapecios", Columns, Slabs, Beams, SlabsDistribution),
+            new ConstructionSlide("Cargas en vigas", TransparentWalls, Columns, Beams),
+            new ConstructionSlide("Diagramas de momentos", Columns, Momentums, MiniBeams)
         };
 
         foreach (ConstructionSlide slide in slides)
