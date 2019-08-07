@@ -5,18 +5,24 @@ using UnityEngine;
 public class BlueprintTrackableEventHandler : DefaultTrackableEventHandler
 {
 
-    public GameObject slidesButtons;
+    public List<GameObject> UIObjects;
 
 
     protected override void OnTrackingFound()
     {
         base.OnTrackingFound();
-        slidesButtons.SetActive(true);
+        foreach (GameObject obj in UIObjects)
+        {
+            obj.SetActive(true);
+        }
     }
 
     protected override void OnTrackingLost()
     {
         base.OnTrackingLost();
-        slidesButtons.SetActive(false);
+        foreach (GameObject obj in UIObjects)
+        {
+            obj.SetActive(false);
+        }
     }
 }

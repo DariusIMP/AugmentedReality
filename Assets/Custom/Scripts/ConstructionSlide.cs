@@ -6,13 +6,13 @@ public class ConstructionSlide
 {
 
     private readonly ICollection<GameObject> elements;
-    public string Name;
+    public string Title;
     
 
-    public ConstructionSlide(string name, params GameObject[] elements)
+    public ConstructionSlide(string title, params GameObject[] elements)
     {
         this.elements = new HashSet<GameObject>(collection: elements);
-        this.Name = name;
+        this.Title = title;
     }
 
     public void Hide()
