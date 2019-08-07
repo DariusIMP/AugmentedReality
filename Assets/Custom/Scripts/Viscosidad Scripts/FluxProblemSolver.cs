@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Viscosidad_Scripts
 {
     public class FluxProblemSolver
-    {
+    { 
         /** acceleration of gravity in m/(s^2). */
         private const double g = 9.80665;
 
@@ -23,6 +23,7 @@ namespace Viscosidad_Scripts
         private readonly FluxProblem fluxProblem;
         private Integration integ;
         private RK4 rk4;
+
         
         public FluxProblemSolver(FluxProblem fluxProblem, double step, double y0)
         {
