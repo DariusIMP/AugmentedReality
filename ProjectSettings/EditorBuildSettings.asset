@@ -26,10 +26,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Custom/Scenes/SistemaSolar.unity
     guid: 2f7aca71ce73c4427998d72cf9252fae
-  - enabled: 0
+  - enabled: 1
     path: Assets/Custom/Scenes/Peralte1.unity
     guid: ea2ad66a275c05740a49a74038eb1ad6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Custom/Scenes/Viscosidad.unity
     guid: 708c639edc21a4279a3c7dfd23cb6147
   - enabled: 0
