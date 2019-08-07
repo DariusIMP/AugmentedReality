@@ -109,7 +109,8 @@ namespace Viscosidad_Scripts
                 double yValue = problemSolver.getY(now);
                 double tubeHeight = 100 * yValue + 160;
                 marcadorLimite.transform.localPosition = new Vector3(0, (float)physicalToLocalPosition(yValue), 0);
-                marcadorLimite.GetComponent<DistanceMarker>().SetDistance(tubeHeight);
+                marcadorLimite.GetComponent<LimitMarker>().SetDistance(tubeHeight);
+                marcadorLimite.GetComponent<LimitMarker>().SetSpeed(problemSolver.getVelocity(now));
                 marcadorLimite.SetActive(true);
             }
         }
@@ -117,6 +118,10 @@ namespace Viscosidad_Scripts
 		private void updatePosition(double time)
 		{
 			setPhysicalPosition(problemSolver.getY(time));
+            if (problemSolver.HasReachedBottom(time))
+            {
+                gameObject.GetComponent<Sphere>().TocoFondo();
+            }
             
 		}
 	
