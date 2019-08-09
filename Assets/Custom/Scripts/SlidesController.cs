@@ -15,6 +15,7 @@ public class SlidesController : MonoBehaviour
     public GameObject Momentums;
     public GameObject TransparentWalls;
     public GameObject Columns;
+    public GameObject MiniColumns;
     public GameObject Slabs;
     public GameObject Walls;
     public GameObject Beams;
@@ -33,7 +34,7 @@ public class SlidesController : MonoBehaviour
             new ConstructionSlide("Vigas y columnas", Columns, Beams),
             new ConstructionSlide("Carga en losas", Columns, Slabs, SlabsLoads, Beams),
             new ConstructionSlide("Método de los trapecios", Columns, Slabs, Beams, SlabsDistribution),
-            new ConstructionSlide("Cargas en vigas", TransparentWalls, Columns, Beams),
+            new ConstructionSlide("Cargas en vigas", TransparentWalls, MiniColumns, Beams),
             new ConstructionSlide("Diagramas de momentos", Columns, Momentums, MiniBeams)
         };
 
