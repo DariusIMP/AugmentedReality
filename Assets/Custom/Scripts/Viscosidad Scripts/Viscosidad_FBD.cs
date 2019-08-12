@@ -37,19 +37,19 @@ namespace Viscosidad_Scripts
         {
             var p = (float) fluxController.getGravityAccel();
             peso.resize(p);
-            peso.rename("P: " + p.ToString("0.00"));
+            peso.rename("P: " + p.ToString("0.00") + "N");
             
             var a = (float) fluxController.getDragAccel();
             arrastre.resize(a);
-            arrastre.rename("A: " + a.ToString("0.00"));
+            arrastre.rename("A: " + a.ToString("0.00") + "N");
             
             var e = (float) fluxController.getUpthrustAccel();
             empuje.resize(e);
-            empuje.rename("E: " + e.ToString("e2"));
+            empuje.rename("E: " + e.ToString("0.00") + "N");
 
             var v = (float) fluxController.getVelocity();
             velocidad.resize(v);
-            velocidad.rename("V: " + v.ToString("0.00"));
+            velocidad.rename("V: " + v.ToString("0.00") + "m/s");
         }
     }
 }
