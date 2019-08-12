@@ -9,7 +9,7 @@ namespace Viscosidad_Scripts
 	public class FluxController : MonoBehaviour
     {
         /** Minimum value of change between */
-        private const double SPEED_EPSILON = 0.001;
+        private const double SPEED_EPSILON = 0.0001;
 
         /* --- Flux problem parameters --- */
 
@@ -104,7 +104,7 @@ namespace Viscosidad_Scripts
         private void checkTerminalVelocity(double prevTime, double now)
         {
             double deltaVelocity = problemSolver.getVelocity(prevTime) - problemSolver.getVelocity(now);
-            if (!marcadorLimite.activeSelf && deltaVelocity < SPEED_EPSILON)
+            if (!marcadorLimite.activeSelf && Math.Abs(deltaVelocity) < SPEED_EPSILON)
             {
                 double yValue = problemSolver.getY(now);
                 double tubeHeight = 100 * yValue + 160;
