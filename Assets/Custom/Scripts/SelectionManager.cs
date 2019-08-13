@@ -9,6 +9,7 @@ namespace Custom.Scripts
         [SerializeField] private Material defaultMaterial;
         private GameObject selectedObject;
         private Transform _selection;
+        public Camera camera;
     
         private void Update()
         {
@@ -19,8 +20,9 @@ namespace Custom.Scripts
                 _selection = null;
                 selectedObject.GetComponent<DisplayMenu>().HideMenu();
             }
-        
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            var cam = camera.transform;
+            var ray = new Ray(cam.position, cam.forward);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
