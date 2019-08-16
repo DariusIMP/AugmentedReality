@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlidesController : MonoBehaviour
 {
     private List<ConstructionSlide> slides;
-    private int currentIndex = 0;
+    private int currentIndex;
 
     public GameObject nextButton;
     public GameObject previousButton;
@@ -20,38 +21,48 @@ public class SlidesController : MonoBehaviour
     public GameObject MiniBeams;
     public GameObject SlabsDistribution;
 
+    public GameObject TitleObject;
+
 
     // Start is called before the first frame update
     void Start()
     {
         slides = new List<ConstructionSlide>()
         {
-            new ConstructionSlide("Edificio", Columns, Slabs, Walls),
-            new ConstructionSlide("Estructura", Columns, Beams),
-            new ConstructionSlide("Carga de losas", Columns, Slabs, SlabsLoads, Beams),
-            new ConstructionSlide("Distribución de cargas", Columns, Slabs, Beams, SlabsDistribution),
-            new ConstructionSlide("Distribución sobre columnas", TransparentWalls),
-            new ConstructionSlide("Momentos", Columns, Momentums, MiniBeams)
+            new ConstructionSlide("Estructura y muros", Columns, Slabs, Walls, Beams),
+            new ConstructionSlide("Vigas y columnas", Columns, Beams),
+            new ConstructionSlide("Carga en losas", Columns, Slabs, SlabsLoads, Beams),
+            new ConstructionSlide("Método de los trapecios", Columns, Slabs, Beams, SlabsDistribution),
+            new ConstructionSlide("Cargas en vigas", TransparentWalls, Columns, Beams),
+            new ConstructionSlide("Diagramas de momentos", Columns, Momentums, MiniBeams)
         };
 
         foreach (ConstructionSlide slide in slides)
             slide.Hide();
 
-        slides[0].Show();
+        currentIndex = 0;
+        slides[currentIndex].Show();
 
         previousButton.SetActive(false);
+
+        TitleObject.GetComponent<Text>().text = slides[currentIndex].Title;
     }
 
     public void NextSlide()
     {
         if (currentIndex + 1 < slides.Count)
         {
+            // Slides management
             slides[currentIndex].Hide();
             slides[++currentIndex].Show();
 
+            // Arrows management
             if (currentIndex == slides.Count - 1)
                 nextButton.SetActive(false);
             previousButton.SetActive(true);
+
+            // Title management
+            TitleObject.GetComponent<Text>().text = slides[currentIndex].Title;
         }
     }
 
@@ -59,12 +70,17 @@ public class SlidesController : MonoBehaviour
     {
         if (currentIndex > 0)
         {
+            // Slides management
             slides[currentIndex].Hide();
             slides[--currentIndex].Show();
 
+            // Arrows management
             if (currentIndex == 0)
                 previousButton.SetActive(false);
             nextButton.SetActive(true);
+
+            // Title management
+            TitleObject.GetComponent<Text>().text = slides[currentIndex].Title;
         }
     }
 }
