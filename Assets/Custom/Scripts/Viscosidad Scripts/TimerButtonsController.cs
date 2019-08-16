@@ -12,7 +12,6 @@ namespace Viscosidad_Scripts
 		void Start () {
 			BotonSoltar.SetActive(true);
 			BotonDisponer.SetActive(false);
-			BotonCronometrar.SetActive(true);
 			BotonDetener.SetActive(false);
 		}
 

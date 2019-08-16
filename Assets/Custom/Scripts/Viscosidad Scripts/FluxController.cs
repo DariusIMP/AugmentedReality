@@ -9,7 +9,7 @@ namespace Viscosidad_Scripts
 	public class FluxController : MonoBehaviour
     {
         /** Minimum value of change between */
-        private const double SPEED_EPSILON = 0.001;
+        private const double SPEED_EPSILON = 0.0001;
 
         /* --- Flux problem parameters --- */
 
@@ -48,10 +48,15 @@ namespace Viscosidad_Scripts
 		public void Start () 
 		{
 			Debug.Log ("Preparing flux controller");
-			var fluxProblem = new FluxProblem (density, diameter, viscosity, mass);
-			problemSolver = new FluxProblemSolver(fluxProblem, paso, y0);
-			reset();
+            solveProblem();
 		}
+
+        public void solveProblem()
+        {
+            var fluxProblem = new FluxProblem(density, diameter, viscosity, mass);
+            problemSolver = new FluxProblemSolver(fluxProblem, paso, y0);
+            reset();
+        }
 		
 		public void reset () 
 		{
@@ -64,6 +69,7 @@ namespace Viscosidad_Scripts
 		public void run() 
 		{
 			if (ready) {
+                solveProblem();
 				running = true;
 			} else {
 				Debug.LogError ("tried to run flux simulation before solution was ready");		
@@ -104,12 +110,13 @@ namespace Viscosidad_Scripts
         private void checkTerminalVelocity(double prevTime, double now)
         {
             double deltaVelocity = problemSolver.getVelocity(prevTime) - problemSolver.getVelocity(now);
-            if (!marcadorLimite.activeSelf && deltaVelocity < SPEED_EPSILON)
+            if (!marcadorLimite.activeSelf && Math.Abs(deltaVelocity) < SPEED_EPSILON)
             {
                 double yValue = problemSolver.getY(now);
                 double tubeHeight = 100 * yValue + 160;
                 marcadorLimite.transform.localPosition = new Vector3(0, (float)physicalToLocalPosition(yValue), 0);
-                marcadorLimite.GetComponent<DistanceMarker>().SetDistance(tubeHeight);
+                marcadorLimite.GetComponent<LimitMarker>().SetDistance(tubeHeight);
+                marcadorLimite.GetComponent<LimitMarker>().SetSpeed(problemSolver.getVelocity(now));
                 marcadorLimite.SetActive(true);
             }
         }
@@ -117,6 +124,10 @@ namespace Viscosidad_Scripts
 		private void updatePosition(double time)
 		{
 			setPhysicalPosition(problemSolver.getY(time));
+            if (problemSolver.HasReachedBottom(time))
+            {
+                gameObject.GetComponent<Sphere>().TocoFondo();
+            }
             
 		}
 	
@@ -159,6 +170,26 @@ namespace Viscosidad_Scripts
 		{
 			this.speed = speed;
 		}
+
+        public void setDiameter(float newDiameter)
+        {
+            //float factor = (float)(newDiameter / diameter);
+            //Vector3 newScale = gameObject.transform.localScale;
+            //newScale.Set(newScale.x * factor, newScale.y * factor, newScale.z * factor);
+            //gameObject.transform.localScale = newScale;
+            this.diameter = newDiameter;
+        }
+
+        public void setMass(float newMass)
+        {
+            mass = newMass;
+        }
+
+        public void setDensity(float newDensity)
+        {
+            density = newDensity;
+        }
+
 	}
 }
 
