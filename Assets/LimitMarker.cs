@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -17,7 +18,7 @@ public class LimitMarker : MonoBehaviour
 
     public void SetSpeed(double v)
     {
-        int rounded = (int)(v * 100);
+        int rounded = (int)(Math.Abs(v) * 100);
         SpeedText.text = string.Format("{0}m/s", (rounded/100.0).ToString("0.##"));
     }
     
