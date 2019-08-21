@@ -6,6 +6,7 @@ public class BlueprintTrackableEventHandler : DefaultTrackableEventHandler
 {
 
     public List<GameObject> UIObjects;
+    public GameObject TrackGuide;
 
 
     protected override void OnTrackingFound()
@@ -15,6 +16,7 @@ public class BlueprintTrackableEventHandler : DefaultTrackableEventHandler
         {
             obj.SetActive(true);
         }
+        TrackGuide.SetActive(false);
     }
 
     protected override void OnTrackingLost()
@@ -24,5 +26,6 @@ public class BlueprintTrackableEventHandler : DefaultTrackableEventHandler
         {
             obj.SetActive(false);
         }
+        TrackGuide.SetActive(true);
     }
 }
