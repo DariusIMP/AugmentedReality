@@ -23,8 +23,6 @@ public class ConstructionSlide : MonoBehaviour
             if (elements != null)
                 element.SetActive(false);
         }
-
-        Stop();
     }
 
     public void Show()

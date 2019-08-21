@@ -39,6 +39,7 @@ public class SlidesController : MonoBehaviour
         {
             // Slides management
             Slides[currentIndex].GetComponent<ConstructionSlide>().Hide();
+            Slides[currentIndex].GetComponent<ConstructionSlide>().Stop();
             ConstructionSlide currentSlide = Slides[++currentIndex].GetComponent<ConstructionSlide>();
             currentSlide.Show();
 
@@ -58,6 +59,7 @@ public class SlidesController : MonoBehaviour
         {
             // Slides management
             Slides[currentIndex].GetComponent<ConstructionSlide>().Hide();
+            Slides[currentIndex].GetComponent<ConstructionSlide>().Stop();
             ConstructionSlide currentSlide = Slides[--currentIndex].GetComponent<ConstructionSlide>();
             currentSlide.Show();
 

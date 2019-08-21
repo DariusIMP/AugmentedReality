@@ -3816,7 +3816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &402170408
 Transform:
   m_ObjectHideFlags: 0
@@ -5424,7 +5424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &644386152
 Transform:
   m_ObjectHideFlags: 0
@@ -6334,7 +6334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &760523160
 Transform:
   m_ObjectHideFlags: 0
@@ -8828,7 +8828,7 @@ MonoBehaviour:
   Text2: {fileID: 249496805}
   FadeTime: 0
   Subtitle: {fileID: 0}
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 9ab8acec22e0ab646a7708b0c375b162, type: 3}
 --- !u!4 &1193553363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400008, guid: af53036ca060e764eb6414463fccb6fb,
@@ -10777,7 +10777,7 @@ MonoBehaviour:
   Text2: {fileID: 249496805}
   FadeTime: 0
   Subtitle: {fileID: 0}
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 99448b4b1f020fd4d9150bcaeb370af0, type: 3}
 --- !u!1 &1537304851
 GameObject:
   m_ObjectHideFlags: 0
@@ -11184,7 +11184,7 @@ MonoBehaviour:
   Text2: {fileID: 249496805}
   FadeTime: 0
   Subtitle: {fileID: 0}
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 01a19046099c4ac409fe0d6e9491712f, type: 3}
 --- !u!1 &1570515125
 GameObject:
   m_ObjectHideFlags: 0
@@ -11498,7 +11498,7 @@ MonoBehaviour:
   Text2: {fileID: 249496805}
   FadeTime: 0
   Subtitle: {fileID: 0}
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: d0bc817199b73644d8fdbd3f86a71d19, type: 3}
 --- !u!4 &1670039798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400008, guid: af53036ca060e764eb6414463fccb6fb,
@@ -11867,7 +11867,7 @@ MonoBehaviour:
   Text2: {fileID: 249496805}
   FadeTime: 0
   Subtitle: {fileID: 0}
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 3044706eb880a4e4d96c248575a860df, type: 3}
 --- !u!1001 &1774990140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14305,7 +14305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1893941907
 Transform:
   m_ObjectHideFlags: 0
