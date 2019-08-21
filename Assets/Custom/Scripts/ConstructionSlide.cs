@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConstructionSlide 
+public class ConstructionSlide : MonoBehaviour
 {
 
-    private readonly ICollection<GameObject> elements;
+    public List<GameObject> elements;
     public string Title;
     
 
     public ConstructionSlide(string title, params GameObject[] elements)
     {
-        this.elements = new HashSet<GameObject>(collection: elements);
+        this.elements = new List<GameObject>(collection: elements);
         this.Title = title;
     }
 
@@ -22,6 +22,8 @@ public class ConstructionSlide
             if (elements != null)
                 element.SetActive(false);
         }
+
+        Stop();
     }
 
     public void Show()
@@ -31,6 +33,18 @@ public class ConstructionSlide
             if (element != null)
                 element.SetActive(true);
         }
+
+        Play();
+    }
+
+    public void Play()
+    {
+
+    }
+
+    public void Stop()
+    {
+
     }
 
 }

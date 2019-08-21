@@ -5,64 +5,46 @@ using UnityEngine.UI;
 
 public class SlidesController : MonoBehaviour
 {
-    private List<ConstructionSlide> slides;
     private int currentIndex;
+
+    public List<GameObject> Slides;
 
     public GameObject nextButton;
     public GameObject previousButton;
 
-    public GameObject SlabsLoads;
-    public GameObject Momentums;
-    public GameObject TransparentWalls;
-    public GameObject Columns;
-    public GameObject Slabs;
-    public GameObject Walls;
-    public GameObject Beams;
-    public GameObject MiniBeams;
-    public GameObject SlabsDistribution;
-
     public GameObject TitleObject;
 
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        slides = new List<ConstructionSlide>()
-        {
-            new ConstructionSlide("Estructura y muros", Columns, Slabs, Walls, Beams),
-            new ConstructionSlide("Vigas y columnas", Columns, Beams),
-            new ConstructionSlide("Carga en losas", Columns, Slabs, SlabsLoads, Beams),
-            new ConstructionSlide("Método de los trapecios", Columns, Slabs, Beams, SlabsDistribution),
-            new ConstructionSlide("Cargas en vigas", TransparentWalls, Columns, Beams),
-            new ConstructionSlide("Diagramas de momentos", Columns, Momentums, MiniBeams)
-        };
-
-        foreach (ConstructionSlide slide in slides)
-            slide.Hide();
+        foreach (GameObject slide in Slides)
+            slide.GetComponent<ConstructionSlide>().Hide();
 
         currentIndex = 0;
-        slides[currentIndex].Show();
+        ConstructionSlide currentSlide = Slides[currentIndex].GetComponent<ConstructionSlide>();
+        currentSlide.Show();
 
-        previousButton.SetActive(false);
+        previousButton.GetComponent<Button>().interactable = false;
 
-        TitleObject.GetComponent<Text>().text = slides[currentIndex].Title;
+        TitleObject.GetComponent<Text>().text = currentSlide.Title;
     }
 
     public void NextSlide()
     {
-        if (currentIndex + 1 < slides.Count)
+        if (currentIndex + 1 < Slides.Count)
         {
             // Slides management
-            slides[currentIndex].Hide();
-            slides[++currentIndex].Show();
+            Slides[currentIndex].GetComponent<ConstructionSlide>().Hide();
+            ConstructionSlide currentSlide = Slides[++currentIndex].GetComponent<ConstructionSlide>();
+            currentSlide.Show();
 
             // Arrows management
-            if (currentIndex == slides.Count - 1)
-                nextButton.SetActive(false);
-            previousButton.SetActive(true);
+            if (currentIndex == Slides.Count - 1)
+                nextButton.GetComponent<Button>().interactable = false;
+            previousButton.GetComponent<Button>().interactable = true;
 
             // Title management
-            TitleObject.GetComponent<Text>().text = slides[currentIndex].Title;
+            TitleObject.GetComponent<Text>().text = currentSlide.Title;
         }
     }
 
@@ -71,16 +53,17 @@ public class SlidesController : MonoBehaviour
         if (currentIndex > 0)
         {
             // Slides management
-            slides[currentIndex].Hide();
-            slides[--currentIndex].Show();
+            Slides[currentIndex].GetComponent<ConstructionSlide>().Hide();
+            ConstructionSlide currentSlide = Slides[--currentIndex].GetComponent<ConstructionSlide>();
+            currentSlide.Show();
 
             // Arrows management
             if (currentIndex == 0)
-                previousButton.SetActive(false);
-            nextButton.SetActive(true);
+                previousButton.GetComponent<Button>().interactable = false;
+            nextButton.GetComponent<Button>().interactable = true;
 
             // Title management
-            TitleObject.GetComponent<Text>().text = slides[currentIndex].Title;
+            TitleObject.GetComponent<Text>().text = currentSlide.Title;
         }
     }
 }
