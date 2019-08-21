@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Dialogues;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,18 +34,16 @@ public class ConstructionSlide : MonoBehaviour
             if (element != null)
                 element.SetActive(true);
         }
-
-        Play();
     }
 
     public void Play()
     {
-
+        GetComponent<DialogueManager>().Play();
     }
 
     public void Stop()
     {
-
+        GetComponent<DialogueManager>().Stop();
     }
 
 }

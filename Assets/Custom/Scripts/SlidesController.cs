@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SlidesController : MonoBehaviour
 {
-    private int currentIndex;
 
     public List<GameObject> Slides;
 
@@ -14,12 +13,17 @@ public class SlidesController : MonoBehaviour
 
     public GameObject TitleObject;
 
-    
+
+    private int currentIndex;
+    private bool isPlaying;
+
+
     void Start()
     {
         foreach (GameObject slide in Slides)
             slide.GetComponent<ConstructionSlide>().Hide();
 
+        isPlaying = false;
         currentIndex = 0;
         ConstructionSlide currentSlide = Slides[currentIndex].GetComponent<ConstructionSlide>();
         currentSlide.Show();
@@ -65,5 +69,19 @@ public class SlidesController : MonoBehaviour
             // Title management
             TitleObject.GetComponent<Text>().text = currentSlide.Title;
         }
+    }
+
+    public void TogglePlay()
+    {
+        if (isPlaying)
+        {
+            Slides[currentIndex].GetComponent<ConstructionSlide>().Stop();
+        }
+        else
+        {
+            Slides[currentIndex].GetComponent<ConstructionSlide>().Play();
+        }
+
+        isPlaying = !isPlaying;
     }
 }
