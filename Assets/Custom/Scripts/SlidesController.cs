@@ -86,4 +86,11 @@ public class SlidesController : MonoBehaviour
 
         isPlaying = !isPlaying;
     }
+
+    public void Stop()
+    {
+        isPlaying = false;
+        Slides[currentIndex].GetComponent<ConstructionSlide>().Stop();
+    }
+
 }

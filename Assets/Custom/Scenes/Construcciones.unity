@@ -1096,6 +1096,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1326067345}
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &133590755
@@ -2012,6 +2023,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 327614376}
         m_MethodName: setPlayButtonAvailible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1326067345}
+        m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3047,7 +3069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playSprite: {fileID: 21300000, guid: 89e8f4778d6f241ec898a5819d8fc8f5, type: 3}
-  pauseSprite: {fileID: 21300000, guid: ed44d7ab0649841ea83c7baa7c7c63cb, type: 3}
+  pauseSprite: {fileID: 21300000, guid: 5d113be4869e3544b8b25a806449aceb, type: 3}
 --- !u!1001 &338801384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10604,7 +10626,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1345, y: 808}
+  m_SizeDelta: {x: 1285.46, y: 772.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510726885
 MonoBehaviour:
