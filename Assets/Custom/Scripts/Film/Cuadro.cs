@@ -26,6 +26,8 @@ namespace Film
 			_playing = true;
 		}
 
+		public abstract void ConfigureScene();
+
 		public virtual void Stop()
 		{
 			if (DialogueManager != null)
@@ -33,6 +35,7 @@ namespace Film
 				DialogueManager.Stop ();
 			}
 			_playing = false;
+			StopAllCoroutines();
 		}
 
 		protected virtual void Start()

@@ -29,6 +29,28 @@ namespace Film.Peralte_Film
         {
             Debug.Log("<color=blue> PeralteCuadroCuarto.play() </color>");
             base.Play();
+            ConfigureScene();
+
+            StartCoroutine(AparicionDeLasDescomposicionesDeLaNormalEnX());
+            StartCoroutine(AparicionDeLasDescomposicionesDeLaNormalEnY());
+            StartCoroutine(AparicionDeLaFormulaDePesoIgualANormal());
+            DialogueManager.Play();
+        }
+        
+        public override void Stop()
+        {
+            Debug.Log("<color=blue> PeralteCuadroSegundo.stop() </color>");
+            base.Stop();
+        }    
+
+        protected override void Start()
+        {
+            base.Start();
+            Debug.Log("PeralteCuadroCuarto: Start");
+        }
+
+        public override void ConfigureScene()
+        {
 
             Holograma.SetActive(true);
             Diagrama2D.SetActive(true);
@@ -68,23 +90,7 @@ namespace Film.Peralte_Film
             NormalY.SetActive(false);
             NormalX.SetActive(false);
             PlanoCartesiano.SetActive(true);
-
-            StartCoroutine(AparicionDeLasDescomposicionesDeLaNormalEnX());
-            StartCoroutine(AparicionDeLasDescomposicionesDeLaNormalEnY());
-            StartCoroutine(AparicionDeLaFormulaDePesoIgualANormal());
-            DialogueManager.Play();
-        }
-        
-        public override void Stop()
-        {
-            Debug.Log("<color=blue> PeralteCuadroSegundo.stop() </color>");
-            base.Stop();
-        }    
-
-        protected override void Start()
-        {
-            base.Start();
-            Debug.Log("PeralteCuadroCuarto: Start");
+            
         }
 
         private IEnumerator AparicionDeLasDescomposicionesDeLaNormalEnX()
