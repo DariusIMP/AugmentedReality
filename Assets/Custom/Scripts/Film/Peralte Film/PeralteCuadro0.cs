@@ -17,6 +17,14 @@ namespace Custom.Scripts.Film.Peralte_Film
 		{
 			Debug.Log("<color=blue> PeralteCuadro0.play() </color>");
 			base.Play();
+			
+			ConfigureScene();
+
+		}
+
+		public override void ConfigureScene()
+		{
+			CambiarTexturaPistaARuta();
 
 			Holograma.SetActive(false);
 			Diagrama2D.SetActive(false);
@@ -55,11 +63,7 @@ namespace Custom.Scripts.Film.Peralte_Film
 			Auto_Holograma.SetActive(false);
 			PlanoCartesiano.SetActive(false);
 
-			SectionTitle.text = "";
-
-			CambiarTexturaPistaARuta();
-
+			SectionTitle.text = "";		
 		}
-
 	}
 }

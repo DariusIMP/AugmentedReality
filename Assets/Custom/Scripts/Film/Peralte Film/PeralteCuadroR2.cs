@@ -25,6 +25,39 @@ namespace Film.Peralte_Film
             Debug.Log("<color=blue> PeralteCuadroSexto.play() </color>");
             base.Play();
 
+            ConfigureScene();
+            
+            StartCoroutine(AparicionDelTituloVelocidadMaxima());
+
+            StartCoroutine(AparecerImagen(8f, RozVmaxX));
+            StartCoroutine(AparecerImagen(8f, RozVmaxY));
+            StartCoroutine(AparecerImagen(8f, NormalX));
+            StartCoroutine(AparecerImagen(8f, NormalY));
+            
+            StartCoroutine(AparecerImagen(19f, FormulaVMax0));
+            StartCoroutine(AparecerImagen(27f, FormulaVMax1));
+            StartCoroutine(AparecerImagen(35f, FormulaVMax2));
+            StartCoroutine(AparecerImagen(53f, FormulaVMax3));
+            StartCoroutine(AparecerImagen(65f, FormulaVMax4));
+            StartCoroutine(AparecerImagen(70f, FormulaVMax5));
+            
+            DialogueManager.Play();
+        }
+
+        public override void Stop()
+        {
+            Debug.Log("<color=blue> PeralteCuadroSegundo.stop() </color>");
+            base.Stop();
+        }    
+        
+        protected override void Start()
+        {
+            base.Start();
+            Debug.Log("PeralteCuadroSexto: Start");
+        }
+
+        public override void ConfigureScene()
+        {
             Holograma.SetActive(true);
             Diagrama2D.SetActive(true);
             SectionTitle.text = "";
@@ -63,37 +96,9 @@ namespace Film.Peralte_Film
             RozVmaxY.SetActive(false);
             RozVmaxX.SetActive(false);
             RozVmax.SetActive(true);
-            
-            StartCoroutine(AparicionDelTituloVelocidadMaxima());
-
-            StartCoroutine(AparecerImagen(8f, RozVmaxX));
-            StartCoroutine(AparecerImagen(8f, RozVmaxY));
-            StartCoroutine(AparecerImagen(8f, NormalX));
-            StartCoroutine(AparecerImagen(8f, NormalY));
-            
-            StartCoroutine(AparecerImagen(19f, FormulaVMax0));
-            StartCoroutine(AparecerImagen(27f, FormulaVMax1));
-            StartCoroutine(AparecerImagen(35f, FormulaVMax2));
-            StartCoroutine(AparecerImagen(53f, FormulaVMax3));
-            StartCoroutine(AparecerImagen(65f, FormulaVMax4));
-            StartCoroutine(AparecerImagen(70f, FormulaVMax5));
-            
-            DialogueManager.Play();
         }
 
-        public override void Stop()
-        {
-            Debug.Log("<color=blue> PeralteCuadroSegundo.stop() </color>");
-            base.Stop();
-        }    
-        
-        protected override void Start()
-        {
-            base.Start();
-            Debug.Log("PeralteCuadroSexto: Start");
-        }
 
- 
         private IEnumerator AparicionDelTituloVelocidadMaxima()
         {
             Text titulo = SectionTitle.GetComponent<Text>();

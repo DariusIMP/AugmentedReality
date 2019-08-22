@@ -80,7 +80,7 @@ namespace Film
 			playButton.setPlayButtonAvailible();
 			CuadroActual.Stop();
 			CuadroActual = secuencia[0];
-			CuadroActual.Play();
+			CuadroActual.ConfigureScene();
 		}
 
 		public void FastForward()
@@ -88,6 +88,7 @@ namespace Film
 			playButton.setPlayButtonAvailible();
 			CuadroActual.Stop();
 			CuadroActual = secuencia.Last();
+			CuadroActual.ConfigureScene();
 		}
 		
 		public void togglePlay() 
