@@ -17,8 +17,6 @@ namespace Film
 
 		protected virtual void Start()
 		{
-			secuencia.Insert(0, gameObject.AddComponent<CuadroIdle>());
-				
 			CuadroActual = secuencia[0];
 		}
 	
@@ -82,6 +80,7 @@ namespace Film
 			playButton.setPlayButtonAvailible();
 			CuadroActual.Stop();
 			CuadroActual = secuencia[0];
+			CuadroActual.Play();
 		}
 
 		public void FastForward()
