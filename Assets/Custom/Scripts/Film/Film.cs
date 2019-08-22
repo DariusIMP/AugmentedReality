@@ -121,7 +121,6 @@ namespace Film
 				CuadroActual = secuencia[IdxActual];
                 UpdateButtons();
 			}
-			playButton.setPauseButtonAvailible();
 			CuadroActual.togglePlay ();
 		}
 
