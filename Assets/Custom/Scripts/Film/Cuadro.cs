@@ -33,6 +33,7 @@ namespace Film
 				DialogueManager.Stop ();
 			}
 			_playing = false;
+			StopAllCoroutines();
 		}
 
 		protected virtual void Start()
