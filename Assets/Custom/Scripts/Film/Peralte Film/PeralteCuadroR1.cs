@@ -22,7 +22,24 @@ namespace Film.Peralte_Film
         {
             Debug.Log("<color=blue> PeralteCuadroSexto.play() </color>");
             base.Play();
+            ConfigureScene();
+            DialogueManager.Play();
+        }
 
+        public override void Stop()
+        {
+            Debug.Log("<color=blue> PeralteCuadroSegundo.stop() </color>");
+            base.Stop();
+        }    
+        
+        protected override void Start()
+        {
+            base.Start();
+            Debug.Log("PeralteCuadroSexto: Start");
+        }
+
+        public override void ConfigureScene()
+        {
             Holograma.SetActive(true);
             Diagrama2D.SetActive(true);
             SectionTitle.text = "";
@@ -61,20 +78,6 @@ namespace Film.Peralte_Film
             RozVmaxY.SetActive(false);
             RozVmaxX.SetActive(false);
             RozVmax.SetActive(false);
-            
-            DialogueManager.Play();
-        }
-
-        public override void Stop()
-        {
-            Debug.Log("<color=blue> PeralteCuadroSegundo.stop() </color>");
-            base.Stop();
-        }    
-        
-        protected override void Start()
-        {
-            base.Start();
-            Debug.Log("PeralteCuadroSexto: Start");
         }
 
         private IEnumerator AparicionDelTituloConRozamiento()

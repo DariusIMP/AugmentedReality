@@ -15,16 +15,20 @@ namespace Film.CampoRotanteFilm
             {
                 DialogueManager.Play();
             }
+            ConfigureScene();
+
+            StartCoroutine(ArrancaARotarLaJaula(12));
+        }
+
+        public override void ConfigureScene()
+        {
             Jaula.SetActive(true);
             Jaula.GetComponent<Spin>().setSpeed(0f);
             IndicadorJaula.SetActive(true);
             IndicadorBobina.SetActive(true);
             IndicadorTransformador.SetActive(true);
             IndicadorCableadoAFuente.SetActive(true);
-
             FlechaCampoMagnetico.SetActive(true);
-
-            StartCoroutine(ArrancaARotarLaJaula(12));
         }
 
         private IEnumerator ArrancaARotarLaJaula(float secs)

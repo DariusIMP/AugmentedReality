@@ -110,6 +110,8 @@ namespace Film.Peralte_Film
     
         }
 
+        public abstract override void ConfigureScene();
+        
 		protected void CambiarTexturaPistaAHielo()
 		{
 			Pista.GetComponent<ChangeMaterial>().ChangeToMaterial((uint)TexturasPista.Hielo);

@@ -28,6 +28,21 @@ namespace Film.Peralte_Film
             Debug.Log("<color=blue> PeralteCuadroQuinto.play() </color>");
             base.Play();
             
+            ConfigureScene();
+
+            StartCoroutine(AparicionDeLaFormula7());
+            
+            DialogueManager.Play();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            Debug.Log("PeralteCuadroQuinto: Start");
+        }
+
+        public override void ConfigureScene()
+        {
             Holograma.SetActive(true);
             Diagrama2D.SetActive(true);
             SectionTitle.text = "";
@@ -67,16 +82,7 @@ namespace Film.Peralte_Film
             NormalY.SetActive(true);
             NormalX.SetActive(true);
             PlanoCartesiano.SetActive(true);
-
-            StartCoroutine(AparicionDeLaFormula7());
             
-            DialogueManager.Play();
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-            Debug.Log("PeralteCuadroQuinto: Start");
         }
 
         public override void Stop()
