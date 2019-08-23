@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 namespace Film
 {
@@ -24,7 +24,7 @@ namespace Film
 		{
             IdxActual = 0;
             CuadroActual = secuencia[IdxActual];
-            UpdateButtons();
+            UpdateInteractability();
 		}
 	
 		public bool IsCuadroInicial()
@@ -42,23 +42,16 @@ namespace Film
 			Debug.Log(name + ": PlayForward");
 			try
 			{
-                PrevButton.interactable = true;
-                FirstButton.interactable = true;
                 ChooseCuadro(++IdxActual);
-                CuadroActual.Play();
-				playButton.setPauseButtonAvailible();
 			}
 			catch (IndexOutOfRangeException e)
 			{
 				Console.WriteLine(e);
                 IdxActual = secuencia.Count - 1;
 				CuadroActual = secuencia[IdxActual];
-				throw;
+                UpdateInteractability();
+                throw;
 			}
-            finally
-            {
-                UpdateButtons();
-            }
 		}
 
 		public void PlayBackwards()
@@ -66,23 +59,16 @@ namespace Film
 			Debug.Log(name + ": PlayBackwards"); 
 			try
 			{
-                NextButton.interactable = true;
-                LastButton.interactable = true;
                 ChooseCuadro(--IdxActual);
-				CuadroActual.Play();
-				playButton.setPauseButtonAvailible();
 			}
 			catch (IndexOutOfRangeException e)
 			{
 				Console.WriteLine(e);
                 IdxActual = 0;
 				CuadroActual = secuencia[IdxActual];
-				throw;
+                UpdateInteractability();
+                throw;
 			}
-            finally
-            {
-                UpdateButtons();
-            }
 		}
 
 		public void ChooseCuadro(int index) {
@@ -91,6 +77,9 @@ namespace Film
             IdxActual = index;
             CuadroActual = secuencia[index];
             CuadroActual.Setup();
+            CuadroActual.Play();
+            playButton.setPauseButtonAvailible();
+            UpdateInteractability();
         }
 
 		public void Rewind()
@@ -100,7 +89,7 @@ namespace Film
             IdxActual = 0;
             CuadroActual = secuencia[IdxActual];
 			CuadroActual.ConfigureScene();
-            UpdateButtons();
+            UpdateInteractability();
 		}
 
 		public void FastForward()
@@ -110,21 +99,21 @@ namespace Film
             IdxActual = secuencia.Count - 1;
 			CuadroActual = secuencia[IdxActual];
 			CuadroActual.ConfigureScene();
-            UpdateButtons();
+            UpdateInteractability();
 		}
 		
 		public void togglePlay() 
 		{
-			if (IdxActual == 0)
+			if (false && IdxActual == 0)
 			{
                 IdxActual = 1;
 				CuadroActual = secuencia[IdxActual];
-                UpdateButtons();
+                UpdateInteractability();
 			}
 			CuadroActual.togglePlay ();
 		}
 
-        private void UpdateButtons()
+        private void UpdateInteractability()
         {
             PrevButton.interactable = FirstButton.interactable = !IsCuadroInicial();
             NextButton.interactable = LastButton.interactable = !IsCuadroFinal();
