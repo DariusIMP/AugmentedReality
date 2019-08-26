@@ -16,13 +16,13 @@ using UnityEngine.UI;
  */
 public class PlayBarManager : MonoBehaviour
 {
-	private Film.Film _film;
+	private Custom.Scripts.Film.Film _film;
 	public Button PlayButton, PrevButton, NextButton, FirstButton, LastButton;
 	public GameObject Augmento;
 
 	private void Start()
 	{
-		_film = Augmento.GetComponentInChildren<Film.Film>();
+		_film = Augmento.GetComponentInChildren<Custom.Scripts.Film.Film>();
 	}
 
 	private void Update()

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Film;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-namespace Film
+namespace Custom.Scripts.Film
 {
 
 	public abstract class Film : MonoBehaviour
@@ -14,7 +14,7 @@ namespace Film
         public Button NextButton;
         public Button LastButton;
         public Button FirstButton;
-
+        public bool AudioOn;
 		protected Cuadro CuadroActual;
         protected int IdxActual;
 
@@ -25,6 +25,10 @@ namespace Film
             IdxActual = 0;
             CuadroActual = secuencia[IdxActual];
             UpdateInteractability();
+            if (!AudioOn)
+            {
+	            CuadroActual.TurnAudioOff();
+            }
 		}
 	
 		public bool IsCuadroInicial()
@@ -117,6 +121,11 @@ namespace Film
         {
             PrevButton.interactable = FirstButton.interactable = !IsCuadroInicial();
             NextButton.interactable = LastButton.interactable = !IsCuadroFinal();
+        }
+
+        public Cuadro GetCuadroActual()
+        {
+	        return CuadroActual;
         }
 	}
 }

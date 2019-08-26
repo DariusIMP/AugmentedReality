@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Film.Peralte_Film
 {
-    public class PeralteFilm : global::Film.Film
+    public class PeralteFilm : global::Custom.Scripts.Film.Film
     {        
         protected PeralteAnimationController PeralteAnimationController;
         

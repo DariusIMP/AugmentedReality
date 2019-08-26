@@ -51,6 +51,16 @@ namespace Film
 			}
 		}
 
+		public void TurnAudioOn()
+		{
+			DialogueManager.TurnAudioOn();
+		}
+
+		public void TurnAudioOff()
+		{
+			DialogueManager.TurnAudioOff();
+		}
+
 		public abstract void Setup();
 	}
 }

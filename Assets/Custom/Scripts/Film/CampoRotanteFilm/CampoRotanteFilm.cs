@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Film.CampoRotanteFilm
 {
-    public class CampoRotanteFilm : Film
+    public class CampoRotanteFilm : Custom.Scripts.Film.Film
     {
         public GameObject Jaula;
         public GameObject IndicadorJaula;
