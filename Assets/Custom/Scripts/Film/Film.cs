@@ -1,35 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using Film;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.UI;
 
-namespace Film
+namespace Custom.Scripts.Film
 {
 
 	public abstract class Film : MonoBehaviour
 	{
 		public TogglePlayImage playButton;
-
+        public Button PrevButton;
+        public Button NextButton;
+        public Button LastButton;
+        public Button FirstButton;
+        public bool AudioOn;
 		protected Cuadro CuadroActual;
+        protected int IdxActual;
 
 		public List<Cuadro> secuencia;
 
 		protected virtual void Start()
 		{
-			secuencia.Insert(0, gameObject.AddComponent<CuadroIdle>());
-				
-			CuadroActual = secuencia[0];
+            IdxActual = 0;
+            CuadroActual = secuencia[IdxActual];
+            UpdateInteractability();
+            if (!AudioOn)
+            {
+	            CuadroActual.TurnAudioOff();
+            }
 		}
 	
 		public bool IsCuadroInicial()
 		{
-			return secuencia.First().Equals(CuadroActual);
+			return IdxActual == 0;
 		}
 
 		public bool IsCuadroFinal()
 		{
-			return secuencia.Last().Equals(CuadroActual);
+			return IdxActual == secuencia.Count - 1;
 		}
 
 		public void PlayForward()
@@ -37,17 +46,15 @@ namespace Film
 			Debug.Log(name + ": PlayForward");
 			try
 			{
-				CuadroActual.Stop();
-				CuadroActual = secuencia[secuencia.IndexOf(CuadroActual) + 1];
-				CuadroActual.Setup();
-				CuadroActual.Play();
-				playButton.setPauseButtonAvailible();
+                ChooseCuadro(++IdxActual);
 			}
 			catch (IndexOutOfRangeException e)
 			{
 				Console.WriteLine(e);
-				CuadroActual = secuencia[0];
-				throw;
+                IdxActual = secuencia.Count - 1;
+				CuadroActual = secuencia[IdxActual];
+                UpdateInteractability();
+                throw;
 			}
 		}
 
@@ -56,49 +63,69 @@ namespace Film
 			Debug.Log(name + ": PlayBackwards"); 
 			try
 			{
-				CuadroActual.Stop();
-				CuadroActual = secuencia[secuencia.IndexOf(CuadroActual) - 1];
-				CuadroActual.Setup();
-				CuadroActual.Play();
-				playButton.setPauseButtonAvailible();
+                ChooseCuadro(--IdxActual);
 			}
 			catch (IndexOutOfRangeException e)
 			{
 				Console.WriteLine(e);
-				CuadroActual = secuencia[0];
-				throw;
+                IdxActual = 0;
+				CuadroActual = secuencia[IdxActual];
+                UpdateInteractability();
+                throw;
 			}
 		}
 
 		public void ChooseCuadro(int index) {
 			// Debería haber una mejor forma que pasar el índice.
 			CuadroActual.Stop ();
-			CuadroActual = secuencia[index];
-			CuadroActual.Setup ();
-		}
+            IdxActual = index;
+            CuadroActual = secuencia[index];
+            CuadroActual.Setup();
+            CuadroActual.Play();
+            playButton.setPauseButtonAvailible();
+            UpdateInteractability();
+        }
 
 		public void Rewind()
 		{
 			playButton.setPlayButtonAvailible();
 			CuadroActual.Stop();
-			CuadroActual = secuencia[0];
+            IdxActual = 0;
+            CuadroActual = secuencia[IdxActual];
+			CuadroActual.ConfigureScene();
+            UpdateInteractability();
 		}
 
 		public void FastForward()
 		{
 			playButton.setPlayButtonAvailible();
 			CuadroActual.Stop();
-			CuadroActual = secuencia.Last();
+            IdxActual = secuencia.Count - 1;
+			CuadroActual = secuencia[IdxActual];
+			CuadroActual.ConfigureScene();
+            UpdateInteractability();
 		}
 		
 		public void togglePlay() 
 		{
-			if (CuadroActual.Equals(secuencia[0]))
+			if (false && IdxActual == 0)
 			{
-				CuadroActual = secuencia[1];
+                IdxActual = 1;
+				CuadroActual = secuencia[IdxActual];
+                UpdateInteractability();
 			}
-			playButton.setPauseButtonAvailible();
 			CuadroActual.togglePlay ();
 		}
+
+        private void UpdateInteractability()
+        {
+            PrevButton.interactable = FirstButton.interactable = !IsCuadroInicial();
+            NextButton.interactable = LastButton.interactable = !IsCuadroFinal();
+        }
+
+        public Cuadro GetCuadroActual()
+        {
+	        return CuadroActual;
+        }
 	}
 }

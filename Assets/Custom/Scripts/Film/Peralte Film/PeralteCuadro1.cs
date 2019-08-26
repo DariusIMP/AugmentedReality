@@ -32,6 +32,24 @@ namespace Film.Peralte_Film
 			base.Play();
 			DialogueManager.Play();
 
+			ConfigureScene();
+		}
+
+		public override void Stop()
+		{
+			Debug.Log("<color=blue> PeralteCuadroSegundo.stop() </color>");
+			base.Stop();
+		}    
+		
+		protected override void Start()
+		{
+			base.Start();
+			Debug.Log("PeralteCuadroInicial: Start");
+
+		}
+
+		public override void ConfigureScene()
+		{
 			Holograma.SetActive(false);
 			Diagrama2D.SetActive(false);
 			
@@ -70,21 +88,7 @@ namespace Film.Peralte_Film
 			PlanoCartesiano.SetActive(false);
 
 			SectionTitle.text = "";
+			
 		}
-
-		public override void Stop()
-		{
-			Debug.Log("<color=blue> PeralteCuadroSegundo.stop() </color>");
-			base.Stop();
-		}    
-		
-		protected override void Start()
-		{
-			base.Start();
-			Debug.Log("PeralteCuadroInicial: Start");
-
-		}
-
-
 	}
 }

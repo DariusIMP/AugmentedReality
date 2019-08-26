@@ -50,6 +50,16 @@ namespace Dialogues
 			RestartSubtitles ();
 		}
 
+		public void TurnAudioOff()
+		{
+			_audioSource.volume = 0f;
+		}
+
+		public void TurnAudioOn()
+		{
+			_audioSource.volume = 1f;
+		}
+		
 		// Detiene los subtítulos en ejecución y pone en ejecución los nuevos.
 		private void RestartSubtitles() {
 			StopAllCoroutines();

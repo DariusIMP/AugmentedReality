@@ -16,6 +16,7 @@ namespace Film.Peralte_Film
 		public override void Setup() {
 			PeralteManager pm = PeralteFilm.PeralteManager.GetComponent<PeralteManager> ();
 			pm.hideFBD ();
+            CambiarTexturaPistaAHielo();
 		}
 
         public override void Play()
@@ -23,6 +24,25 @@ namespace Film.Peralte_Film
             Debug.Log("<color=blue> PeralteCuadro7.play() </color>");
             base.Play();
 
+            ConfigureScene();
+            
+            DialogueManager.Play();
+        }
+
+        public override void Stop()
+        {
+            Debug.Log("<color=blue> PeralteCuadro7.stop() </color>");
+            base.Stop();
+        }    
+        
+        protected override void Start()
+        {
+            base.Start();
+            Debug.Log("PeralteCuadro7: Start");
+        }
+
+        public override void ConfigureScene()
+        {
             Holograma.SetActive(false);
             Diagrama2D.SetActive(false);
             SectionTitle.text = "";
@@ -62,22 +82,6 @@ namespace Film.Peralte_Film
             RozVmaxY.SetActive(false);
             RozVmaxX.SetActive(false);
             RozVmax.SetActive(false);
-            
-            DialogueManager.Play();
         }
-
-        public override void Stop()
-        {
-            Debug.Log("<color=blue> PeralteCuadro7.stop() </color>");
-            base.Stop();
-        }    
-        
-        protected override void Start()
-        {
-            base.Start();
-            Debug.Log("PeralteCuadro7: Start");
-        }
-
-   
     }
 }

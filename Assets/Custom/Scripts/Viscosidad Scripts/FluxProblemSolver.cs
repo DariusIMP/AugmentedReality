@@ -85,5 +85,10 @@ namespace Viscosidad_Scripts
         {
             return g;
         }
+
+        public bool HasReachedBottom(double time)
+        {
+            return getY(time) == minPos;
+        }
     }
 }

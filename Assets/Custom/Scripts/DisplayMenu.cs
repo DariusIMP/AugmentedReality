@@ -6,7 +6,10 @@ public class DisplayMenu : MonoBehaviour
 {
     public GameObject menuDisplay = null;
 
-    void Start() { }
+    void Start()
+    {
+        menuDisplay.SetActive(false);
+    }
 
     public void SetMenuDisplay(GameObject menu)
     {
