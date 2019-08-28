@@ -1,40 +1,41 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DisplayMenu : MonoBehaviour
+namespace Custom.Scripts
 {
-    public GameObject menuDisplay = null;
-
-    void Start()
+    public class DisplayMenu : MonoBehaviour
     {
-        menuDisplay.SetActive(false);
-    }
+        public GameObject menuDisplay = null;
 
-    public void SetMenuDisplay(GameObject menu)
-    {
-        menuDisplay.SetActive(false);
-        menuDisplay = menu;
-    }
-
-    public void HideMenu()
-    {
-        menuDisplay.SetActive(false);
-    }
-
-    public void ShowMenu()
-    {
-        menuDisplay.SetActive(true);
-    }
-    
-	public void Action() {
-	    if (!menuDisplay.activeInHierarchy)
-        {
-            menuDisplay.SetActive(true);
-        } else
+        void Start()
         {
             menuDisplay.SetActive(false);
         }
-    }
 
+        public void SetMenuDisplay(GameObject menu)
+        {
+            menuDisplay.SetActive(false);
+            menuDisplay = menu;
+        }
+
+        public void HideMenu()
+        {
+            menuDisplay.SetActive(false);
+        }
+
+        public void ShowMenu()
+        {
+            menuDisplay.SetActive(true);
+        }
+    
+        public void Action() {
+            if (!menuDisplay.activeInHierarchy)
+            {
+                menuDisplay.SetActive(true);
+            } else
+            {
+                menuDisplay.SetActive(false);
+            }
+        }
+
+    }
 }
