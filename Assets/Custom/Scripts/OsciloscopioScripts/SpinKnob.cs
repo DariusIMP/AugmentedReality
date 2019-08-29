@@ -5,12 +5,10 @@ namespace Custom.Scripts.OsciloscopioScripts
 {
     public class SpinKnob : MonoBehaviour
     {
-   
-
+        
         public void Spin(float variation)
         {
-            Quaternion rotation = Quaternion.Euler(new Vector4(0, variation * 360, 0, 0));
-            transform.rotation = rotation;
+            transform.Rotate(0, variation * 2 * 3.14f, 0);
         }
     }
 }

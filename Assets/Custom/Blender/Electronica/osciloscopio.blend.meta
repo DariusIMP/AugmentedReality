@@ -21,6 +21,7 @@ ModelImporter:
     100030: TEK_OSCOPE_Knob_Small_Rev1_002
     100032: TEK_OSCOPE_Knob_Small_Rev1_003
     100034: TEK_OSCOPE_Knob_Small_Rev1_004
+    100036: Empty
     400000: //RootNode
     400002: TEK_OSCOPE_Back_Pane
     400004: TEK_OSCOPE_Bumper
@@ -39,6 +40,7 @@ ModelImporter:
     400030: TEK_OSCOPE_Knob_Small_Rev1_002
     400032: TEK_OSCOPE_Knob_Small_Rev1_003
     400034: TEK_OSCOPE_Knob_Small_Rev1_004
+    400036: Empty
     2100000: mat_6
     2100002: mat_7
     2100004: mat_2
