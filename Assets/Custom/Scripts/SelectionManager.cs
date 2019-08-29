@@ -9,6 +9,7 @@ namespace Custom.Scripts
         [SerializeField] private string selectableTag = "Selectable";
         [SerializeField] private Material highlightMaterial;
         [SerializeField] private Material defaultMaterial;
+        [SerializeField] public Material selectableMaterial;
         private GameObject selectedObject;
         private Transform _selection;
         private bool selectionLocked;
@@ -17,6 +18,7 @@ namespace Custom.Scripts
         public Camera camera;
         public GameObject aimingDot;
         public GameObject instructions;
+        public GameObject[] selectableElements;
 
         private void Start()
         {
@@ -50,7 +52,7 @@ namespace Custom.Scripts
         private void DeselectObject()
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();
-            selectionRenderer.material = defaultMaterial;
+            selectionRenderer.material = selectableMaterial;
             _selection = null;
             selectedObject.GetComponent<DisplayMenu>().HideMenu();
         }
@@ -88,6 +90,7 @@ namespace Custom.Scripts
                 displayInfoMode = true;
                 aimingDot.SetActive(true);
             }
+            SetMaterials();
         }
 
         public void SelectionLockToggle()
@@ -104,6 +107,24 @@ namespace Custom.Scripts
                 {
                     selectionLocked = true;
                     aimingDot.SetActive(false);
+                }
+            }
+        }
+
+        private void SetMaterials()
+        {
+            if (displayInfoMode)
+            {
+                foreach (GameObject element in selectableElements)
+                {
+                    element.GetComponent<Renderer>().material = selectableMaterial;
+                }
+            }
+            else
+            {
+                foreach (GameObject element in selectableElements)
+                { 
+                    element.GetComponent<Renderer>().material = defaultMaterial;
                 }
             }
         }
