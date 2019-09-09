@@ -11,11 +11,9 @@ namespace Custom.Scripts.Plotter
         const int Verticaldivs = 10;
 
         private Image PlotImage;
-        private float PlotWidth;
-        private float PlotHeight;
-        
+
         private Texture2D PlotTexture;
-        private Vector2 TextureResolution = new Vector2(100, 100);
+        private Vector2 TextureResolution = new Vector2(500, 500);
 
         public List<Vector2> _dots;
         public float minX;
@@ -30,20 +28,18 @@ namespace Custom.Scripts.Plotter
         {
             PlotImage = GetComponent<Image>();
             if (PlotImage == null) throw new Exception("Simplest plot needs an image component in the same GameObject in order to work.");
-            PlotWidth = PlotImage.rectTransform.rect.width;
-            PlotHeight = PlotImage.rectTransform.rect.height;
-            
+
             SetResolution();
             
             _dots = new List<Vector2>();
             //Test();
-            TestDraw();
+            TestDraw2();
         }
 
         public Vector2 AdjustCoordinateToImageSize(float x, float fx)
         {
-            float newX = x / maxX * (PlotWidth / 2);
-            float newFx = fx / maxY * (PlotHeight / 2);
+            float newX = x / maxX * (100f/ 2);
+            float newFx = fx / maxY * (100f / 2);
             return new Vector2(newX, newFx);
         }
         
@@ -80,7 +76,19 @@ namespace Custom.Scripts.Plotter
         {
             DrawLine(PlotTexture, new Vector2(-5,-5), new Vector2(5, 5), Color.red);
             PlotTexture.Apply();
+        }
 
+        public void TestDraw2()
+        {
+            SetDots(Xsquare);
+            for (int i = 1; i < _dots.Count; i++)
+            {
+                Vector2 start = _dots[i - 1];
+                Vector2 end = _dots[i];
+                Debug.Log("start: " + start.x + " : " + start.y + " | end: " + end.x + " : " + end.y);
+                DrawLine(PlotTexture, start, end, Color.red);
+            }
+            PlotTexture.Apply();
         }
         
         public void SetResolution()
@@ -115,12 +123,20 @@ namespace Custom.Scripts.Plotter
 
             while (true)
             {
-                PlotTexture.SetPixel(x0, y0, LineColor);
+                if (!IsOutOfBoundaries(x0, y0))
+                {
+                    PlotTexture.SetPixel(x0, y0, LineColor);
+                }
                 if (x0 == x1 && y0 == y1) break;
                 e2 = err;
                 if (e2 > -dx) { err -= dy; x0 += sx; }
                 if (e2 < dy) { err += dx; y0 += sy; }
             }
+        }
+
+        private bool IsOutOfBoundaries(int x, int y)
+        {
+            return x < 0 || x > TextureResolution.x || y < 0 || y > TextureResolution.y;
         }
         
     }
