@@ -14,6 +14,9 @@ namespace Custom.Scripts.Plotter
         private float PlotWidth;
         private float PlotHeight;
         
+        private Texture2D PlotTexture;
+        private Vector2 TextureResolution = new Vector2(100, 100);
+
         public List<Vector2> _dots;
         public float minX;
         public float maxX;
@@ -26,12 +29,15 @@ namespace Custom.Scripts.Plotter
         public void Start()
         {
             PlotImage = GetComponent<Image>();
+            if (PlotImage == null) throw new Exception("Simplest plot needs an image component in the same GameObject in order to work.");
             PlotWidth = PlotImage.rectTransform.rect.width;
             PlotHeight = PlotImage.rectTransform.rect.height;
             
-            if (PlotImage == null) throw new Exception("Simplest plot needs an image component in the same GameObject in order to work.");
+            SetResolution();
+            
             _dots = new List<Vector2>();
-            Test();
+            //Test();
+            TestDraw();
         }
 
         public Vector2 AdjustCoordinateToImageSize(float x, float fx)
@@ -69,7 +75,53 @@ namespace Custom.Scripts.Plotter
                 Debug.Log("Vector : " + _dots[i].x + "-" + _dots[i].y);
             }
         }
+
+        public void TestDraw()
+        {
+            DrawLine(PlotTexture, new Vector2(-5,-5), new Vector2(5, 5), Color.red);
+            PlotTexture.Apply();
+
+        }
         
+        public void SetResolution()
+        {
+            PlotTexture = new Texture2D((int)TextureResolution.x, (int)TextureResolution.y);
+            Rect rect = new Rect(0, 0, TextureResolution.x, TextureResolution.y);
+            rect.center = new Vector2(TextureResolution.x / 2, TextureResolution.y / 2);
+            PlotImage.GetComponent<Image>().sprite = Sprite.Create(PlotTexture, rect, new Vector2(0.0f, 0.0f));
+        }
+        
+        private void DrawLine(Texture2D PlotTexture, Vector2 start, Vector2 end, Color LineColor)
+        {
+            Debug.Log("DrawLine");
+
+            start += new Vector2(TextureResolution.x / 2, TextureResolution.y / 2);
+            end += new Vector2(TextureResolution.x / 2, TextureResolution.y / 2);
+            
+            int x0 = (int) start.x;
+            int y0 = (int) start.y;
+            int x1 = (int) end.x;
+            int y1 = (int) end.y;
+            
+            int dx = 0;
+            int dy = 0;
+            int sx = 0;
+            int sy = 0;
+            dx = Math.Abs(x1 - x0);
+            dy = Math.Abs(y1 - y0);
+            sx = x0 < x1 ? 1 : -1;
+            sy = y0 < y1 ? 1 : -1;
+            int err = (dx > dy ? dx : -dy) / 2, e2;
+
+            while (true)
+            {
+                PlotTexture.SetPixel(x0, y0, LineColor);
+                if (x0 == x1 && y0 == y1) break;
+                e2 = err;
+                if (e2 > -dx) { err -= dy; x0 += sx; }
+                if (e2 < dy) { err += dx; y0 += sy; }
+            }
+        }
         
     }
 }
