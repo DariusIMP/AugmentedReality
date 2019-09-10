@@ -38,8 +38,8 @@ namespace Custom.Scripts.Plotter
 
         public Vector2 AdjustCoordinateToImageSize(float x, float fx)
         {
-            float newX = x / maxX * (100f/ 2);
-            float newFx = fx / maxY * (100f / 2);
+            float newX = x / maxX * (TextureResolution.x / 2);
+            float newFx = fx / maxY * (TextureResolution.y / 2);
             return new Vector2(newX, newFx);
         }
         
@@ -55,9 +55,9 @@ namespace Custom.Scripts.Plotter
             }
         }
 
-        public float Xsquare(float x)
+        public float Sin(float x)
         {
-            return x * x;
+            return 10 * (float)Math.Sin(x);
         }
 
         public void Test()
@@ -65,7 +65,7 @@ namespace Custom.Scripts.Plotter
             minX = -10;
             maxX = 10;
             
-            SetDots(Xsquare);
+            SetDots(Sin);
             for (int i = 0; i < _dots.Count; i++)
             {
                 Debug.Log("Vector : " + _dots[i].x + "-" + _dots[i].y);
@@ -80,7 +80,7 @@ namespace Custom.Scripts.Plotter
 
         public void TestDraw2()
         {
-            SetDots(Xsquare);
+            SetDots(Sin);
             for (int i = 1; i < _dots.Count; i++)
             {
                 Vector2 start = _dots[i - 1];
@@ -95,7 +95,6 @@ namespace Custom.Scripts.Plotter
         {
             PlotTexture = new Texture2D((int)TextureResolution.x, (int)TextureResolution.y);
             Rect rect = new Rect(0, 0, TextureResolution.x, TextureResolution.y);
-            rect.center = new Vector2(TextureResolution.x / 2, TextureResolution.y / 2);
             PlotImage.GetComponent<Image>().sprite = Sprite.Create(PlotTexture, rect, new Vector2(0.0f, 0.0f));
         }
         
