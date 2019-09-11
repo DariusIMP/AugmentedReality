@@ -110,7 +110,7 @@ namespace Custom.Scripts.Plotter
             Rect rect = _rectTransform.rect;
             float newX = x / (_timeBaseMultiplier * maxX) * rect.x;
             float newFx = fx / maxY * rect.y;
-            return new Vector2(newX, newFx);
+            return new Vector2(-newX, -newFx); //TODO: chequear por qué la imagen sale invertida (el - está puesto a propósito para contrarrestar esto)
         }
         
         public void SetDots(Func<float, float> func)
