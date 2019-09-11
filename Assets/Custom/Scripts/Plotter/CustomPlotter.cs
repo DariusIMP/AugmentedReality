@@ -23,7 +23,7 @@ namespace Custom.Scripts.Plotter
         public float maxY;
 
         private LineRenderer _lineRenderer;
-
+        private Signal _signal;
 
         private float _horizontalDisplacement = 0f;
         private float _verticalDisplacement = 0f;
@@ -36,43 +36,73 @@ namespace Custom.Scripts.Plotter
         {
             _rectTransform = gameObject.GetComponent<RectTransform>();
             _lineRenderer = gameObject.GetComponent<LineRenderer>();
-            _lineRenderer.useWorldSpace = false;
-            TestDraw2();
+            _lineRenderer.useWorldSpace = false; 
+            SetSinusoidalSignal();
         }
 
-        public float Sin(float x)
+        public void SetSquareSignal()
         {
-            return (float)Math.Sin(x + _horizontalDisplacement) + _verticalDisplacement;
+            _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier);
+            SetDots(_signal.SignalFunction);
         }
 
+        public void SetSinusoidalSignal()
+        {
+            _signal = new SinusoidalSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier);
+            SetDots(_signal.SignalFunction);
+        }
+
+        public void SetAlmostSquareSignal()
+        {
+            _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier);
+            SetDots(_signal.SignalFunction);
+        }
+        
         public void DisplaceHorizontally(float hd)
         {
             _horizontalDisplacement = hd;
+            _signal.horizontalDisplacement = hd;
             _lineRenderer.positionCount = 0;
-            TestDraw2();
+            SetDots(_signal.SignalFunction);
         }
 
         public void DisplaceVertically(float vd)
         {
             _verticalDisplacement = vd;
+            _signal.verticalDisplacement = vd;
             _lineRenderer.positionCount = 0;
-            TestDraw2();
+            SetDots(_signal.SignalFunction);
         }
 
         public void ExpandTimeBase(float multiplier)
         {
             _timeBaseMultiplier = multiplier;
-            TestDraw2();
+            _signal.timeBaseMultiplier = multiplier;
+            SetDots(_signal.SignalFunction);
         }
         
-        public float SquareSignal(float x)
+        
+
+        private bool signalGrowing = false;
+        public float AlmostSquareSignal(float t)
         {
-            return Math.Abs(Math.Floor(x + _horizontalDisplacement)) % 2 < 0.01 ? 0 + _verticalDisplacement : 1 + _verticalDisplacement;
+            float v0 = 1f;
+            float R = 1000f;
+            float C = 0.001f;
+            return Derivative(x => (float) (v0 * (1 - Math.Exp(x / (R * C)))), t) < 0.01
+                ? (float) (v0 * (1 - Math.Exp((t + _horizontalDisplacement) / (R * C)))) + _verticalDisplacement
+                : (float) (v0 * (1 - Math.Exp(-(t + _horizontalDisplacement) / (R * C)))) + _verticalDisplacement;
         }
 
+        private float Derivative(Func<float, float> func, float x)
+        {
+            var delta = 0.01f;
+            return (func(x + delta) - func(x)) / delta;
+        }
+        
         public void TestDraw2()
         {
-            SetDots(SquareSignal);
+            SetDots(AlmostSquareSignal);
         }
         
         public Vector2 AdjustCoordinateToCanvasSize(float x, float fx)
