@@ -23,9 +23,11 @@ namespace Custom.Scripts.Plotter
         public float maxY;
 
         private LineRenderer _lineRenderer;
-        
-        float horizontalDisplacement = 0f;
-        float verticalDisplacement = 0f;
+
+
+        private float _horizontalDisplacement = 0f;
+        private float _verticalDisplacement = 0f;
+        private float _timeBaseMultiplier = 1f;
         
         public int dotsAmount;
         
@@ -40,37 +42,44 @@ namespace Custom.Scripts.Plotter
 
         public float Sin(float x)
         {
-            return (float)Math.Sin(x + horizontalDisplacement) + verticalDisplacement;
+            return (float)Math.Sin(x + _horizontalDisplacement) + _verticalDisplacement;
         }
 
         public void DisplaceHorizontally(float hd)
         {
-            horizontalDisplacement = hd;
+            _horizontalDisplacement = hd;
             _lineRenderer.positionCount = 0;
             TestDraw2();
         }
 
         public void DisplaceVertically(float vd)
         {
-            verticalDisplacement = vd;
+            _verticalDisplacement = vd;
             _lineRenderer.positionCount = 0;
+            TestDraw2();
+        }
+
+        public void ExpandTimeBase(float multiplier)
+        {
+            _timeBaseMultiplier = multiplier;
             TestDraw2();
         }
         
         public float SquareSignal(float x)
         {
-            return Math.Abs(Math.Floor(x)) % 2 < 0.01 ? 0 : 1;
+            return Math.Abs(Math.Floor(x + _horizontalDisplacement)) % 2 < 0.01 ? 0 + _verticalDisplacement : 1 + _verticalDisplacement;
         }
 
         public void TestDraw2()
         {
-            SetDots(Sin);
+            SetDots(SquareSignal);
         }
         
         public Vector2 AdjustCoordinateToCanvasSize(float x, float fx)
         {
-            float newX = x / maxX * (_rectTransform.rect.x);
-            float newFx = fx / maxY * (_rectTransform.rect.y);
+            Rect rect = _rectTransform.rect;
+            float newX = x / (_timeBaseMultiplier * maxX) * rect.x;
+            float newFx = fx / maxY * rect.y;
             return new Vector2(newX, newFx);
         }
         
