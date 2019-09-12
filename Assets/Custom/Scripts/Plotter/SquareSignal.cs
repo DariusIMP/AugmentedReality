@@ -15,5 +15,10 @@ namespace Custom.Scripts.Plotter
                 ? 0 + verticalDisplacement
                 : 1 + verticalDisplacement;
         }
+
+        public override void Reset()
+        {
+            
+        }
     }
 }

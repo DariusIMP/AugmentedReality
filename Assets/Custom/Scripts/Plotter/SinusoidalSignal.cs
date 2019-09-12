@@ -13,5 +13,10 @@ namespace Custom.Scripts.Plotter
         {
             return (float) Math.Sin(x + horizontalDisplacement) + verticalDisplacement;
         }
+
+        public override void Reset()
+        {
+            
+        }
     }
 }

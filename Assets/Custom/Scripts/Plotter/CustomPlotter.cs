@@ -10,13 +10,9 @@ namespace Custom.Scripts.Plotter
     {
         const int Horizontaldivs = 10;
         const int Verticaldivs = 10;
-
-//        private Image PlotImage;
+        
         private RectTransform _rectTransform;
-
-//        private Texture2D PlotTexture;
-//        private Vector2 TextureResolution = new Vector2(500, 500);
-
+        
         public float minX;
         public float maxX;
         public float minY;
@@ -54,7 +50,7 @@ namespace Custom.Scripts.Plotter
 
         public void SetAlmostSquareSignal()
         {
-            _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier);
+            _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, _rectTransform);
             SetDots(_signal.SignalFunction);
         }
         
@@ -63,6 +59,7 @@ namespace Custom.Scripts.Plotter
             _horizontalDisplacement = hd;
             _signal.horizontalDisplacement = hd;
             _lineRenderer.positionCount = 0;
+            _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
 
@@ -71,6 +68,7 @@ namespace Custom.Scripts.Plotter
             _verticalDisplacement = vd;
             _signal.verticalDisplacement = vd;
             _lineRenderer.positionCount = 0;
+            _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
 
@@ -78,33 +76,10 @@ namespace Custom.Scripts.Plotter
         {
             _timeBaseMultiplier = multiplier;
             _signal.timeBaseMultiplier = multiplier;
+            _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
-        
-        
 
-        private bool signalGrowing = false;
-        public float AlmostSquareSignal(float t)
-        {
-            float v0 = 1f;
-            float R = 1000f;
-            float C = 0.001f;
-            return Derivative(x => (float) (v0 * (1 - Math.Exp(x / (R * C)))), t) < 0.01
-                ? (float) (v0 * (1 - Math.Exp((t + _horizontalDisplacement) / (R * C)))) + _verticalDisplacement
-                : (float) (v0 * (1 - Math.Exp(-(t + _horizontalDisplacement) / (R * C)))) + _verticalDisplacement;
-        }
-
-        private float Derivative(Func<float, float> func, float x)
-        {
-            var delta = 0.01f;
-            return (func(x + delta) - func(x)) / delta;
-        }
-        
-        public void TestDraw2()
-        {
-            SetDots(AlmostSquareSignal);
-        }
-        
         public Vector2 AdjustCoordinateToCanvasSize(float x, float fx)
         {
             Rect rect = _rectTransform.rect;

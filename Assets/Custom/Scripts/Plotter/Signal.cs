@@ -19,5 +19,7 @@ namespace Custom.Scripts.Plotter
         }
 
         public abstract float SignalFunction(float x);
+
+        public abstract void Reset();
     }
 }
