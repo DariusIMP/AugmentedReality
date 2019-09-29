@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CommandInterpreter.Calculator.Container.Functions;
 using UnityEngine;
 using UnityEngine.UI;
+using Custom.Scripts.Plotter;
 
 namespace Custom.Scripts.Plotter
 {
@@ -36,6 +37,13 @@ namespace Custom.Scripts.Plotter
             SetSinusoidalSignal();
         }
 
+        public void VaryAmplitude(float factor)
+        {
+            maxY = (Verticaldivs / (2f * factor));
+            minY = -maxY;
+            SetDots(_signal.SignalFunction);
+        }
+        
         public void SetSquareSignal()
         {
             _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier);
