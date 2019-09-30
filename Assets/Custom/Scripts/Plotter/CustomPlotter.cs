@@ -101,7 +101,23 @@ namespace Custom.Scripts.Plotter
         {
             Rect rect = _rectTransform.rect;
             float newX = x / (_timeBaseMultiplier * maxX) * rect.x;
+            if (newX > rect.xMax)
+            {
+                newX = rect.xMax;
+            } else if (newX < rect.xMin)
+            { 
+                newX = rect.xMin;
+            }
+
             float newFx = fx / maxY * rect.y;
+            if (newFx > rect.yMax)
+            {
+                newFx = rect.yMax;
+            } else if (newFx < rect.yMin)
+            {
+                newFx = rect.yMin;
+            }
+            
             return new Vector2(-newX, -newFx); //TODO: chequear por qué la imagen sale invertida (el - está puesto a propósito para contrarrestar esto)
         }
         
