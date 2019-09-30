@@ -437,6 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 28279265}
   - component: {fileID: 28279266}
+  - component: {fileID: 28279267}
   m_Layer: 5
   m_Name: Slider (2)
   m_TagString: Untagged
@@ -526,6 +527,54 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &28279267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28279264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1746016627}
+          m_MethodName: OnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1746016627}
+          m_MethodName: OnPointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &41728405
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 101301385}
   - component: {fileID: 101301386}
+  - component: {fileID: 101301387}
   m_Layer: 5
   m_Name: Slider (1)
   m_TagString: Untagged
@@ -1087,6 +1137,54 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &101301387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101301384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 915070544}
+          m_MethodName: OnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 915070544}
+          m_MethodName: OnPointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &143238574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,6 +1924,12 @@ RectTransform:
 --- !u!1 &296779819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100022, guid: c2890a8404d924c5c9d0189055f3b602,
+    type: 3}
+  m_PrefabInstance: {fileID: 512711662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &296779820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602,
     type: 3}
   m_PrefabInstance: {fileID: 512711662}
   m_PrefabAsset: {fileID: 0}
@@ -3567,11 +3671,41 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100014, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
 --- !u!4 &512711663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c2890a8404d924c5c9d0189055f3b602,
+    type: 3}
+  m_PrefabInstance: {fileID: 512711662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &584202307 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400034, guid: c2890a8404d924c5c9d0189055f3b602,
     type: 3}
   m_PrefabInstance: {fileID: 512711662}
   m_PrefabAsset: {fileID: 0}
@@ -3660,12 +3794,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 512711662}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &628035885 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400020, guid: c2890a8404d924c5c9d0189055f3b602,
-    type: 3}
-  m_PrefabInstance: {fileID: 512711662}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &628035886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3692,18 +3820,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.780037, y: 14.033912, z: 18.134253}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &628035890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628035884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a781ad8f4fce4fbe9a40970133c38ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!21 &636406516
 Material:
   serializedVersion: 6
@@ -3744,7 +3860,7 @@ GameObject:
   - component: {fileID: 639954317}
   - component: {fileID: 639954316}
   m_Layer: 0
-  m_Name: Light
+  m_Name: AmplitudeVarIndicatorLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3757,11 +3873,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 639954314}
-  m_LocalRotation: {x: -0, y: -0.70710677, z: 0.7071069, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 147.45581, y: 147.45561, z: 147.45561}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0.2, y: 0.000026181657, z: 0.000025363483}
+  m_LocalScale: {x: 147.45593, y: 147.45567, z: 147.45566}
   m_Children: []
-  m_Father: {fileID: 628035885}
+  m_Father: {fileID: 296779820}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &639954316
@@ -3773,9 +3889,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 639954314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61554e28260514f909a1bda057a9c914, type: 3}
+  m_Script: {fileID: 11500000, guid: c581cc96a43a544e18e4284d21e39bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxIntensity: 100
+  minIntensity: 1
+  multiplier: 100
 --- !u!108 &639954317
 Light:
   m_ObjectHideFlags: 0
@@ -3786,9 +3905,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 0.68235296, g: 0.55638933, b: 0, a: 1}
-  m_Intensity: 20
-  m_Range: 0.1
+  m_Color: {r: 0.68235296, g: 0.2887252, b: 0, a: 1}
+  m_Intensity: 100
+  m_Range: 3
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3824,6 +3943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 647401210}
   - component: {fileID: 647401211}
+  - component: {fileID: 647401212}
   m_Layer: 5
   m_Name: Slider (3)
   m_TagString: Untagged
@@ -3913,6 +4033,54 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &647401212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647401209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 639954316}
+          m_MethodName: OnPointerDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 14
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 639954316}
+          m_MethodName: OnPointerUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &649807097
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,6 +5354,91 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &915070542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 915070543}
+  - component: {fileID: 915070545}
+  - component: {fileID: 915070544}
+  m_Layer: 0
+  m_Name: VerticalDispIndicatorLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &915070543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915070542}
+  m_LocalRotation: {x: -0, y: -0.70710677, z: 0.7071069, w: 0}
+  m_LocalPosition: {x: 0.19987732, y: 3.8, z: -0.3}
+  m_LocalScale: {x: 147.45624, y: 147.45581, z: 147.45581}
+  m_Children: []
+  m_Father: {fileID: 584202307}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915070544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915070542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c581cc96a43a544e18e4284d21e39bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxIntensity: 100
+  minIntensity: 1
+  multiplier: 100
+--- !u!108 &915070545
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915070542}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 0.68235296, g: 0.2887252, b: 0, a: 1}
+  m_Intensity: 100
+  m_Range: 3
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &951687112
 GameObject:
   m_ObjectHideFlags: 0
@@ -6408,6 +6661,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.780037, y: 14.033912, z: 18.134253}
   m_Center: {x: -29, y: 0.21102108, z: 0.4304253}
+--- !u!4 &1134366790 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400010, guid: c2890a8404d924c5c9d0189055f3b602,
+    type: 3}
+  m_PrefabInstance: {fileID: 512711662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1140136955
 GameObject:
   m_ObjectHideFlags: 0
@@ -9006,6 +9265,91 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1746016625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1746016626}
+  - component: {fileID: 1746016628}
+  - component: {fileID: 1746016627}
+  m_Layer: 0
+  m_Name: TimeBaseIndicatorLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1746016626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746016625}
+  m_LocalRotation: {x: -0, y: -0.70710677, z: 0.7071069, w: 0}
+  m_LocalPosition: {x: -0.2, y: 0.00010472665, z: 0.000106362975}
+  m_LocalScale: {x: 147.45636, y: 147.45587, z: 147.45587}
+  m_Children: []
+  m_Father: {fileID: 1134366790}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746016627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746016625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c581cc96a43a544e18e4284d21e39bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxIntensity: 100
+  minIntensity: 1
+  multiplier: 100
+--- !u!108 &1746016628
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746016625}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 0.68235296, g: 0.2887252, b: 0, a: 1}
+  m_Intensity: 100
+  m_Range: 3
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1756012065
 GameObject:
   m_ObjectHideFlags: 0
