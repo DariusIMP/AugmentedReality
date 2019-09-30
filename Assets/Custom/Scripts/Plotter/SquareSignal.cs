@@ -12,8 +12,8 @@ namespace Custom.Scripts.Plotter
         public override float SignalFunction(float x)
         {
             var vDisplacement = acDcCoupling ? verticalDisplacement : 0f;
-            return Math.Abs(Math.Floor(x + horizontalDisplacement)) % 2 < 0.01
-                ? 0 + vDisplacement
+            return Math.Abs(Math.Floor(x / 3 + horizontalDisplacement)) % 2 < 0.01
+                ? -1 + vDisplacement
                 : 1 + vDisplacement;
         }
 

@@ -9,11 +9,16 @@ namespace Custom.Scripts.Plotter
         private bool signalGrowing = true;
         private float vertex = 0f;
         private float peak;
+        private float v0 = 2f;
+        private float R = 1000f;
+        private float C = 0.001f;
+        private float adjustmentFactor = 0f;
         public AlmostSquareSignal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier, 
             RectTransform rectTransform) :
             base(horizontalDisplacement, verticalDisplacement, timeBaseMultiplier)
         {
             _rectTransform = rectTransform;
+            CalculateAdjustmentFactor();
         }
 
         private float Derivative(Func<float, float> func, float x)
@@ -27,15 +32,14 @@ namespace Custom.Scripts.Plotter
             vertex = 0f;
             peak = 0f;
             signalGrowing = true;
+            CalculateAdjustmentFactor();
         }
         
         public override float SignalFunction(float x)
         {
             float fx;
-            var v0 = 1f;
-            var R = 1000f;
-            var C = 0.001f;
-            x = x - _rectTransform.rect.x;
+            
+            x = x * 3 - _rectTransform.rect.x;
             if (signalGrowing)
             {
                 fx = (float) (v0 * (1 - Math.Exp(-(x - vertex ) * timeBaseMultiplier / (R * C))));
@@ -57,7 +61,14 @@ namespace Custom.Scripts.Plotter
             }
 
             var vDisplacement = acDcCoupling ? verticalDisplacement : 0f;
-            return fx + vDisplacement;
+            return fx - adjustmentFactor + vDisplacement;
+        }
+
+        private void CalculateAdjustmentFactor()
+        {
+            float max = (float) (v0 * (1 - Math.Exp(-(1000 - vertex) * timeBaseMultiplier / (R * C))));
+            float min = (float) (v0 * (1 + Math.Exp(-(1000 - vertex) * timeBaseMultiplier / (R * C)))) - max;
+            adjustmentFactor = (max - min) / 2;
         }
     }
 }

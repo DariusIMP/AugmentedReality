@@ -41,13 +41,15 @@ namespace Custom.Scripts.Plotter
         public void ToggleAcDcCoupling()
         {
             _signal.ToggleAcDcCoupling();
+            _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
 
         public void VaryAmplitude(float factor)
         {
-            maxY = (Verticaldivs / (2f * factor));
+            maxY = Verticaldivs / (2f * factor);
             minY = -maxY;
+            _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
         
