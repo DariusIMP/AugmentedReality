@@ -56,7 +56,8 @@ namespace Custom.Scripts.Plotter
                 }
             }
 
-            return fx + verticalDisplacement;
+            var vDisplacement = acDcCoupling ? verticalDisplacement : 0f;
+            return fx + vDisplacement;
         }
     }
 }

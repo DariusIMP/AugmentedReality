@@ -11,6 +11,8 @@ namespace Custom.Scripts.Plotter
         
         public float timeBaseMultiplier = 1f;
 
+        public Boolean acDcCoupling = false;
+
         protected Signal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier)
         {
             this.horizontalDisplacement = horizontalDisplacement;
@@ -21,5 +23,10 @@ namespace Custom.Scripts.Plotter
         public abstract float SignalFunction(float x);
 
         public abstract void Reset();
+
+        public void ToggleAcDcCoupling()
+        {
+            acDcCoupling = !acDcCoupling;
+        }
     }
 }

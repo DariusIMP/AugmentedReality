@@ -25,6 +25,7 @@ namespace Custom.Scripts.Plotter
         private float _horizontalDisplacement = 0f;
         private float _verticalDisplacement = 0f;
         private float _timeBaseMultiplier = 1f;
+
         
         public int dotsAmount;
         
@@ -35,6 +36,12 @@ namespace Custom.Scripts.Plotter
             _lineRenderer = gameObject.GetComponent<LineRenderer>();
             _lineRenderer.useWorldSpace = false; 
             SetSinusoidalSignal();
+        }
+
+        public void ToggleAcDcCoupling()
+        {
+            _signal.ToggleAcDcCoupling();
+            SetDots(_signal.SignalFunction);
         }
 
         public void VaryAmplitude(float factor)

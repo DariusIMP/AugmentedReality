@@ -11,7 +11,8 @@ namespace Custom.Scripts.Plotter
 
         public override float SignalFunction(float x)
         {
-            return (float) Math.Sin(x + horizontalDisplacement) + verticalDisplacement;
+            var vDisplacement = acDcCoupling ? verticalDisplacement : 0f;
+            return (float) Math.Sin(x + horizontalDisplacement) + vDisplacement;
         }
 
         public override void Reset()
