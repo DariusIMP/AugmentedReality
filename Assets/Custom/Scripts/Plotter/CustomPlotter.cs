@@ -55,7 +55,8 @@ namespace Custom.Scripts.Plotter
         
         public void SetSquareSignal()
         {
-            _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier);
+            _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, 
+                2f, 4f, 1f, -3f);
             SetDots(_signal.SignalFunction);
         }
 
