@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 
 
-public class PlaneRaysBehaviour : MonoBehaviour
+public class PlaneRaysBehaviour : RaysBehaviour
 {
-    public Material RayMaterial;
 
     private GameObject centerRay, topRay, bottomRay;
     private GameObject target, reflection;
+    
 
-    private const float RAY_WIDTH = 0.005f;
-
-
-    public void Initiate(GameObject target, GameObject reflection)
+    /*
+     *  TODO: Refactor to implement abstract class RaysBehaviour
+     * */
+    public void Initialize(GameObject target, GameObject reflection)
     {
         float distance = reflection.transform.position.z - target.transform.position.z;
         this.target = target;
@@ -55,16 +55,6 @@ public class PlaneRaysBehaviour : MonoBehaviour
         renderer = bottomRay.GetComponent<LineRenderer>();
         renderer.SetPosition(0, target.transform.position + new Vector3(0, yValue, 0));
         renderer.SetPosition(1, reflection.transform.position + new Vector3(0, yValue, 0));
-    }
-
-
-    private GameObject CreateRay()
-    {
-        GameObject ray = new GameObject();
-        LineRenderer renderer = ray.AddComponent<LineRenderer>();
-        renderer.material = RayMaterial;
-        renderer.startWidth = RAY_WIDTH;
-        return ray;
     }
 
 }

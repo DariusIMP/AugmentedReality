@@ -5,7 +5,8 @@ using UnityEngine;
 public class AugmentationsManager : MonoBehaviour
 {
 
-    public GameObject PlaneMirror;
+    public GameObject PlaneMirror, ConvexMirror;
+
 
     public void ActivatePlaneMirror()
     {
@@ -13,8 +14,15 @@ public class AugmentationsManager : MonoBehaviour
         PlaneMirror.SetActive(true);
     }
 
+    public void ActivateConvexMirror()
+    {
+        DeactivateAll();
+        ConvexMirror.SetActive(true);
+    }
+
     private void DeactivateAll()
     {
         PlaneMirror.SetActive(false);
+        ConvexMirror.SetActive(false);
     }
 }

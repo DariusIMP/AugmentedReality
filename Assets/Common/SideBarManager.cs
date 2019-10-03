@@ -15,4 +15,14 @@ public class SideBarManager : MonoBehaviour
         toggleMenu.Action();
     }
 
+    public void CloseAll()
+    {
+        for (int i = 0; i < transform.childCount; ++i)
+        {
+            DisplayMenu menu = transform.GetChild(i).GetComponent<DisplayMenu>();
+            if (menu != null)
+                menu.HideMenu();
+        }
+    }
+
 }
