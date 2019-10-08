@@ -25,7 +25,11 @@ namespace Custom.Scripts.Plotter
         private float _horizontalDisplacement = 0f;
         private float _verticalDisplacement = 0f;
         private float _timeBaseMultiplier = 1f;
-
+        
+        [Range(-100,100)]
+        private float _triggerLevel = 0f;
+        
+        public GameObject triggerLevelIndicator;
         
         public int dotsAmount;
         
@@ -38,6 +42,14 @@ namespace Custom.Scripts.Plotter
             SetSinusoidalSignal();
         }
 
+        public void VaryTriggerLevel(float triggerLevel)
+        {
+            _triggerLevel = triggerLevel;
+            Vector3 triggerLevelPos = triggerLevelIndicator.transform.localPosition;
+            triggerLevelPos.y = triggerLevel / 100 * _rectTransform.rect.y;
+            triggerLevelIndicator.transform.localPosition = triggerLevelPos;
+        }
+        
         public void ToggleAcDcCoupling()
         {
             _signal.ToggleAcDcCoupling();
