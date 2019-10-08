@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\pyrenees\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_AugmentedReality.-1815333634.00" t="ExcludeRecursive" />
+    <e p="C:\Users\pyrenees\GitProjects\AugmentedReality" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="CameraSync.cs" t="Include" />
+        <e p="Common" t="Include">
+          <e p="CameraSettings.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="ConfigurePlayerSettings.cs" t="Include" />
+          </e>
+          <e p="FrameRateSettings.cs" t="Include" />
+          <e p="InitErrorHandler.cs" t="Include" />
+          <e p="MenuAnimator.cs" t="Include" />
+          <e p="MenuOptions.cs" t="Include" />
+          <e p="SplashAbout" t="Include">
+            <e p="AboutScreen.cs" t="Include" />
+            <e p="AsyncSceneLoader.cs" t="Include" />
+            <e p="LoadingScreen.cs" t="Include" />
+          </e>
+          <e p="TapHandler.cs" t="Include" />
+          <e p="TrackableSettings.cs" t="Include" />
+        </e>
+        <e p="Custom" t="Include">
+          <e p="Contrib" t="Include">
+            <e p="GraphPlotter" t="Include">
+              <e p="Core" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="GraphEditorFormula.cs" t="Include" />
+                  <e p="GraphEditorHelpWindow.cs" t="Include" />
+                  <e p="GraphEditorWindow.cs" t="Include" />
+                </e>
+                <e p="MathPlotter.cs" t="Include" />
+              </e>
+              <e p="Demo" t="Include">
+                <e p="PlotTestCube.cs" t="Include" />
+                <e p="PlotTestUI.cs" t="Include" />
+                <e p="RuntimePlotter.cs" t="Include" />
+              </e>
+              <e p="README.txt" t="Include" />
+            </e>
+            <e p="HologramShader-master" t="Include">
+              <e p="Assets" t="Include">
+                <e p="Demo" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="AutoRotate.cs" t="Include" />
+                  </e>
+                  <e p="Shaders" t="Include">
+                    <e p="Floor.shader" t="Include" />
+                  </e>
+                </e>
+                <e p="Hologram" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="Foldout.cs" t="Include" />
+                    <e p="HologramShaderGUI.cs" t="Include" />
+                    <e p="Layout.cs" t="Include" />
+                  </e>
+                  <e p="Shader" t="Include">
+                    <e p="Hologram.shader" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="SimplestPlot" t="Include">
+              <e p="Example.cs" t="Include" />
+              <e p="SimplestPlot.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Materials" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="Outline 1.shader" t="Include" />
+              <e p="Outline.shader" t="Include" />
+            </e>
+            <e p="UI-Default-No-Alpha.shader" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="ActiveStateToggler.cs" t="Include" />
+            <e p="Animation Controllers" t="Include">
+              <e p="Peralte" t="Include">
+                <e p="PeralteAnimationController.cs" t="Include" />
+              </e>
+            </e>
+            <e p="ApplicationManager.cs" t="Include" />
+            <e p="ArrowScaler.cs" t="Include" />
+            <e p="Aspect" t="Include">
+              <e p="Transparency.cs" t="Include" />
+            </e>
+            <e p="AssetBundleScene.cs" t="Include" />
+            <e p="BlueprintTrackableEventHandler.cs" t="Include" />
+            <e p="CameraFocusController.cs" t="Include" />
+            <e p="CampoRotanteScripts" t="Include">
+              <e p="ArrowOscilator.cs" t="Include" />
+              <e p="CampoRotanteArrowController.cs" t="Include" />
+              <e p="PhaseSum.cs" t="Include" />
+              <e p="RotatingFieldController.cs" t="Include" />
+              <e p="Spin.cs" t="Include" />
+            </e>
+            <e p="ChangeColor.cs" t="Include" />
+            <e p="ChangeMaterial.cs" t="Include" />
+            <e p="ConstructionSlide.cs" t="Include" />
+            <e p="DatasetLoader.cs" t="Include" />
+            <e p="DatasetLoaderButton.cs" t="Include" />
+            <e p="Dialogues" t="Include">
+              <e p="Campo Rotante" t="Include">
+                <e p="Subtitulos" t="Include">
+                  <e p="camporotante1.txt" t="Include" />
+                  <e p="camporotante2.txt" t="Include" />
+                </e>
+              </e>
+              <e p="DialogueManager.cs" t="Include" />
+              <e p="Peralte" t="Include">
+                <e p="Subtitulos" t="Include">
+                  <e p="Peralte1.txt" t="Include" />
+                  <e p="Peralte2.txt" t="Include" />
+                  <e p="Peralte3.txt" t="Include" />
+                  <e p="Peralte4.txt" t="Include" />
+                  <e p="Peralte5.txt" t="Include" />
+                  <e p="Peralte6.txt" t="Include" />
+                  <e p="Peralte7.txt" t="Include" />
+                  <e p="PeralteR1.txt" t="Include" />
+                  <e p="PeralteR2.txt" t="Include" />
+                  <e p="PeralteR3.txt" t="Include" />
+                  <e p="PeralteR4.txt" t="Include" />
+                </e>
+              </e>
+              <e p="Subtitulos" t="Include">
+                <e p="Unity-Simple-SRT-master" t="Include">
+                  <e p="src" t="Include">
+                    <e p="Assets" t="Include">
+                      <e p="Demigiant" t="Include">
+                        <e p="DOTween" t="Include">
+                          <e p="DOTween43.xml" t="Include" />
+                          <e p="DOTween46.xml" t="Include" />
+                          <e p="DOTween50.xml" t="Include" />
+                          <e p="README.txt" t="Include" />
+                        </e>
+                      </e>
+                      <e p="Example" t="Include">
+                        <e p="Example.cs" t="Include" />
+                        <e p="Example.txt" t="Include" />
+                      </e>
+                      <e p="SimpleSRT" t="Include">
+                        <e p="SRTParser.cs" t="Include" />
+                        <e p="SubtitleDisplayer.cs" t="Include" />
+                      </e>
+                    </e>
+                    <e p="ProjectSettings" t="Include">
+                      <e p="ProjectVersion.txt" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="Dinamic.cs" t="Include" />
+            <e p="DisplayMenu.cs" t="Include" />
+            <e p="DragMe.cs" t="Include" />
+            <e p="DragPanel.cs" t="Include" />
+            <e p="DropMe.cs" t="Include" />
+            <e p="DynamicDataSetLoader2.cs" t="Include" />
+            <e p="Exit.cs" t="Include" />
+            <e p="FadeInFadeOut.cs" t="Include" />
+            <e p="FadingEffects.cs" t="Include" />
+            <e p="FadingText.cs" t="Include" />
+            <e p="Film" t="Include">
+              <e p="CampoRotanteFilm" t="Include">
+                <e p="CampoRotanteFilm.cs" t="Include" />
+                <e p="Cuadro1.cs" t="Include" />
+                <e p="Cuadro2.cs" t="Include" />
+                <e p="CuadroCampoRotante.cs" t="Include" />
+              </e>
+              <e p="Cuadro.cs" t="Include" />
+              <e p="Film.cs" t="Include" />
+              <e p="Peralte Film" t="Include">
+                <e p="CuadroPeralte.cs" t="Include" />
+                <e p="PeralteCuadro0.cs" t="Include" />
+                <e p="PeralteCuadro1.cs" t="Include" />
+                <e p="PeralteCuadro2.cs" t="Include" />
+                <e p="PeralteCuadro3.cs" t="Include" />
+                <e p="PeralteCuadro4.cs" t="Include" />
+                <e p="PeralteCuadro5.cs" t="Include" />
+                <e p="PeralteCuadro6.cs" t="Include" />
+                <e p="PeralteCuadro7.cs" t="Include" />
+                <e p="PeralteCuadroR1.cs" t="Include" />
+                <e p="PeralteCuadroR2.cs" t="Include" />
+                <e p="PeralteCuadroR3.cs" t="Include" />
+                <e p="PeralteCuadroR4.cs" t="Include" />
+                <e p="PeralteFilm.cs" t="Include" />
+              </e>
+              <e p="UI Scripts" t="Include">
+                <e p="PlayBarManager.cs" t="Include" />
+                <e p="ToggleAudio.cs" t="Include" />
+                <e p="TogglePlayImage.cs" t="Include" />
+              </e>
+            </e>
+            <e p="FreeBodyDiagram.cs" t="Include" />
+            <e p="LoadDataSetOnButtonClick.cs" t="Include" />
+            <e p="Looker.cs" t="Include" />
+            <e p="PanelManager.cs" t="Include" />
+            <e p="Peralte Scripts" t="Include">
+              <e p="Peralte Solvers" t="Include">
+                <e p="PeralteConRozamientoVMax.cs" t="Include" />
+                <e p="PeralteConRozamientoVMin.cs" t="Include" />
+                <e p="PeralteProblem.cs" t="Include" />
+                <e p="PeralteSinRozamiento.cs" t="Include" />
+              </e>
+              <e p="Peralte Views" t="Include">
+                <e p="FBDView.cs" t="Include" />
+                <e p="MCUView.cs" t="Include" />
+                <e p="PeralteConRozamientoVMaxView.cs" t="Include" />
+                <e p="PeralteConRozamientoVMinView.cs" t="Include" />
+                <e p="PeralteSinRozamientoView.cs" t="Include" />
+                <e p="PeralteView.cs" t="Include" />
+              </e>
+              <e p="PeralteManager.cs" t="Include" />
+            </e>
+            <e p="PlaySound.cs" t="Include" />
+            <e p="Plotter" t="Include">
+              <e p="AlmostSquareSignal.cs" t="Include" />
+              <e p="Controller.cs" t="Include" />
+              <e p="CustomPlotter.cs" t="Include" />
+              <e p="Signal.cs" t="Include" />
+              <e p="SinusoidalSignal.cs" t="Include" />
+              <e p="SquareSignal.cs" t="Include" />
+            </e>
+            <e p="ResizePanel.cs" t="Include" />
+            <e p="Rotator.cs" t="Include" />
+            <e p="SceneButton.cs" t="Include" />
+            <e p="ScrollDetailTexture.cs" t="Include" />
+            <e p="SelectionManager.cs" t="Include" />
+            <e p="ShowSliderValue.cs" t="Include" />
+            <e p="Sistema Solar Scripts" t="Include">
+              <e p="CentrarPlaneta.cs" t="Include" />
+              <e p="PlanetInfoDisplayer.cs" t="Include" />
+            </e>
+            <e p="SlidesController.cs" t="Include" />
+            <e p="Testing" t="Include">
+              <e p="SimpleSmoothMouseLook.cs" t="Include" />
+            </e>
+            <e p="TiltWindow.cs" t="Include" />
+            <e p="ToggleController.cs" t="Include" />
+            <e p="Viscosidad Scripts" t="Include">
+              <e p="DclController.cs" t="Include" />
+              <e p="FluxController.cs" t="Include" />
+              <e p="FluxProblem.cs" t="Include" />
+              <e p="FluxProblemSolver.cs" t="Include" />
+              <e p="Integration.cs" t="Include" />
+              <e p="RegularMarcas.cs" t="Include" />
+              <e p="RK4.cs" t="Include" />
+              <e p="Sphere.cs" t="Include" />
+              <e p="Timer.cs" t="Include" />
+              <e p="TimerButtonsController.cs" t="Include" />
+              <e p="Viscosidad_FBD.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Editor" t="Include">
+          <e p="CreateAssetBundles.cs" t="Include" />
+          <e p="Vuforia" t="Include">
+            <e p="Algo" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="AR" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="CylinderTargetTextures" t="Include">
+              <e p="VuforiaMars_Images" t="Include">
+                <e p="authoringinfo.xml" t="Include" />
+              </e>
+            </e>
+            <e p="Emulator" t="Include">
+              <e p="VuforiaEmulator.xml" t="Include" />
+            </e>
+            <e p="ForPrint" t="Include">
+              <e p="ModelTarget" t="Include">
+                <e p="readme_3dprint.txt" t="Include" />
+              </e>
+            </e>
+            <e p="Lapicero" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="MiniRubik" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="MiniRubik2" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="PelotaConTexturas" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="Pelotadetenis2" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="PelotaTenis" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="Plano Inclinado 2" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="Plano5" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="Rubik" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="Rubik45" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="SampleOrientationSetter.cs" t="Include" />
+            <e p="TargetsetData" t="Include">
+              <e p="VuforiaMars_Object_info.xml" t="Include" />
+            </e>
+            <e p="Tuerca" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="Viscosidad3" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="VuforiaMars_ModelTarget" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+            <e p="VuforiaMars_VuMark" t="Include">
+              <e p="authoringinfo.xml" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Fonts" t="Include">
+          <e p="Jupiter" t="Include">
+            <e p="LICENSE.txt" t="Include" />
+          </e>
+        </e>
+        <e p="LimitMarker.cs" t="Include" />
+        <e p="ProCore" t="Include">
+          <e p="ProBuilder" t="Include">
+            <e p="About" t="Include">
+              <e p="changelog.txt" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="pb_AboutWindow.cs" t="Include" />
+                <e p="pb_UpdateAvailable.cs" t="Include" />
+                <e p="pb_UpdateCheck.cs" t="Include" />
+                <e p="pb_VersionInfo.cs" t="Include" />
+                <e p="pb_VersionUtil.cs" t="Include" />
+              </e>
+              <e p="Font" t="Include">
+                <e p="SIL Open Font License.txt" t="Include" />
+              </e>
+              <e p="pc_AboutEntry_ProBuilder.txt" t="Include" />
+              <e p="ThirdPartyLicenses.txt" t="Include" />
+            </e>
+            <e p="API Examples" t="Include">
+              <e p="Editor" t="Include">
+                <e p="ClearUnusedAttributes.cs" t="Include" />
+                <e p="CreateShadowObject.cs" t="Include" />
+                <e p="CustomAction.cs" t="Include" />
+                <e p="EditorCallbackViewer.cs" t="Include" />
+                <e p="RenameNewObjects.cs" t="Include" />
+                <e p="SetCustomUnwrapParams.cs" t="Include" />
+              </e>
+              <e p="Icosphere FFT" t="Include">
+                <e p="README.txt" t="Include" />
+                <e p="Scripts" t="Include">
+                  <e p="CameraControls.cs" t="Include" />
+                  <e p="IcoBumpin.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Misc" t="Include">
+                <e p="HueCube.cs" t="Include" />
+              </e>
+              <e p="Procedural Mesh" t="Include">
+                <e p="ExtrudeRandomEdges.cs" t="Include" />
+              </e>
+              <e p="Runtime Editing" t="Include">
+                <e p="RuntimeEdit.cs" t="Include" />
+              </e>
+              <e p="Vertex Colors" t="Include">
+                <e p="HighlightNearestFace.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Editor" t="Include">
+              <e p="Addons" t="Include">
+                <e p="pb_Fbx.cs" t="Include" />
+              </e>
+              <e p="MenuItems" t="Include">
+                <e p="Actions" t="Include">
+                  <e p="pb_ExportObj.cs" t="Include" />
+                  <e p="pb_GenerateUV2.cs" t="Include" />
+                  <e p="pb_MakeMeshAsset.cs" t="Include" />
+                  <e p="pb_ProBuilderize.cs" t="Include" />
+                  <e p="pb_StripProBuilderScripts.cs" t="Include" />
+                </e>
+                <e p="Geometry" t="Include">
+                  <e p="pb_BridgeEdges.cs" t="Include" />
+                  <e p="pb_ConformNormals.cs" t="Include" />
+                  <e p="pb_ConnectEdges.cs" t="Include" />
+                  <e p="pb_DetachDeleteFace.cs" t="Include" />
+                  <e p="pb_ExtrudeElement.cs" t="Include" />
+                  <e p="pb_FlipEdge.cs" t="Include" />
+                  <e p="pb_FlipNormals.cs" t="Include" />
+                  <e p="pb_FreezeTransform.cs" t="Include" />
+                  <e p="pb_MergeFaces.cs" t="Include" />
+                  <e p="pb_SetPivot.cs" t="Include" />
+                  <e p="pb_Triangulate.cs" t="Include" />
+                  <e p="pb_VertexMergeWeld.cs" t="Include" />
+                </e>
+                <e p="Repair" t="Include">
+                  <e p="pb_CleanLeakedMeshes.cs" t="Include" />
+                  <e p="pb_ForceSceneRefresh.cs" t="Include" />
+                  <e p="pb_RebuildMeshes.cs" t="Include" />
+                  <e p="pb_RebuildSharedIndices.cs" t="Include" />
+                  <e p="pb_RemoveDegenerateTris.cs" t="Include" />
+                  <e p="pb_RepairColors.cs" t="Include" />
+                  <e p="pb_RepairMeshReferences.cs" t="Include" />
+                  <e p="pb_RepairUV.cs" t="Include" />
+                  <e p="pb_ResetEntityMaterials.cs" t="Include" />
+                  <e p="pb_UpgradeBasicToAdvanced.cs" t="Include" />
+                </e>
+                <e p="Selection" t="Include">
+                  <e p="pb_EdgeSelection.cs" t="Include" />
+                  <e p="pb_ExpandSelection.cs" t="Include" />
+                  <e p="pb_InvertSelection.cs" t="Include" />
+                  <e p="pb_MaterialSelection.cs" t="Include" />
+                </e>
+                <e p="Tools" t="Include">
+                  <e p="pb_BooleanInterface.cs" t="Include" />
+                  <e p="pb_MaterialSelection.cs" t="Include" />
+                </e>
+                <e p="Window" t="Include">
+                  <e p="pb_ProBuilderMenuItems.cs" t="Include" />
+                </e>
+              </e>
+              <e p="pb_MenuItems.cs" t="Include" />
+              <e p="pb_MissingScriptEditor.cs" t="Include" />
+              <e p="pb_Preferences.cs" t="Include" />
+              <e p="pb_ScenePostProcessor.cs" t="Include" />
+            </e>
+            <e p="README.txt" t="Include" />
+            <e p="Shader" t="Include">
+              <e p="DiffuseTextureBlend.shader" t="Include" />
+              <e p="DiffuseVertexColor.shader" t="Include" />
+              <e p="pb_FaceHighlight.shader" t="Include" />
+              <e p="pb_FacePicker.shader" t="Include" />
+              <e p="pb_HideVertices.shader" t="Include" />
+              <e p="pb_NormalPreview.shader" t="Include" />
+              <e p="pb_ReferenceUnlit.shader" t="Include" />
+              <e p="pb_ScrollHighlight.shader" t="Include" />
+              <e p="pb_SelectionPicker.shader" t="Include" />
+              <e p="pb_SmoothingPreview.shader" t="Include" />
+              <e p="pb_StandardVertexColor.shader" t="Include" />
+              <e p="pb_TransparentOverlay.shader" t="Include" />
+              <e p="pb_UnlitSolidColor.shader" t="Include" />
+              <e p="pb_UnlitVertexColor.shader" t="Include" />
+              <e p="pb_VertexPicker.shader" t="Include" />
+              <e p="pb_VertexShader.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="SliderValue.cs" t="Include" />
+        <e p="StreamingAssets" t="Include">
+          <e p="QCAR" t="Include">
+            <e p="MiniRubik2.xml" t="Include" />
+            <e p="Rubik45.xml" t="Include" />
+            <e p="VuforiaMars_ModelTarget.xml" t="Include" />
+          </e>
+          <e p="Vuforia" t="Include">
+            <e p="Algo.xml" t="Include" />
+            <e p="ar-fiuba.xml" t="Include" />
+            <e p="AR.xml" t="Include" />
+            <e p="Cetec.xml" t="Include" />
+            <e p="Construcciones.xml" t="Include" />
+            <e p="Electrotecnia.xml" t="Include" />
+            <e p="Lapicero.xml" t="Include" />
+            <e p="MiniRubik.xml" t="Include" />
+            <e p="MiniRubik2.xml" t="Include" />
+            <e p="PelotaConTexturas.xml" t="Include" />
+            <e p="Pelotadetenis2.xml" t="Include" />
+            <e p="PelotaTenis.xml" t="Include" />
+            <e p="Plano Inclinado 2.xml" t="Include" />
+            <e p="Plano5.xml" t="Include" />
+            <e p="Rubik.xml" t="Include" />
+            <e p="Rubik45.xml" t="Include" />
+            <e p="Tuerca.xml" t="Include" />
+            <e p="Viscosidad.xml" t="Include" />
+            <e p="Viscosidad3.xml" t="Include" />
+            <e p="VuforiaMars_Images.xml" t="Include" />
+            <e p="VuforiaMars_Object_OT.xml" t="Include" />
+            <e p="VuforiaMars_VuMark.xml" t="Include" />
+          </e>
+        </e>
+        <e p="Vuforia" t="Include">
+          <e p="Databases" t="Include">
+            <e p="Emulator" t="Include">
+              <e p="VuforiaEmulator.xml" t="Include" />
+            </e>
+          </e>
+          <e p="Editor" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="OpenSourceInitializer.cs" t="Include" />
+              <e p="VuforiaEditorScripts.asmdef" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="BoundingBoxRenderer.cs" t="Include" />
+            <e p="DefaultInitializationErrorHandler.cs" t="Include" />
+            <e p="DefaultModelRecoEventHandler.cs" t="Include" />
+            <e p="DefaultTrackableEventHandler.cs" t="Include" />
+            <e p="VuforiaScripts.asmdef" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="BrightTexture.shader" t="Include" />
+            <e p="CameraDiffuse.shader" t="Include" />
+            <e p="ClippingMask.shader" t="Include" />
+            <e p="ColoredLines.shader" t="Include" />
+            <e p="DepthContour.shader" t="Include" />
+            <e p="DepthMask.shader" t="Include" />
+            <e p="OutlineOpaque.shader" t="Include" />
+            <e p="Text3D.shader" t="Include" />
+            <e p="VertexLitWithZ.shader" t="Include" />
+            <e p="VideoBackground.shader" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="AugmentedReality.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="VuforiaEditorScripts.csproj" t="IncludeRecursive" />
+      <e p="VuforiaScripts.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
