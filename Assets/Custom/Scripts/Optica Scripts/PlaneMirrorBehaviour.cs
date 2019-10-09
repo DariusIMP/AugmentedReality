@@ -13,9 +13,8 @@ public class PlaneMirrorBehaviour : MonoBehaviour
     void Start()
     {
         float distance = transform.position.z;
-        //ReflectionImage.transform.localScale.Set(1, 1, 1);
-        ReflectionImage.transform.position.Set(0, 0, 2 * distance);
-        RaysBehaviour.Initialize(Target, ReflectionImage);
+        ReflectionImage.transform.position = 2 * transform.position;
+        RaysBehaviour.Initialize(Target, this);
 
         //Vector3 mirrorPosition = mirrorObject.transform.position;
         //mirrorPosition.z = distance;

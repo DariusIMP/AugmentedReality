@@ -4,57 +4,57 @@
 public class PlaneRaysBehaviour : RaysBehaviour
 {
 
-    private GameObject centerRay, topRay, bottomRay;
-    private GameObject target, reflection;
+    private GameObject CenterRay, TopRay, BottomRay;
+    private GameObject Target;
+    private PlaneMirrorBehaviour Mirror;
     
 
     /*
      *  TODO: Refactor to implement abstract class RaysBehaviour
      * */
-    public void Initialize(GameObject target, GameObject reflection)
+    public void Initialize(GameObject target, PlaneMirrorBehaviour mirror)
     {
-        float distance = reflection.transform.position.z - target.transform.position.z;
-        this.target = target;
-        this.reflection = reflection;
-        Vector3 reflectedPoint;
+        this.Target = target;
+        this.Mirror = mirror;
 
-        centerRay = CreateRay();
-        float yValue = 0;
-        reflectedPoint = new Vector3(0, yValue, 2 * distance);
-        centerRay.GetComponent<LineRenderer>().SetPositions(new Vector3[]{
-            new Vector3(0, 0, 0), reflectedPoint
-        });
+        CenterRay = CreateRay("Center Ray");
+        TopRay = CreateRay("Top Ray");
+        BottomRay = CreateRay("Bottom Ray");
 
-        topRay = CreateRay();
-        yValue = reflection.transform.localScale.y / 2;
-        reflectedPoint = new Vector3(0, yValue, 2 * distance);
-        topRay.GetComponent<LineRenderer>().SetPositions(new Vector3[] {
-            new Vector3(0, yValue, 0), reflectedPoint
-        });
-
-        bottomRay = CreateRay();
-        yValue = - reflection.transform.localScale.y / 2;
-        reflectedPoint = new Vector3(0, yValue, 2 * distance);
-        bottomRay.GetComponent<LineRenderer>().SetPositions(new Vector3[] {
-            new Vector3(0, yValue, 0), reflectedPoint
-        });
+        PositionRays();
     }
 
     public void Update()
     {
-        LineRenderer renderer = centerRay.GetComponent<LineRenderer>();
-        renderer.SetPosition(0, target.transform.position);
-        renderer.SetPosition(1, reflection.transform.position);
+        PositionRays();
+    }
 
-        float yValue = reflection.transform.localScale.y / 2;
-        renderer = topRay.GetComponent<LineRenderer>();
-        renderer.SetPosition(0, target.transform.position + new Vector3(0, yValue, 0));
-        renderer.SetPosition(1, reflection.transform.position + new Vector3(0, yValue, 0));
+    public void PositionRays()
+    {
+        Vector3 reflectedPoint = 2 * Mirror.transform.position - Target.transform.position;
+        CenterRay.GetComponent<LineRenderer>().SetPositions(new Vector3[] {
+            Target.transform.position,
+            Mirror.transform.position,
+            reflectedPoint
+        });
 
-        yValue = - reflection.transform.localScale.y / 2;
-        renderer = bottomRay.GetComponent<LineRenderer>();
-        renderer.SetPosition(0, target.transform.position + new Vector3(0, yValue, 0));
-        renderer.SetPosition(1, reflection.transform.position + new Vector3(0, yValue, 0));
+        float yValue = 0.125f; // Target.transform.localScale.y / 2;
+        Vector3 offset = new Vector3(0, yValue, 0);
+        reflectedPoint = 2 * Mirror.transform.position - Target.transform.position + offset;
+        TopRay.GetComponent<LineRenderer>().SetPositions(new Vector3[] {
+            Target.transform.position + offset,
+            Mirror.transform.position + offset,
+            reflectedPoint
+        });
+
+        yValue = -0.125f;
+        offset = new Vector3(0, yValue, 0);
+        reflectedPoint = 2 * Mirror.transform.position - Target.transform.position + offset;
+        BottomRay.GetComponent<LineRenderer>().SetPositions(new Vector3[] {
+            Target.transform.position + offset,
+            Mirror.transform.position + offset,
+            reflectedPoint
+        });
     }
 
 }
