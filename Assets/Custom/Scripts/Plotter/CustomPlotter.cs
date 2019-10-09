@@ -48,6 +48,8 @@ namespace Custom.Scripts.Plotter
             Vector3 triggerLevelPos = triggerLevelIndicator.transform.localPosition;
             triggerLevelPos.y = triggerLevel / 100 * _rectTransform.rect.y;
             triggerLevelIndicator.transform.localPosition = triggerLevelPos;
+            _signal.Reset();
+            SetDots(_signal.SignalFunction);
         }
         
         public void ToggleAcDcCoupling()
@@ -145,6 +147,34 @@ namespace Custom.Scripts.Plotter
                 _lineRenderer.SetPosition(i, AdjustCoordinateToCanvasSize(x, fx));
                 x += stepSize;
             }
+
+            if (!SignalIsOnTriggerLevel())
+            {
+                _lineRenderer.positionCount = 0;
+            }
+        }
+
+        private bool SignalIsOnTriggerLevel()
+        {
+            var positions = new Vector3[_lineRenderer.positionCount];
+            _lineRenderer.GetPositions(positions);
+            var max = positions[0].y;
+            var min = positions[0].y;
+            foreach (var position in positions)
+            {
+                if (position.y > max)
+                {
+                    max = position.y;
+                }
+
+                if (position.y < min)
+                {
+                    min = position.y;
+                }
+            }
+
+            var triggerLocalY = triggerLevelIndicator.transform.localPosition.y;
+            return triggerLocalY < max && triggerLocalY > min;
         }
     }
 }
