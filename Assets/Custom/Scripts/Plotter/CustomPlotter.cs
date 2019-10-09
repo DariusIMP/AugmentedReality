@@ -26,6 +26,14 @@ namespace Custom.Scripts.Plotter
         private float _verticalDisplacement = 0f;
         private float _timeBaseMultiplier = 1f;
         
+        //Unit: volts
+        private readonly float[] _timeBaseScale = {0.001f, 0.002f, 0.005f, 0.01f, 0.02f,
+            0.05f, 0.1f, 0.2f, 0.5f, 1, 2, 5};
+
+        //Unit: seconds
+        private readonly float[] _amplitudeScale = {0.001f, 0.002f, 0.005f, 0.01f, 0.02f,
+            0.05f, 0.1f, 0.2f, 0.5f, 1, 2, 5};
+        
         [Range(-100,100)]
         private float _triggerLevel = 0f;
         
@@ -38,7 +46,8 @@ namespace Custom.Scripts.Plotter
         {
             _rectTransform = gameObject.GetComponent<RectTransform>();
             _lineRenderer = gameObject.GetComponent<LineRenderer>();
-            _lineRenderer.useWorldSpace = false; 
+            _lineRenderer.useWorldSpace = false;
+
             SetSinusoidalSignal();
         }
 
@@ -59,14 +68,22 @@ namespace Custom.Scripts.Plotter
             SetDots(_signal.SignalFunction);
         }
 
-        public void VaryAmplitude(float factor)
+        public void ExpandTimeBase(float index)
         {
-            maxY = Verticaldivs / (2f * factor);
+            _timeBaseMultiplier = _timeBaseScale[(int)index];
+            _signal.timeBaseMultiplier = index;
+            _signal.Reset();
+            SetDots(_signal.SignalFunction);
+        }
+
+        public void VaryAmplitude(float index)
+        {
+            maxY = Verticaldivs / (2f * _amplitudeScale[(int)index]);
             minY = -maxY;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
-        
+
         public void SetSquareSignal()
         {
             _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, 
@@ -85,7 +102,7 @@ namespace Custom.Scripts.Plotter
             _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, _rectTransform);
             SetDots(_signal.SignalFunction);
         }
-        
+
         public void DisplaceHorizontally(float hd)
         {
             _horizontalDisplacement = hd;
@@ -104,13 +121,6 @@ namespace Custom.Scripts.Plotter
             SetDots(_signal.SignalFunction);
         }
 
-        public void ExpandTimeBase(float multiplier)
-        {
-            _timeBaseMultiplier = multiplier;
-            _signal.timeBaseMultiplier = multiplier;
-            _signal.Reset();
-            SetDots(_signal.SignalFunction);
-        }
 
         public Vector2 AdjustCoordinateToCanvasSize(float x, float fx)
         {
