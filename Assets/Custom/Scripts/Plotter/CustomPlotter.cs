@@ -70,15 +70,14 @@ namespace Custom.Scripts.Plotter
 
         public void ExpandTimeBase(float index)
         {
-            _timeBaseMultiplier = _timeBaseScale[(int)index];
-            _signal.timeBaseMultiplier = index;
+            _signal.timeBaseMultiplier = _timeBaseScale[(int)index];
             _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
 
         public void VaryAmplitude(float index)
         {
-            maxY = Verticaldivs / (2f * _amplitudeScale[(int)index]);
+            maxY = Verticaldivs / 2f * _amplitudeScale[(int)index];
             minY = -maxY;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
@@ -125,7 +124,7 @@ namespace Custom.Scripts.Plotter
         public Vector2 AdjustCoordinateToCanvasSize(float x, float fx)
         {
             Rect rect = _rectTransform.rect;
-            float newX = x / (_timeBaseMultiplier * maxX) * rect.x;
+            float newX = x / (_signal.timeBaseMultiplier * (Horizontaldivs / 2f)) * rect.x;
             if (newX > rect.xMax)
             {
                 newX = rect.xMax;
