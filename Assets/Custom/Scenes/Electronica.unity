@@ -2653,7 +2653,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: afed16c24de7048458177841ccfebf8c, type: 2}
+  - {fileID: 2100000, guid: 6c9c970ab6e455f49916fcf9833ab9ae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2682,7 +2682,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0.9975891
-        value: 0.0904274
+        value: 0.2750435
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -7005,8 +7005,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.177}
-  m_SizeDelta: {x: 2, y: 2}
+  m_AnchoredPosition: {x: 0, y: -0.0068999}
+  m_SizeDelta: {x: 2, y: 1.7075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1465191242
 MonoBehaviour:
@@ -7629,7 +7629,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6db7bfac3a973f84bbccc95d60c5dc34, type: 2}
+  - {fileID: 2100000, guid: bdaddec689357db4ea505c9f4c1b3a10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7650,7 +7650,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5c526189cf27c444f83d49bd1e93d0be, type: 3}
-  m_Color: {r: 0.6509434, g: 0.13788164, b: 0.03991636, a: 1}
+  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
