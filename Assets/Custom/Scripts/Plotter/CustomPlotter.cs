@@ -14,10 +14,10 @@ namespace Custom.Scripts.Plotter
         
         private RectTransform _rectTransform;
         
-        public float minX;
-        public float maxX;
-        public float minY;
-        public float maxY;
+        private float _minX;//TODO: construir esto en base a las escalas de amplitud y de base de tiempo
+        private float _maxX;
+        private float _minY;
+        private float _maxY;
 
         private LineRenderer _lineRenderer;
         private Signal _signal;
@@ -37,7 +37,9 @@ namespace Custom.Scripts.Plotter
         [Range(-100,100)]
         private float _triggerLevel = 0f;
         
-        public GameObject triggerLevelIndicator;
+        public GameObject TriggerLevelIndicator;
+        public GameObject AmplitudeSlider;
+        public GameObject TimeBaseSlider;
         
         public int dotsAmount;
         
@@ -47,16 +49,52 @@ namespace Custom.Scripts.Plotter
             _rectTransform = gameObject.GetComponent<RectTransform>();
             _lineRenderer = gameObject.GetComponent<LineRenderer>();
             _lineRenderer.useWorldSpace = false;
-
+            LoadScales();
             SetSinusoidalSignal();
         }
 
+        private void LoadScales()
+        {
+            LoadAmplitudeScale();
+            ShowAmplitudeScale();
+            
+            LoadTimeBaseScale();
+            ShowTimeBaseScale();
+        }
+
+        private void LoadAmplitudeScale()
+        {
+            var ampScale = _amplitudeScale[(int)AmplitudeSlider.GetComponent<Slider>().value];
+            _maxY = Verticaldivs / 2f * ampScale;
+            _minY = -_maxY;
+        }
+
+        private void LoadTimeBaseScale()
+        {
+            var timeScale = _timeBaseScale[(int) TimeBaseSlider.GetComponent<Slider>().value];
+            _timeBaseMultiplier = timeScale;
+            _maxX = Horizontaldivs / 2f * timeScale;
+            _minX = -_maxX;
+        }
+
+        private void ShowTimeBaseScale()
+        {
+            TimeBaseSlider.GetComponentInChildren<Text>().text = 
+                _timeBaseScale[(int) TimeBaseSlider.GetComponent<Slider>().value] + "s";
+        }
+        
+        private void ShowAmplitudeScale() 
+        {    
+            AmplitudeSlider.GetComponentInChildren<Text>().text = 
+            _amplitudeScale[(int) AmplitudeSlider.GetComponent<Slider>().value] + "V";
+        }
+        
         public void VaryTriggerLevel(float triggerLevel)
         {
             _triggerLevel = triggerLevel;
-            Vector3 triggerLevelPos = triggerLevelIndicator.transform.localPosition;
+            var triggerLevelPos = TriggerLevelIndicator.transform.localPosition;
             triggerLevelPos.y = triggerLevel / 100 * _rectTransform.rect.y;
-            triggerLevelIndicator.transform.localPosition = triggerLevelPos;
+            TriggerLevelIndicator.transform.localPosition = triggerLevelPos;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
@@ -70,6 +108,8 @@ namespace Custom.Scripts.Plotter
 
         public void ExpandTimeBase(float index)
         {
+            LoadTimeBaseScale();
+            ShowTimeBaseScale();
             _signal.timeBaseMultiplier = _timeBaseScale[(int)index];
             _signal.Reset();
             SetDots(_signal.SignalFunction);
@@ -77,8 +117,10 @@ namespace Custom.Scripts.Plotter
 
         public void VaryAmplitude(float index)
         {
-            maxY = Verticaldivs / 2f * _amplitudeScale[(int)index];
-            minY = -maxY;
+            LoadAmplitudeScale();
+            ShowAmplitudeScale();
+//            _maxY = Verticaldivs / 2f * _amplitudeScale[(int)index];
+//            _minY = -_maxY;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
@@ -133,7 +175,7 @@ namespace Custom.Scripts.Plotter
                 newX = rect.xMin;
             }
 
-            float newFx = fx / maxY * rect.y;
+            float newFx = fx / _maxY * rect.y;
             if (newFx > rect.yMax)
             {
                 newFx = rect.yMax;
@@ -148,8 +190,8 @@ namespace Custom.Scripts.Plotter
         public void SetDots(Func<float, float> func)
         {
             _lineRenderer.positionCount = dotsAmount;
-            float stepSize = (maxX - minX) / dotsAmount;
-            float x = minX;
+            float stepSize = (_maxX - _minX) / dotsAmount;
+            float x = _minX;
             for (int i = 0; i < dotsAmount; i++)
             {
                 var fx = func(x);
@@ -182,7 +224,7 @@ namespace Custom.Scripts.Plotter
                 }
             }
 
-            var triggerLocalY = triggerLevelIndicator.transform.localPosition.y;
+            var triggerLocalY = TriggerLevelIndicator.transform.localPosition.y;
             return triggerLocalY < max && triggerLocalY > min;
         }
     }
