@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class SideBarManager : MonoBehaviour
 {
-    
+
+    void Start()
+    {
+        CloseAll();    
+    }
+
     public void ToggleOnly(DisplayMenu toggleMenu)
     {
         for (int i = 0; i < transform.childCount; ++i) {

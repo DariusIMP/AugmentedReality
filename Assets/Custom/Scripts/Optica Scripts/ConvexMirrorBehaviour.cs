@@ -11,6 +11,7 @@ public class ConvexMirrorBehaviour : IMirrorBehaviour
     public void Start()
     {
         RaysBehaviour.Initialize(Target, this);
+        PositionVirtualImage();
     }
 
     public Vector3 GetCenter()
@@ -34,6 +35,19 @@ public class ConvexMirrorBehaviour : IMirrorBehaviour
     public float GetRadius()
     {
         return transform.localScale.z;
+    }
+
+
+    private void PositionVirtualImage()
+    {
+        Vector3 topPoint = RaysBehaviour.GetConvergingPoint();
+        float imageHeight = topPoint.y - transform.position.y;
+
+        Vector3 targetPos = topPoint;
+        targetPos.y -= imageHeight / 2;
+
+        VirtualImage.transform.localScale = new Vector3(imageHeight * 2, imageHeight * 2, imageHeight * 2);
+        VirtualImage.transform.position = targetPos;
     }
 
 }

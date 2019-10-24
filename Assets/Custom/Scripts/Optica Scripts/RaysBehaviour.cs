@@ -18,6 +18,7 @@ public abstract class RaysBehaviour : MonoBehaviour
         renderer.positionCount = points;
         renderer.material = RayMaterial;
         renderer.startWidth = RAY_WIDTH;
+        renderer.useWorldSpace = false;
         return ray;
     }
 
@@ -40,6 +41,37 @@ public abstract class RaysBehaviour : MonoBehaviour
 
         Vector3 intersection = alpha * (p2 - p1) + p1;
         return intersection;
+    }
+
+    /**
+     *  Calculates intersection between given sphere and given line `alpha * direction + origin`
+     *  We assume the intersection exists. Otherwise, Mathf.Sqrt(...) will throw an exception
+     *  Source: https://en.wikipedia.org/wiki/Line%E2%80%93sphere_intersection
+     */
+    protected Vector3 GetSphereLineIntersection(float radius, Vector3 center, Vector3 origin, Vector3 direction)
+    {
+        Vector3 unitDirection = direction.normalized;
+        float b = 2 * (Vector3.Dot(unitDirection, (origin - center)));
+        float c = (origin - center).sqrMagnitude - radius * radius;
+
+        float alpha = (-b - Mathf.Sqrt(b * b - 4 * c)) / 2;
+        return unitDirection * alpha + origin;
+    }
+
+    /**
+     * Calculates intersection between given plane `normal . (x,y,z) + d = 0`
+     * and given line `alpha * direction + origin`
+     * We assume the intersection exists
+     */
+     protected Vector3 GetPlaneLineIntersection(Vector3 normal, Vector3 planePoint, Vector3 origin, Vector3 direction)
+    {
+        Vector3 unitDirection = direction.normalized;
+        Vector3 unitNormal = normal.normalized;
+
+        float d = -Vector3.Dot(unitNormal, planePoint);
+        float alpha = -(d + Vector3.Dot(unitNormal, origin)) / (Vector3.Dot(unitNormal, unitDirection));
+
+        return unitDirection * alpha + origin;
     }
 
 }

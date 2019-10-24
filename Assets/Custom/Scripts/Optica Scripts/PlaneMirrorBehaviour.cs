@@ -12,21 +12,10 @@ public class PlaneMirrorBehaviour : MonoBehaviour
 
     void Start()
     {
-        float distance = transform.position.z;
-        ReflectionImage.transform.position = 2 * transform.position;
+        float yOffset = 0.125f;
+        Vector3 reflectionPos = 2 * (transform.position - Target.transform.position) + new Vector3(0, yOffset, 0);
+        ReflectionImage.transform.position = reflectionPos;
         RaysBehaviour.Initialize(Target, this);
-
-        //Vector3 mirrorPosition = mirrorObject.transform.position;
-        //mirrorPosition.z = distance;
-        //mirrorObject.transform.position = mirrorPosition;
-    }
-
-    public void Update()
-    {
-        //float distance = transform.position.z;
-        //Vector3 reflectionPosition = Target.transform.position;
-        //reflectionPosition.z = 2 * distance;
-        //ReflectionImage.transform.position = reflectionPosition;
     }
     
 }
