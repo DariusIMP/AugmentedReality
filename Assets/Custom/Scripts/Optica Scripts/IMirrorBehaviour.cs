@@ -4,4 +4,8 @@ using UnityEngine;
 
 public class IMirrorBehaviour : MonoBehaviour
 {
+
+    public GameObject RealObject;
+    public GameObject VirtualTarget;
+
 }

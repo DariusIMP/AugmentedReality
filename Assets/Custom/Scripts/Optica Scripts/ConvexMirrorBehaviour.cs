@@ -4,13 +4,13 @@
 public class ConvexMirrorBehaviour : IMirrorBehaviour
 {
 
-    public GameObject Target, VirtualImage;
+    public GameObject VirtualImage;
     public ConvexRaysBehaviour RaysBehaviour;
 
 
     public void Start()
     {
-        RaysBehaviour.Initialize(Target, this);
+        RaysBehaviour.Initialize(RealObject, this);
         PositionVirtualImage();
     }
 

@@ -62,7 +62,7 @@ public class ConvexRaysBehaviour : RaysBehaviour
         );
 
         // Here we calculate the intersection between the rays so as to place the virtual image
-        ConvergentPoint = CalculateIntersection(
+        ConvergentPoint = CalculateLinesIntersection(
             parallelHit, Mirror.GetFocalPoint(), targetPoint, mirrorCenter
         );
         float virtualImgHeight = ConvergentPoint.y - mirrorCenter.y;

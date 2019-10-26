@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneMirrorBehaviour : MonoBehaviour
+public class PlaneMirrorBehaviour : IMirrorBehaviour
 {
     
-    public GameObject Target;
     public GameObject ReflectionImage;
     public PlaneRaysBehaviour RaysBehaviour;
 
@@ -13,9 +12,9 @@ public class PlaneMirrorBehaviour : MonoBehaviour
     void Start()
     {
         float yOffset = 0.125f;
-        Vector3 reflectionPos = 2 * (transform.position - Target.transform.position) + new Vector3(0, yOffset, 0);
+        Vector3 reflectionPos = 2 * (transform.position - RealObject.transform.position) + new Vector3(0, yOffset, 0);
         ReflectionImage.transform.position = reflectionPos;
-        RaysBehaviour.Initialize(Target, this);
+        RaysBehaviour.Initialize(RealObject, this);
     }
     
 }

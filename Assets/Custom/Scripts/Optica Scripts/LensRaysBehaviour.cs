@@ -5,23 +5,21 @@ using UnityEngine;
 public class LensRaysBehaviour : RaysBehaviour
 {
 
-    private GameObject CenterRay, TopRay, BottomRay;
+    public Vector3 ConvergingPoint { get; private set; }
+
+    private GameObject CenterRay, ParallelRay, AntiFocalRay;
     private GameObject Target;
     private ConvergingLensBehaviour Lens;
 
-    void Start()
-    {
-        
-    }
 
     public void Initialize(GameObject target, ConvergingLensBehaviour lens)
     {
         this.Target = target;
         this.Lens = lens;
 
-        TopRay = CreateRay("TopRay");
-        CenterRay = CreateRay("CenterRay");
-        BottomRay = CreateRay("BottomRay");
+        ParallelRay = CreateRay("Parallel Ray");
+        CenterRay = CreateRay("Center Ray", 2);
+        AntiFocalRay = CreateRay("Antifocal Ray");
 
         PositionRays();
     }
@@ -29,27 +27,36 @@ public class LensRaysBehaviour : RaysBehaviour
 
     private void PositionRays()
     {
-        float objectHeight = 0.1f;
-        Vector3 originPoint = Target.transform.position + new Vector3(0, objectHeight, 0);
         Vector3 planeNormal = Lens.GetPlaneNormal();
-        Vector3 planeOffset = Lens.transform.position;
+        Vector3 lensPosition = Lens.transform.position;
 
-        Vector3 parallelDirection = planeOffset;
+        Vector3 parallelDirection = lensPosition - Target.transform.position;
         parallelDirection.y = 0;
-        Vector3 parallelHit = GetPlaneLineIntersection(planeNormal, planeOffset, originPoint, parallelDirection);
-        TopRay.GetComponent<LineRenderer>().SetPositions(
-            new Vector3[] { originPoint, parallelHit, Lens.GetFocusPosition() }
+        Vector3 parallelHit = GetPlaneLineIntersection(planeNormal, lensPosition, OriginPoint, parallelDirection);
+
+        Vector3 antifocusDirection = Lens.GetAntiFocusPosition() - OriginPoint;
+        Vector3 antifocusHit = GetPlaneLineIntersection(planeNormal, lensPosition, OriginPoint, antifocusDirection);
+
+        ConvergingPoint = CalculateConvergingPoint(parallelHit, antifocusHit.y);
+
+        ParallelRay.GetComponent<LineRenderer>().SetPositions(
+            new Vector3[] { OriginPoint, parallelHit, ConvergingPoint }
         );
 
         CenterRay.GetComponent<LineRenderer>().SetPositions(
-            new Vector3[] { originPoint, originPoint, planeOffset }
+            new Vector3[] { OriginPoint, ConvergingPoint }
         );
 
-        Vector3 antifocusDirection = Lens.GetAntiFocusPosition() - originPoint;
-        Vector3 antifocusHit = GetPlaneLineIntersection(planeNormal, planeOffset, originPoint, antifocusDirection);
-        BottomRay.GetComponent<LineRenderer>().SetPositions(
-            new Vector3[] { originPoint, antifocusHit, antifocusHit + parallelDirection }
+        AntiFocalRay.GetComponent<LineRenderer>().SetPositions(
+            new Vector3[] { OriginPoint, antifocusHit, ConvergingPoint }
         );
+    }
+
+    private Vector3 CalculateConvergingPoint(Vector3 parallelHit, float height)
+    {
+        Vector3 focalPoint = Lens.GetFocusPosition();
+        float alpha = (height - parallelHit.y) / (focalPoint.y - parallelHit.y);
+        return (focalPoint - parallelHit) * alpha + parallelHit;
     }
 
 }

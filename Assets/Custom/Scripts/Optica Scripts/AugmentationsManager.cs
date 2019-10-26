@@ -8,6 +8,11 @@ public class AugmentationsManager : MonoBehaviour
     public GameObject PlaneMirror, ConvexMirror, ConvergingLens;
 
 
+    private void Start()
+    {
+        DeactivateAll();
+    }
+
     public void ActivatePlaneMirror()
     {
         DeactivateAll();
