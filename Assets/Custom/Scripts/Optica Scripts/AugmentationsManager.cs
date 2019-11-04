@@ -5,12 +5,12 @@ using UnityEngine;
 public class AugmentationsManager : MonoBehaviour
 {
 
-    public GameObject PlaneMirror, ConvexMirror, ConvergingLens;
+    public GameObject PlaneMirror, ConvexMirror, ConvergingLens, ConcaveMirror;
 
 
     private void Start()
     {
-        DeactivateAll();
+        //DeactivateAll();
     }
 
     public void ActivatePlaneMirror()
@@ -31,10 +31,18 @@ public class AugmentationsManager : MonoBehaviour
         ConvergingLens.SetActive(true);
     }
 
+    public void ActivateConcaveMirror()
+    {
+        DeactivateAll();
+        ConcaveMirror.SetActive(true);
+    }
+
+
     private void DeactivateAll()
     {
         PlaneMirror.SetActive(false);
         ConvexMirror.SetActive(false);
         ConvergingLens.SetActive(false);
+        ConcaveMirror.SetActive(false);
     }
 }

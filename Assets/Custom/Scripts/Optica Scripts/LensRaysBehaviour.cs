@@ -8,7 +8,6 @@ public class LensRaysBehaviour : RaysBehaviour
     public Vector3 ConvergingPoint { get; private set; }
 
     private GameObject CenterRay, ParallelRay, AntiFocalRay;
-    private GameObject Target;
     private ConvergingLensBehaviour Lens;
 
 
@@ -28,9 +27,9 @@ public class LensRaysBehaviour : RaysBehaviour
     private void PositionRays()
     {
         Vector3 planeNormal = Lens.GetPlaneNormal();
-        Vector3 lensPosition = Lens.transform.position;
+        Vector3 lensPosition = Lens.transform.localPosition;
 
-        Vector3 parallelDirection = lensPosition - Target.transform.position;
+        Vector3 parallelDirection = lensPosition - Target.transform.localPosition;
         parallelDirection.y = 0;
         Vector3 parallelHit = GetPlaneLineIntersection(planeNormal, lensPosition, OriginPoint, parallelDirection);
 

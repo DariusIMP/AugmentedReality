@@ -6,6 +6,6 @@ public class IMirrorBehaviour : MonoBehaviour
 {
 
     public GameObject RealObject;
-    public GameObject VirtualTarget;
+    public GameObject VirtualImage;
 
 }

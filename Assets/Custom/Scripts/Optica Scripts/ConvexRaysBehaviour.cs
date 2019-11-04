@@ -5,10 +5,10 @@ using UnityEngine;
 public class ConvexRaysBehaviour : RaysBehaviour
 {
 
+    public Vector3 ConvergentPoint { get; private set; }
+
     private GameObject ParallelRay, CenterRay, FocalRay;
-    private GameObject Target;
     private ConvexMirrorBehaviour Mirror;
-    private Vector3 ConvergentPoint;
 
 
     public void Initialize(GameObject target, ConvexMirrorBehaviour mirror)
@@ -23,55 +23,36 @@ public class ConvexRaysBehaviour : RaysBehaviour
         PositionRays();     
     }
 
-    public void Update()
-    {
-        //PositionRays();
-    }
-
-    public Vector3 GetConvergingPoint()
-    {
-        return ConvergentPoint;
-    }
-
 
     private void PositionRays()
     {
-        // We will only show rays of the top point
-
-        // We will asume the bottom point of 'target' is over the axis
-        // We call 'targetPoint' to the point in the target from which we will show the rays
-        float targetHeight = 0.25f;
-        Vector3 targetPoint = Target.transform.position;
-        targetPoint.y = targetHeight;
-
         // Here we calculate where a ray parallel to the axis meets the mirror
         Vector3 mirrorCenter = Mirror.GetCenter();
-        float mirrorRadius = Mirror.GetRadius();
-        Vector3 parallelDirection = Mirror.transform.position;
+        Vector3 parallelDirection = Mirror.transform.position - Target.transform.position;
         parallelDirection.y = 0;
-        Vector3 parallelHit = GetSphereLineIntersection(mirrorRadius, mirrorCenter, targetPoint, parallelDirection);
+        Vector3 parallelHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, parallelDirection)[1];
 
         Vector3 focalPoint = Mirror.GetFocalPoint();
         ParallelRay.GetComponent<LineRenderer>().SetPositions(
-            new Vector3[] { targetPoint, parallelHit, focalPoint }
+            new Vector3[] { OriginPoint, parallelHit, focalPoint }
         );
 
         // Center ray is easy:
         CenterRay.GetComponent<LineRenderer>().SetPositions(
-            new Vector3[] { targetPoint, mirrorCenter }
+            new Vector3[] { OriginPoint, mirrorCenter }
         );
 
         // Here we calculate the intersection between the rays so as to place the virtual image
         ConvergentPoint = CalculateLinesIntersection(
-            parallelHit, Mirror.GetFocalPoint(), targetPoint, mirrorCenter
+            parallelHit, Mirror.GetFocalPoint(), OriginPoint, mirrorCenter
         );
         float virtualImgHeight = ConvergentPoint.y - mirrorCenter.y;
 
         // And now we calculate the points for the ray projecting to the focal point
-        Vector3 focalDirection = Mirror.GetFocalPoint() - targetPoint;
-        Vector3 focalHit = GetSphereLineIntersection(mirrorRadius, mirrorCenter, targetPoint, focalDirection);
+        Vector3 focalDirection = Mirror.GetFocalPoint() - OriginPoint;
+        Vector3 focalHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, focalDirection)[1];
         FocalRay.GetComponent<LineRenderer>().SetPositions(
-            new Vector3[] { targetPoint, focalHit, ConvergentPoint }
+            new Vector3[] { OriginPoint, focalHit, ConvergentPoint }
         );
     }
 

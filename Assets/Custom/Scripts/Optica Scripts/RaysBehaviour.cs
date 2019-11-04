@@ -9,11 +9,13 @@ public abstract class RaysBehaviour : MonoBehaviour
     public Vector3 OriginPoint;
     public float RayWidth = 0.003f;
 
+    protected GameObject Target;
+
 
     protected GameObject CreateRay(string name = "", int points = 3)
     {
         GameObject ray = new GameObject(name);
-        ray.transform.parent = gameObject.transform;
+        ray.transform.SetParent(gameObject.transform, false);
         LineRenderer renderer = ray.AddComponent<LineRenderer>();
         renderer.positionCount = points;
         renderer.material = RayMaterial;
@@ -24,16 +26,25 @@ public abstract class RaysBehaviour : MonoBehaviour
 
     /**
      *  Calculates intersection between two lines, P and Q
-     *  We will only assume q1.y != q2.y and that the intersection exists
+     *  We assume the intersection exists
      */
     protected Vector3 CalculateLinesIntersection(Vector3 p1, Vector3 p2, Vector3 q1, Vector3 q2)
     {
         // We define line P as `alpha * (p2 - p1) + p1`, and line Q as `beta * (q2 - q1) + q1`
-        //  being 'alpha' and 'beta' variable parameters. If we equalize both expressions we get
-        //  3 equations (one for each axis) and two variables (alpha and beta).
+        //  being 'alpha' and 'beta' variable parameters, and then equalize both expressions
+        float alpha;
 
-        float alpha = ((p1.y - q1.y) * (q2.z - q1.z) / (q2.y - q1.y) + q1.z - p1.z) /
+        if (q1.y == q2.y)
+        {
+            // Special case: line Q is parallel to y-axis
+            alpha = (q1.y - p1.y) / (p2.y - p1.y);
+        }
+        else
+        {
+            // Generic case
+            alpha = ((p1.y - q1.y) * (q2.z - q1.z) / (q2.y - q1.y) + q1.z - p1.z) /
                 (p2.z - p1.z - (p2.y - p1.y) * (q2.z - q1.z) / (q2.y - q1.y));
+        }
 
         Vector3 intersection = alpha * (p2 - p1) + p1;
         return intersection;
@@ -44,14 +55,16 @@ public abstract class RaysBehaviour : MonoBehaviour
      *  We assume the intersection exists. Otherwise, Mathf.Sqrt(...) will throw an exception
      *  Source: https://en.wikipedia.org/wiki/Line%E2%80%93sphere_intersection
      */
-    protected Vector3 GetSphereLineIntersection(float radius, Vector3 center, Vector3 origin, Vector3 direction)
+    protected Vector3[] GetSphereLineIntersection(float radius, Vector3 center, Vector3 origin, Vector3 direction)
     {
         Vector3 unitDirection = direction.normalized;
         float b = 2 * (Vector3.Dot(unitDirection, (origin - center)));
         float c = (origin - center).sqrMagnitude - radius * radius;
 
-        float alpha = (-b - Mathf.Sqrt(b * b - 4 * c)) / 2;
-        return unitDirection * alpha + origin;
+        float radicand = b * b - 4 * c;
+        float alphaPositive = (-b + Mathf.Sqrt(radicand)) / 2;
+        float alphaNegative = (-b - Mathf.Sqrt(radicand)) / 2;
+        return new Vector3[] { unitDirection * alphaPositive + origin, unitDirection * alphaNegative + origin };
     }
 
     /**
