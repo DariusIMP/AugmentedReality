@@ -17,14 +17,14 @@ public class ConvexMirrorBehaviour : IMirrorBehaviour
 
     public Vector3 GetCenter()
     {
-        Vector3 center = transform.position;
+        Vector3 center = transform.localPosition;
         center.z += Radius;
         return center;
     }
 
     public Vector3 GetFocalPoint()
     {
-        Vector3 focal = transform.position;
+        Vector3 focal = transform.localPosition;
         focal.z += Radius / 2;
         return focal;
     }

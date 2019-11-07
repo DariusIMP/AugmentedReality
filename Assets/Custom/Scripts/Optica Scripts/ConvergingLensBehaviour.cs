@@ -33,12 +33,10 @@ public class ConvergingLensBehaviour : IMirrorBehaviour
 
     private void PositionVirtualTarget()
     {
-        float scaleMagnitude = RaysBehaviour.ConvergingPoint.y / RaysBehaviour.OriginPoint.y;
-        Vector3 tgtScale = RealObject.transform.localScale;
-        tgtScale.y *= scaleMagnitude;
-        tgtScale.x *= Mathf.Abs(scaleMagnitude);
-        VirtualImage.transform.localScale = tgtScale;
-        VirtualImage.transform.localPosition.Set(0, 0, RaysBehaviour.ConvergingPoint.z);
+        float imageScale = (RaysBehaviour.ConvergingPoint.y / RaysBehaviour.OriginPoint.y) * RealObject.transform.localScale.y;
+        
+        VirtualImage.transform.localScale = new Vector3(Mathf.Abs(imageScale), imageScale, 1);
+        VirtualImage.transform.localPosition = new Vector3(0, 0, RaysBehaviour.ConvergingPoint.z);
     }
 
 }

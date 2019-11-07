@@ -17,14 +17,14 @@ public class LensRaysBehaviour : RaysBehaviour
         this.Lens = lens;
 
         ParallelRay = CreateRay("Parallel Ray");
-        CenterRay = CreateRay("Center Ray", 2);
+        CenterRay = CreateRay("Center Ray");
         AntiFocalRay = CreateRay("Antifocal Ray");
 
         PositionRays();
     }
 
 
-    private void PositionRays()
+    override protected void PositionRays()
     {
         Vector3 planeNormal = Lens.GetPlaneNormal();
         Vector3 lensPosition = Lens.transform.localPosition;
@@ -38,15 +38,15 @@ public class LensRaysBehaviour : RaysBehaviour
 
         ConvergingPoint = CalculateConvergingPoint(parallelHit, antifocusHit.y);
 
-        ParallelRay.GetComponent<LineRenderer>().SetPositions(
+        ParallelRay.GetComponent<TubeRenderer>().SetPositions(
             new Vector3[] { OriginPoint, parallelHit, ConvergingPoint }
         );
 
-        CenterRay.GetComponent<LineRenderer>().SetPositions(
+        CenterRay.GetComponent<TubeRenderer>().SetPositions(
             new Vector3[] { OriginPoint, ConvergingPoint }
         );
 
-        AntiFocalRay.GetComponent<LineRenderer>().SetPositions(
+        AntiFocalRay.GetComponent<TubeRenderer>().SetPositions(
             new Vector3[] { OriginPoint, antifocusHit, ConvergingPoint }
         );
     }

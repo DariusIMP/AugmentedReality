@@ -11,14 +11,14 @@ public class ConcaveMirrorBehaviour : IMirrorBehaviour
 
     public Vector3 GetCenter()
     {
-        Vector3 center = transform.position;
+        Vector3 center = transform.localPosition;
         center.z -= Radius;
         return center;
     }
 
     public Vector3 GetFocalPoint()
     {
-        Vector3 focal = transform.position;
+        Vector3 focal = transform.localPosition;
         focal.z -= Radius / 2;
         return focal;
     }
@@ -33,12 +33,12 @@ public class ConcaveMirrorBehaviour : IMirrorBehaviour
     private void PositionVirtualImage()
     {
         Vector3 convergingPoint = RaysBehaviour.ConvergentPoint;
-        float imageHeight = convergingPoint.y - transform.position.y;
+        float imageScale = (convergingPoint.y / RaysBehaviour.OriginPoint.y) * RealObject.transform.localScale.y;
 
         Vector3 targetPos = convergingPoint;
         targetPos.y = 0;
 
-        VirtualImage.transform.localScale = new Vector3(imageHeight, imageHeight, imageHeight);
+        VirtualImage.transform.localScale = new Vector3(imageScale, imageScale, 1);
         VirtualImage.transform.localPosition = targetPos;
     }
 

@@ -12,15 +12,25 @@ public abstract class RaysBehaviour : MonoBehaviour
     protected GameObject Target;
 
 
-    protected GameObject CreateRay(string name = "", int points = 3)
+    private void Update()
+    {
+        // Usefull only for debugging
+        //PositionRays();
+    }
+
+
+    abstract protected void PositionRays();
+
+
+    protected GameObject CreateRay(string name = "")
     {
         GameObject ray = new GameObject(name);
         ray.transform.SetParent(gameObject.transform, false);
-        LineRenderer renderer = ray.AddComponent<LineRenderer>();
-        renderer.positionCount = points;
+        TubeRenderer renderer = ray.AddComponent<TubeRenderer>();
         renderer.material = RayMaterial;
-        renderer.startWidth = RayWidth;
-        renderer.useWorldSpace = false;
+        renderer.RadiusOne = RayWidth / 2;
+        renderer.UseWorldSpace = false;
+        renderer.Sides = 8;
         return ray;
     }
 

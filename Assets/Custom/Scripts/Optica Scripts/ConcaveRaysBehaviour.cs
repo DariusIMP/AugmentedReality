@@ -17,14 +17,14 @@ public class ConcaveRaysBehaviour : RaysBehaviour
         this.Mirror = mirror;
 
         ParallelRay = CreateRay("Parallel Ray");
-        CenterRay = CreateRay("Center Ray", 2);
+        CenterRay = CreateRay("Center Ray");
         FocalRay = CreateRay("Focal Ray");
 
         PositionRays();
     }
 
 
-    private void PositionRays()
+    override protected void PositionRays()
     {
         // Here we calculate where a ray parallel to the axis meets the mirror
         Vector3 mirrorCenter = Mirror.GetCenter();
@@ -42,16 +42,16 @@ public class ConcaveRaysBehaviour : RaysBehaviour
         );
 
         // And now we set the rays points
-        ParallelRay.GetComponent<LineRenderer>().SetPositions(
+        ParallelRay.GetComponent<TubeRenderer>().SetPositions(
             new Vector3[] { OriginPoint, parallelHit, ConvergentPoint }
         );
 
         Vector3 centerHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, OriginPoint - mirrorCenter)[0];
-        CenterRay.GetComponent<LineRenderer>().SetPositions(
+        CenterRay.GetComponent<TubeRenderer>().SetPositions(
             new Vector3[] { mirrorCenter, ConvergentPoint }
         );
         
-        FocalRay.GetComponent<LineRenderer>().SetPositions(
+        FocalRay.GetComponent<TubeRenderer>().SetPositions(
             new Vector3[] { OriginPoint, focalHit, ConvergentPoint }
         );
     }
