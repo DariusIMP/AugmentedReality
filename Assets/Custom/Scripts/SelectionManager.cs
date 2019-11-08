@@ -93,6 +93,7 @@ namespace Custom.Scripts
             {
                 //_fadingText.ShowFadingText();
                 displayInfoMode = true;
+                selectionLocked = false;
                 aimingDot.SetActive(true);
             }
             SetMaterials();
