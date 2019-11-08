@@ -6,7 +6,8 @@ namespace Custom.Scripts
 {
     public class SelectionManager : MonoBehaviour
     {
-        [SerializeField] private string selectableTag = "Selectable";
+        [SerializeField] private const string SELECTABLE_TAG = "Selectable";
+
         [SerializeField] private Material highlightMaterial;
         [SerializeField] private Material defaultMaterial;
         [SerializeField] public Material selectableMaterial;
@@ -34,16 +35,19 @@ namespace Custom.Scripts
             {
                 if (!selectionLocked)
                 {
-                    if (_selection != null)
-                    {
-                        DeselectObject();
-                    }
                     var cam = camera.transform;
                     var ray = new Ray(cam.position, cam.forward);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit))
+
+                    if (!Physics.Raycast(ray, out hit))
                     {
-                        SelectObject(hit);
+                        DeselectObject();
+                    }
+                    else
+                    {
+                        var selected = FindSelectedObject(hit);
+                        if (_selection != selected)
+                            _selection = selected;
                     }
                 }
             }
@@ -57,10 +61,10 @@ namespace Custom.Scripts
             selectedObject.GetComponent<DisplayMenu>().HideMenu();
         }
 
-        private void SelectObject(RaycastHit hit)
+        private Transform FindSelectedObject(RaycastHit hit)
         {
             var selection = hit.transform;
-            if (selection.CompareTag(selectableTag))
+            if (selection.CompareTag(SELECTABLE_TAG))
             {
                 var selectionRenderer = selection.GetComponent<Renderer>();
                 if (selectionRenderer != null)
@@ -70,8 +74,9 @@ namespace Custom.Scripts
                     selectedObject.GetComponent<DisplayMenu>().ShowMenu();
                 }
     
-                _selection = selection;
+                return selection;
             }
+            return null;
         }
         public void InfoDisplayModeToggle()
         {
@@ -86,7 +91,7 @@ namespace Custom.Scripts
             }
             else
             {
-                _fadingText.ShowFadingText();
+                //_fadingText.ShowFadingText();
                 displayInfoMode = true;
                 aimingDot.SetActive(true);
             }
