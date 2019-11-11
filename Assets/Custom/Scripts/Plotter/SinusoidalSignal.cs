@@ -4,15 +4,15 @@ namespace Custom.Scripts.Plotter
 {
     public class SinusoidalSignal : Signal
     {
-        public SinusoidalSignal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier) :
-            base(horizontalDisplacement, verticalDisplacement, timeBaseMultiplier)
+        public SinusoidalSignal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier, 
+            float directCurrent) : base(horizontalDisplacement, verticalDisplacement, timeBaseMultiplier, directCurrent)
         {
         }
 
         public override float SignalFunction(float x)
         {
-            var vDisplacement = acDcCoupling ? verticalDisplacement : 0f;
-            return (float) Math.Sin(x + horizontalDisplacement) + vDisplacement;
+            var dc = acDcCoupling ? directCurrent : 0f;
+            return (float) Math.Sin(x + horizontalDisplacement) + verticalDisplacement + dc;
         }
 
         public override void Reset()

@@ -14,8 +14,9 @@ namespace Custom.Scripts.Plotter
         private float C = 0.001f;
         private float adjustmentFactor = 0f;
         public AlmostSquareSignal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier, 
+            float directCurrent,
             RectTransform rectTransform) :
-            base(horizontalDisplacement, verticalDisplacement, timeBaseMultiplier)
+            base(horizontalDisplacement, verticalDisplacement, timeBaseMultiplier, directCurrent)
         {
             _rectTransform = rectTransform;
             CalculateAdjustmentFactor();
@@ -60,8 +61,8 @@ namespace Custom.Scripts.Plotter
                 }
             }
 
-            var vDisplacement = acDcCoupling ? verticalDisplacement : 0f;
-            return fx - adjustmentFactor + vDisplacement;
+            var dc = acDcCoupling ? directCurrent : 0f;
+            return fx - adjustmentFactor + verticalDisplacement + dc;
         }
 
         private void CalculateAdjustmentFactor()

@@ -8,9 +8,9 @@ namespace Custom.Scripts.Plotter
         private float _simetryFactor;
         private float _maxFx;
         private float _minFx;
-        public SquareSignal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier,
-            float periodFactor, float simetryFactor, float maxFx, float minFx) : base(
-            horizontalDisplacement, verticalDisplacement, timeBaseMultiplier)
+        public SquareSignal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier, float directCurrent,
+        float periodFactor, float simetryFactor, float maxFx, float minFx) : base(
+            horizontalDisplacement, verticalDisplacement, timeBaseMultiplier, directCurrent)
         {
             _periodFactor = periodFactor;
             _simetryFactor = simetryFactor;
@@ -20,10 +20,10 @@ namespace Custom.Scripts.Plotter
 
         public override float SignalFunction(float x)
         {
-            var vDisplacement = acDcCoupling ? verticalDisplacement : 0f;
+            var dc = acDcCoupling ? directCurrent : 0f;
             return Math.Abs(Math.Floor(x / _periodFactor + horizontalDisplacement)) % _simetryFactor < 0.01
-                ? _minFx + vDisplacement
-                : _maxFx + vDisplacement;
+                ? _minFx + verticalDisplacement + dc
+                : _maxFx + verticalDisplacement + dc;
         }
 
         public override void Reset()

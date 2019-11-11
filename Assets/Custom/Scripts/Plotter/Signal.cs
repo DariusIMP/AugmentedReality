@@ -11,13 +11,16 @@ namespace Custom.Scripts.Plotter
         
         public float timeBaseMultiplier = 1f;
 
+        public float directCurrent = 0f;
+        
         public Boolean acDcCoupling = false;
 
-        protected Signal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier)
+        protected Signal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier, float directCurrent)
         {
             this.horizontalDisplacement = horizontalDisplacement;
             this.verticalDisplacement = verticalDisplacement;
             this.timeBaseMultiplier = timeBaseMultiplier;
+            this.directCurrent = directCurrent;
         }
 
         public abstract float SignalFunction(float x);
@@ -26,7 +29,13 @@ namespace Custom.Scripts.Plotter
 
         public void ToggleAcDcCoupling()
         {
-            acDcCoupling = !acDcCoupling;
+            if (!acDcCoupling)
+            {
+                acDcCoupling = true;
+            } else
+            {
+                acDcCoupling = false;
+            }
         }
     }
 }

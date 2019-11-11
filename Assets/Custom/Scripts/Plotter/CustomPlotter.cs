@@ -25,6 +25,7 @@ namespace Custom.Scripts.Plotter
         private float _horizontalDisplacement = 0f;
         private float _verticalDisplacement = 0f;
         private float _timeBaseMultiplier = 1f;
+        private float _directCurrent = 0f;
         
         //Unit: volts
         private readonly float[] _timeBaseScale = {0.001f, 0.002f, 0.005f, 0.01f, 0.02f,
@@ -127,20 +128,23 @@ namespace Custom.Scripts.Plotter
 
         public void SetSquareSignal()
         {
-            _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, 
+            var directCurrent = 0.75f;
+            _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent,
                 2f, 4f, 1f, -3f);
             SetDots(_signal.SignalFunction);
         }
 
         public void SetSinusoidalSignal()
         {
-            _signal = new SinusoidalSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier);
+            var directCurrent = 1f;
+            _signal = new SinusoidalSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent);
             SetDots(_signal.SignalFunction);
         }
 
         public void SetAlmostSquareSignal()
         {
-            _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, _rectTransform);
+            var directCurrent = 0.5f;
+            _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent, _rectTransform);
             SetDots(_signal.SignalFunction);
         }
 
