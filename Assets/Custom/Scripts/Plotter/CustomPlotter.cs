@@ -119,8 +119,8 @@ namespace Custom.Scripts.Plotter
         {
             LoadAmplitudeScale();
             ShowAmplitudeScale();
-//            _maxY = Verticaldivs / 2f * _amplitudeScale[(int)index];
-//            _minY = -_maxY;
+            _maxY = Verticaldivs / 2f * _amplitudeScale[(int)index];
+            _minY = -_maxY;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
         }

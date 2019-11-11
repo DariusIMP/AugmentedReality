@@ -41,7 +41,10 @@ namespace Custom.Scripts
 
                     if (!Physics.Raycast(ray, out hit))
                     {
-                        DeselectObject();
+                        if (_selection != null)
+                        {
+                            DeselectObject();
+                        }
                     }
                     else
                     {
@@ -80,23 +83,24 @@ namespace Custom.Scripts
         }
         public void InfoDisplayModeToggle()
         {
-            if (displayInfoMode)
+            Debug.Log("Toggle in");
+            if (!displayInfoMode)
             {
-                if (_selection != null)
-                {
-                    DeselectObject();
-                }
-                aimingDot.SetActive(false);
-                displayInfoMode = false;
+                Debug.Log("Toggle in not");
+                aimingDot.SetActive(true);
+                SetMaterials();
+                displayInfoMode = true;
             }
             else
             {
+                Debug.Log("Toggle in yes");
                 //_fadingText.ShowFadingText();
-                displayInfoMode = true;
+                SetMaterials();
+                displayInfoMode = false;
                 selectionLocked = false;
-                aimingDot.SetActive(true);
+                aimingDot.SetActive(false);
             }
-            SetMaterials();
+            
         }
 
         public void SelectionLockToggle()
@@ -119,17 +123,21 @@ namespace Custom.Scripts
 
         private void SetMaterials()
         {
-            if (displayInfoMode)
+            Debug.Log("Set materials in");
+            if (!displayInfoMode)
             {
                 foreach (GameObject element in selectableElements)
                 {
+                    Debug.Log("If in: " + selectableMaterial);
                     element.GetComponent<Renderer>().material = selectableMaterial;
                 }
             }
             else
             {
                 foreach (GameObject element in selectableElements)
-                { 
+                {
+
+                    Debug.Log("Else in: " + defaultMaterial);
                     element.GetComponent<Renderer>().material = defaultMaterial;
                 }
             }
