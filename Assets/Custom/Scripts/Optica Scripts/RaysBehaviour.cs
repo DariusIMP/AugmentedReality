@@ -15,7 +15,7 @@ public abstract class RaysBehaviour : MonoBehaviour
     private void Update()
     {
         // Usefull only for debugging
-        //PositionRays();
+        PositionRays();
     }
 
 
