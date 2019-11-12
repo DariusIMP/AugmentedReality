@@ -94,7 +94,7 @@ namespace Custom.Scripts.Plotter
         {
             _triggerLevel = triggerLevel;
             var triggerLevelPos = TriggerLevelIndicator.transform.localPosition;
-            triggerLevelPos.y = triggerLevel / 100 * _rectTransform.rect.y;
+            triggerLevelPos.y = - triggerLevel / 100 * _rectTransform.rect.y;
             TriggerLevelIndicator.transform.localPosition = triggerLevelPos;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
@@ -148,15 +148,6 @@ namespace Custom.Scripts.Plotter
             SetDots(_signal.SignalFunction);
         }
 
-        public void DisplaceHorizontally(float hd)
-        {
-            _horizontalDisplacement = hd;
-            _signal.horizontalDisplacement = hd;
-            _lineRenderer.positionCount = 0;
-            _signal.Reset();
-            SetDots(_signal.SignalFunction);
-        }
-
         public void DisplaceVertically(float vd)
         {
             _verticalDisplacement = vd;
@@ -166,8 +157,7 @@ namespace Custom.Scripts.Plotter
             SetDots(_signal.SignalFunction);
         }
 
-
-        public Vector2 AdjustCoordinateToCanvasSize(float x, float fx)
+        private Vector2 AdjustCoordinateToCanvasSize(float x, float fx)
         {
             Rect rect = _rectTransform.rect;
             float newX = x / (_signal.timeBaseMultiplier * (Horizontaldivs / 2f)) * rect.x;
@@ -188,10 +178,10 @@ namespace Custom.Scripts.Plotter
                 newFx = rect.yMin;
             }
             
-            return new Vector2(-newX, -newFx); //TODO: chequear por qué la imagen sale invertida (el - está puesto a propósito para contrarrestar esto)
+            return new Vector2(-newX, -newFx);
         }
-        
-        public void SetDots(Func<float, float> func)
+
+        private void SetDots(Func<float, float> func)
         {
             _lineRenderer.positionCount = dotsAmount;
             float stepSize = (_maxX - _minX) / dotsAmount;

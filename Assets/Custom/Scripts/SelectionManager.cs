@@ -11,29 +11,19 @@ namespace Custom.Scripts
         [SerializeField] private Material highlightMaterial;
         [SerializeField] private Material defaultMaterial;
         [SerializeField] public Material selectableMaterial;
-        private GameObject selectedObject;
+        private GameObject _selectedObject;
         private Transform _selection;
-        private bool selectionLocked;
-        private bool displayInfoMode;
-        private FadingText _fadingText;
+        private bool _selectionLocked;
+        private bool _displayInfoMode;
         public Camera camera;
         public GameObject aimingDot;
-        public GameObject instructions;
         public GameObject[] selectableElements;
-
-        private void Start()
-        {
-            _fadingText = instructions.AddComponent<FadingText>();
-            _fadingText.textToShow = "Presione la pantalla para fijar un elemento";
-            _fadingText.holdingTime = 0.5f;
-            _fadingText.fadingTime = 1f;
-        }
 
         private void Update()
         {
-            if (displayInfoMode)
+            if (_displayInfoMode)
             {
-                if (!selectionLocked)
+                if (!_selectionLocked)
                 {
                     var cam = camera.transform;
                     var ray = new Ray(cam.position, cam.forward);
@@ -49,8 +39,7 @@ namespace Custom.Scripts
                     else
                     {
                         var selected = FindSelectedObject(hit);
-                        if (_selection != selected)
-                            _selection = selected;
+                        _selection = selected;
                     }
                 }
             }
@@ -61,7 +50,7 @@ namespace Custom.Scripts
             var selectionRenderer = _selection.GetComponent<Renderer>();
             selectionRenderer.material = selectableMaterial;
             _selection = null;
-            selectedObject.GetComponent<DisplayMenu>().HideMenu();
+            _selectedObject.GetComponent<DisplayMenu>().HideMenu();
         }
 
         private Transform FindSelectedObject(RaycastHit hit)
@@ -73,8 +62,8 @@ namespace Custom.Scripts
                 if (selectionRenderer != null)
                 {
                     selectionRenderer.material = highlightMaterial;
-                    selectedObject = hit.collider.gameObject;
-                    selectedObject.GetComponent<DisplayMenu>().ShowMenu();
+                    _selectedObject = hit.collider.gameObject;
+                    _selectedObject.GetComponent<DisplayMenu>().ShowMenu();
                 }
     
                 return selection;
@@ -83,21 +72,17 @@ namespace Custom.Scripts
         }
         public void InfoDisplayModeToggle()
         {
-            Debug.Log("Toggle in");
-            if (!displayInfoMode)
+            if (!_displayInfoMode)
             {
-                Debug.Log("Toggle in not");
                 aimingDot.SetActive(true);
                 SetMaterials();
-                displayInfoMode = true;
+                _displayInfoMode = true;
             }
             else
             {
-                Debug.Log("Toggle in yes");
-                //_fadingText.ShowFadingText();
                 SetMaterials();
-                displayInfoMode = false;
-                selectionLocked = false;
+                _displayInfoMode = false;
+                _selectionLocked = false;
                 aimingDot.SetActive(false);
             }
             
@@ -105,17 +90,16 @@ namespace Custom.Scripts
 
         public void SelectionLockToggle()
         {
-            Debug.Log("Selection Lock Toggle");
-            if (selectionLocked)
+            if (_selectionLocked)
             {
-                selectionLocked = false;
+                _selectionLocked = false;
                 aimingDot.SetActive(true);
             }
             else
             {
                 if (_selection != null)
                 {
-                    selectionLocked = true;
+                    _selectionLocked = true;
                     aimingDot.SetActive(false);
                 }
             }
@@ -123,12 +107,10 @@ namespace Custom.Scripts
 
         private void SetMaterials()
         {
-            Debug.Log("Set materials in");
-            if (!displayInfoMode)
+            if (!_displayInfoMode)
             {
                 foreach (GameObject element in selectableElements)
                 {
-                    Debug.Log("If in: " + selectableMaterial);
                     element.GetComponent<Renderer>().material = selectableMaterial;
                 }
             }
@@ -136,8 +118,6 @@ namespace Custom.Scripts
             {
                 foreach (GameObject element in selectableElements)
                 {
-
-                    Debug.Log("Else in: " + defaultMaterial);
                     element.GetComponent<Renderer>().material = defaultMaterial;
                 }
             }
