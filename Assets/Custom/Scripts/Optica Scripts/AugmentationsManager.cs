@@ -10,7 +10,7 @@ public class AugmentationsManager : MonoBehaviour
 
     private void Start()
     {
-        //DeactivateAll();
+        DeactivateAll();
     }
 
     public void ActivateConvexMirror()
