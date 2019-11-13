@@ -33,11 +33,15 @@ public class ConvergingLensBehaviour : IMirrorBehaviour
     public void PositionFarFromLens()
     {
         RaysBehaviour.PositionRaysForFarPosition();
+        PositionProjectedTarget();
+        RealObject.transform.localPosition = new Vector3(0, 0, RaysBehaviour.FarOriginPoint.z);
     }
 
     public void PositionNearFromLens()
     {
         RaysBehaviour.PositionRaysForVirtualImage();
+        PositionProjectedTarget();
+        RealObject.transform.localPosition = new Vector3(0, 0, RaysBehaviour.NearOriginPoint.z);
     }
 
 
