@@ -8,6 +8,7 @@ public class ConvexRaysBehaviour : RaysBehaviour
     public Vector3 ConvergentPoint { get; private set; }
 
     private GameObject ParallelRay, CenterRay, FocalRay;
+    private GameObject ParallelVirtualRay, CenterVirtualRay, FocalVirtualRay;
     private ConvexMirrorBehaviour Mirror;
 
 
@@ -20,6 +21,10 @@ public class ConvexRaysBehaviour : RaysBehaviour
         CenterRay = CreateRay("Center Ray");
         FocalRay = CreateRay("Focal Ray");
 
+        ParallelVirtualRay = CreateVirtualRay("Parallel Virtual Ray");
+        CenterVirtualRay = CreateVirtualRay("Center Virtual Ray");
+        FocalVirtualRay = CreateVirtualRay("Focal Virtual Ray");
+
         PositionRays();     
     }
 
@@ -28,13 +33,13 @@ public class ConvexRaysBehaviour : RaysBehaviour
     {
         // Here we calculate where a ray parallel to the axis meets the mirror
         Vector3 mirrorCenter = Mirror.GetCenter();
-        Vector3 parallelDirection = Mirror.transform.position - Target.transform.position;
+        Vector3 parallelDirection = Mirror.transform.localPosition - Target.transform.localPosition;
         parallelDirection.y = 0;
         Vector3 parallelHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, parallelDirection)[1];
 
         Vector3 focalPoint = Mirror.GetFocalPoint();
         ParallelRay.GetComponent<TubeRenderer>().SetPositions(
-            new Vector3[] { OriginPoint, parallelHit, 2 * parallelHit - focalPoint }
+            new Vector3[] { OriginPoint, parallelHit, 2f * parallelHit - focalPoint }
         );
 
         Vector3 centerHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, mirrorCenter - OriginPoint)[1];
@@ -53,6 +58,19 @@ public class ConvexRaysBehaviour : RaysBehaviour
         Vector3 focalHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, focalDirection)[1];
         FocalRay.GetComponent<TubeRenderer>().SetPositions(
             new Vector3[] { OriginPoint, focalHit, 2 * focalHit - ConvergentPoint }
+        );
+
+        // Now the virtual rays
+        ParallelVirtualRay.GetComponent<TubeRenderer>().SetPositions(
+            new Vector3[] { parallelHit, focalPoint }
+        );
+
+        CenterVirtualRay.GetComponent<TubeRenderer>().SetPositions(
+            new Vector3[] { centerHit, mirrorCenter }
+        );
+
+        FocalVirtualRay.GetComponent<TubeRenderer>().SetPositions(
+            new Vector3[] { focalHit, focalHit + parallelDirection }
         );
     }
 
