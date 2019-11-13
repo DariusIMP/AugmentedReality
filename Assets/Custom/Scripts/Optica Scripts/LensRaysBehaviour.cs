@@ -58,9 +58,7 @@ public class LensRaysBehaviour : RaysBehaviour
         );
 
         ParallelVirtualRay.SetActive(false);
-
         AntiFocalVirtualRay.SetActive(false);
-
         CenterVirtualRay.SetActive(false);
     }
 

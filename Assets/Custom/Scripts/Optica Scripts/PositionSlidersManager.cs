@@ -8,11 +8,6 @@ public class PositionSlidersManager : MonoBehaviour
     public GameObject ConvergingLensSlider;
 
 
-    private void Start()
-    {
-        HideAll();
-    }
-
     public void ShowConvergingLens()
     {
         HideAll();

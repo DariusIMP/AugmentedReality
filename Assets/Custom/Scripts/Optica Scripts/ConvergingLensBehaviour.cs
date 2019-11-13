@@ -45,7 +45,7 @@ public class ConvergingLensBehaviour : IMirrorBehaviour
     {
         float imageScale = (RaysBehaviour.ConvergingPoint.y / RaysBehaviour.OriginPoint.y) * RealObject.transform.localScale.y;
         
-        ProjectedImage.transform.localScale = new Vector3(imageScale, Mathf.Abs(imageScale), 1);
+        ProjectedImage.transform.localScale = new Vector3(imageScale, imageScale, 1);
         ProjectedImage.transform.localPosition = new Vector3(0, 0, RaysBehaviour.ConvergingPoint.z);
     }
 
