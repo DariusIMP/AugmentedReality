@@ -5,8 +5,6 @@ using UnityEngine;
 public class ConcaveRaysBehaviour : RaysBehaviour
 {
 
-    public Vector3 ConvergentPoint { get; private set; }
-
     private GameObject ParallelRay, CenterRay, FocalRay;
     private ConcaveMirrorBehaviour Mirror;
 
@@ -24,7 +22,7 @@ public class ConcaveRaysBehaviour : RaysBehaviour
     }
 
 
-    override protected void PositionRays()
+    protected void PositionRays()
     {
         // Here we calculate where a ray parallel to the axis meets the mirror
         Vector3 mirrorCenter = Mirror.GetCenter();
@@ -37,22 +35,22 @@ public class ConcaveRaysBehaviour : RaysBehaviour
         Vector3 focalHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, focalDirection)[1];
 
         // Here we calculate the intersection between the rays so as to place the virtual image
-        ConvergentPoint = CalculateLinesIntersection(
+        ConvergingPoint = CalculateLinesIntersection(
             parallelHit, Mirror.GetFocalPoint(), focalHit, focalHit + parallelDirection
         );
 
         // And now we set the rays points
         ParallelRay.GetComponent<TubeRenderer>().SetPositions(
-            new Vector3[] { OriginPoint, parallelHit, ConvergentPoint }
+            new Vector3[] { OriginPoint, parallelHit, ConvergingPoint }
         );
 
         Vector3 centerHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, OriginPoint - mirrorCenter)[0];
         CenterRay.GetComponent<TubeRenderer>().SetPositions(
-            new Vector3[] { mirrorCenter, ConvergentPoint }
+            new Vector3[] { mirrorCenter, ConvergingPoint }
         );
         
         FocalRay.GetComponent<TubeRenderer>().SetPositions(
-            new Vector3[] { OriginPoint, focalHit, ConvergentPoint }
+            new Vector3[] { OriginPoint, focalHit, ConvergingPoint }
         );
     }
 

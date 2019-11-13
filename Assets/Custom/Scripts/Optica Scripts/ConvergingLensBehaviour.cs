@@ -12,7 +12,7 @@ public class ConvergingLensBehaviour : IMirrorBehaviour
     void Start()
     {
         RaysBehaviour.Initialize(RealObject, this);
-        PositionVirtualTarget();
+        PositionProjectedTarget();
     }
 
     public Vector3 GetFocusPosition()
@@ -30,13 +30,23 @@ public class ConvergingLensBehaviour : IMirrorBehaviour
         return transform.forward;
     }
 
+    public void PositionFarFromLens()
+    {
+        RaysBehaviour.PositionRaysForFarPosition();
+    }
 
-    private void PositionVirtualTarget()
+    public void PositionNearFromLens()
+    {
+        RaysBehaviour.PositionRaysForVirtualImage();
+    }
+
+
+    private void PositionProjectedTarget()
     {
         float imageScale = (RaysBehaviour.ConvergingPoint.y / RaysBehaviour.OriginPoint.y) * RealObject.transform.localScale.y;
         
-        VirtualImage.transform.localScale = new Vector3(imageScale, Mathf.Abs(imageScale), 1);
-        VirtualImage.transform.localPosition = new Vector3(0, 0, RaysBehaviour.ConvergingPoint.z);
+        ProjectedImage.transform.localScale = new Vector3(imageScale, Mathf.Abs(imageScale), 1);
+        ProjectedImage.transform.localPosition = new Vector3(0, 0, RaysBehaviour.ConvergingPoint.z);
     }
 
 }

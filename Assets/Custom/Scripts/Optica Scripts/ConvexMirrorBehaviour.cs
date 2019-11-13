@@ -38,8 +38,8 @@ public class ConvexMirrorBehaviour : IMirrorBehaviour
         Vector3 targetPos = convergingPoint;
         targetPos.y = 0;
 
-        VirtualImage.transform.localScale = new Vector3(imageHeight, imageHeight, 1);
-        VirtualImage.transform.localPosition = targetPos;
+        ProjectedImage.transform.localScale = new Vector3(imageHeight, imageHeight, 1);
+        ProjectedImage.transform.localPosition = targetPos;
     }
 
 }

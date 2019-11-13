@@ -24,7 +24,7 @@ public class ConvexRaysBehaviour : RaysBehaviour
     }
 
 
-    override protected void PositionRays()
+    protected void PositionRays()
     {
         // Here we calculate where a ray parallel to the axis meets the mirror
         Vector3 mirrorCenter = Mirror.GetCenter();

@@ -32,14 +32,14 @@ public class ConcaveMirrorBehaviour : IMirrorBehaviour
 
     private void PositionVirtualImage()
     {
-        Vector3 convergingPoint = RaysBehaviour.ConvergentPoint;
+        Vector3 convergingPoint = RaysBehaviour.ConvergingPoint;
         float imageScale = (convergingPoint.y / RaysBehaviour.OriginPoint.y) * RealObject.transform.localScale.y;
 
         Vector3 targetPos = convergingPoint;
         targetPos.y = 0;
 
-        VirtualImage.transform.localScale = new Vector3(imageScale, imageScale, 1);
-        VirtualImage.transform.localPosition = targetPos;
+        ProjectedImage.transform.localScale = new Vector3(imageScale, imageScale, 1);
+        ProjectedImage.transform.localPosition = targetPos;
     }
 
 }

@@ -5,21 +5,13 @@ using UnityEngine;
 public abstract class RaysBehaviour : MonoBehaviour
 {
 
-    public Material RayMaterial;
+    public Material RayMaterial, VirtualRayMaterial;
     public Vector3 OriginPoint;
     public float RayWidth = 0.003f;
 
+    public Vector3 ConvergingPoint { get; protected set; }
+
     protected GameObject Target;
-
-
-    private void Update()
-    {
-        // Usefull only for debugging
-        PositionRays();
-    }
-
-
-    abstract protected void PositionRays();
 
 
     protected GameObject CreateRay(string name = "")
@@ -31,6 +23,13 @@ public abstract class RaysBehaviour : MonoBehaviour
         renderer.RadiusOne = RayWidth / 2;
         renderer.UseWorldSpace = false;
         renderer.Sides = 8;
+        return ray;
+    }
+
+    protected GameObject CreateVirtualRay(string name = "")
+    {
+        GameObject ray = CreateRay(name);
+        ray.GetComponent<TubeRenderer>().material = VirtualRayMaterial;
         return ray;
     }
 
