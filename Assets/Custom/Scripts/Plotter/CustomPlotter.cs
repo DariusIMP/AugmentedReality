@@ -130,7 +130,7 @@ namespace Custom.Scripts.Plotter
         {
             var directCurrent = 2f;
             _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent,
-                2f, 4f, 1f, -3f);
+                0.001f, 4f, 0.002f, -3*0.002f);
             SetDots(_signal.SignalFunction);
         }
 
