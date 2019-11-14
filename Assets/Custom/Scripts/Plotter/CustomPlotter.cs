@@ -10,7 +10,7 @@ namespace Custom.Scripts.Plotter
     public class CustomPlotter : MonoBehaviour
     {
         const int Horizontaldivs = 10;
-        const int Verticaldivs = 10;
+        const int Verticaldivs = 8;
         
         private RectTransform _rectTransform;
         
@@ -128,7 +128,7 @@ namespace Custom.Scripts.Plotter
 
         public void SetSquareSignal()
         {
-            var directCurrent = 0.75f;
+            var directCurrent = 2f;
             _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent,
                 2f, 4f, 1f, -3f);
             SetDots(_signal.SignalFunction);
@@ -136,14 +136,14 @@ namespace Custom.Scripts.Plotter
 
         public void SetSinusoidalSignal()
         {
-            var directCurrent = 1f;
+            var directCurrent = 0f;
             _signal = new SinusoidalSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent);
             SetDots(_signal.SignalFunction);
         }
 
         public void SetAlmostSquareSignal()
         {
-            var directCurrent = 0.5f;
+            var directCurrent = 1f;
             _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent, _rectTransform);
             SetDots(_signal.SignalFunction);
         }
