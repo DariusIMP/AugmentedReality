@@ -137,7 +137,8 @@ namespace Custom.Scripts.Plotter
         public void SetSinusoidalSignal()
         {
             var directCurrent = 0f;
-            _signal = new SinusoidalSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent);
+            var frecuency = 1000f;
+            _signal = new SinusoidalSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, frecuency, directCurrent);
             SetDots(_signal.SignalFunction);
         }
 
