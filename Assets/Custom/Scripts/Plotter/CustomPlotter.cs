@@ -230,18 +230,19 @@ namespace Custom.Scripts.Plotter
         private TriggerInfo SignalIsOnTriggerLevel(Func<float, float> func)
         {
             float stepSize = (_maxX - _minX) / dotsAmount;
-            float x = _minX;
+            float x = FuncMinimum(func);
             var triggerLocalY = TriggerLevelIndicator.transform.localPosition.y;
-            var errorMargin = 5f;
+            var errorMargin = 1f;
             
             while (x < _maxX)
             {
-                var fx = AdjustCoordinateToCanvasSize(x, func(x));
-                var nfx = AdjustCoordinateToCanvasSize(x + stepSize, func(x + stepSize));
-                if (triggerLocalY > (fx.y - errorMargin) 
-                    && triggerLocalY < (nfx.y + errorMargin)
-                    || triggerLocalY < (fx.y + errorMargin) 
-                    && triggerLocalY > (nfx.y - errorMargin))
+                var rect = _rectTransform.rect;
+                var fx = func(x) / _maxY * rect.y;
+                var nfx = func(x + stepSize) / _maxY * rect.y;
+                if (triggerLocalY > (fx - errorMargin) 
+                    && triggerLocalY < (nfx + errorMargin)
+                    || triggerLocalY < (fx + errorMargin) 
+                    && triggerLocalY > (nfx - errorMargin))
                 {
                     return new TriggerInfo(true, x);
                 }
@@ -249,6 +250,25 @@ namespace Custom.Scripts.Plotter
             }
 
             return new TriggerInfo(false);
+        }
+
+        private float FuncMinimum(Func<float, float> func)
+        {
+            float x = _minX;
+            float minX = x;
+            float minFx = func(x);
+            float stepSize = (_maxX - _minX) / dotsAmount;
+            while (x < _maxX)
+            {
+                float fx = func(x);
+                if (minFx > fx)
+                {
+                    minX = x;
+                    minFx = fx;
+                }
+                x += stepSize;
+            }
+            return minX;
         }
     }
 }
