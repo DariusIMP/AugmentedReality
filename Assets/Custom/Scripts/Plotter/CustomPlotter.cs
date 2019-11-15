@@ -187,15 +187,19 @@ namespace Custom.Scripts.Plotter
             _lineRenderer.positionCount = dotsAmount;
             float stepSize = (_maxX - _minX) / dotsAmount;
             float x = _minX;
+//            Debug.Log("_________________________");
             for (int i = 0; i < dotsAmount; i++)
             {
                 var fx = func(x);
+//                Debug.Log("i: " + i + " -- x: " + x + " -- f(x): " + fx + " -- Adjusted: " +
+//                          AdjustCoordinateToCanvasSize(x, fx));
                 _lineRenderer.SetPosition(i, AdjustCoordinateToCanvasSize(x, fx));
                 x += stepSize;
             }
 
             if (!SignalIsOnTriggerLevel())
             {
+                Debug.Log("XX");
                 _lineRenderer.positionCount = 0;
             }
         }
@@ -220,7 +224,11 @@ namespace Custom.Scripts.Plotter
             }
 
             var triggerLocalY = TriggerLevelIndicator.transform.localPosition.y;
-            return triggerLocalY < max && triggerLocalY > min;
+            Debug.Log("Max: " + max + " -- Min: " + min + " -- TriggerY: " + triggerLocalY);
+            var errorMargin = 5f;
+//            var isOnTrigger = Math.Abs(triggerLocalY) < Math.Abs(max + errorMargin) &&
+//                              Math.Abs(triggerLocalY) < Math.Abs(min - errorMargin);
+            return triggerLocalY < (max + errorMargin) && triggerLocalY > (min - errorMargin);
         }
     }
 }
