@@ -185,50 +185,70 @@ namespace Custom.Scripts.Plotter
         private void SetDots(Func<float, float> func)
         {
             _lineRenderer.positionCount = dotsAmount;
+
+            TriggerInfo triggerInfo = SignalIsOnTriggerLevel(func);
+            if (!triggerInfo.Intersection)
+            {
+                _lineRenderer.positionCount = 0;
+                return;
+            }
+
             float stepSize = (_maxX - _minX) / dotsAmount;
             float x = _minX;
-//            Debug.Log("_________________________");
+            float delta = triggerInfo.SignalStart - _minX;
+
             for (int i = 0; i < dotsAmount; i++)
             {
-                var fx = func(x);
-//                Debug.Log("i: " + i + " -- x: " + x + " -- f(x): " + fx + " -- Adjusted: " +
-//                          AdjustCoordinateToCanvasSize(x, fx));
+                var fx = func(x - delta);
                 _lineRenderer.SetPosition(i, AdjustCoordinateToCanvasSize(x, fx));
                 x += stepSize;
             }
+        }
+    
+        private class TriggerInfo
+        {
+            private bool _intersection;
+            private float _signalStart;
 
-            if (!SignalIsOnTriggerLevel())
+            public bool Intersection
             {
-                Debug.Log("XX");
-                _lineRenderer.positionCount = 0;
+                get { return _intersection; }
+            }
+
+            public float SignalStart
+            {
+                get { return _signalStart; }
+            }
+
+            public TriggerInfo(bool intersection, float signalStart = 0f)
+            {
+                _intersection = intersection;
+                _signalStart = signalStart;
             }
         }
-
-        private bool SignalIsOnTriggerLevel()
+        
+        private TriggerInfo SignalIsOnTriggerLevel(Func<float, float> func)
         {
-            var positions = new Vector3[_lineRenderer.positionCount];
-            _lineRenderer.GetPositions(positions);
-            var max = positions[0].y;
-            var min = positions[0].y;
-            foreach (var position in positions)
+            float stepSize = (_maxX - _minX) / dotsAmount;
+            float x = _minX;
+            var triggerLocalY = TriggerLevelIndicator.transform.localPosition.y;
+            var errorMargin = 5f;
+            
+            while (x < _maxX)
             {
-                if (position.y > max)
+                var fx = AdjustCoordinateToCanvasSize(x, func(x));
+                var nfx = AdjustCoordinateToCanvasSize(x + stepSize, func(x + stepSize));
+                if (triggerLocalY > (fx.y - errorMargin) 
+                    && triggerLocalY < (nfx.y + errorMargin)
+                    || triggerLocalY < (fx.y + errorMargin) 
+                    && triggerLocalY > (nfx.y - errorMargin))
                 {
-                    max = position.y;
+                    return new TriggerInfo(true, x);
                 }
-
-                if (position.y < min)
-                {
-                    min = position.y;
-                }
+                x += stepSize;
             }
 
-            var triggerLocalY = TriggerLevelIndicator.transform.localPosition.y;
-            Debug.Log("Max: " + max + " -- Min: " + min + " -- TriggerY: " + triggerLocalY);
-            var errorMargin = 5f;
-//            var isOnTrigger = Math.Abs(triggerLocalY) < Math.Abs(max + errorMargin) &&
-//                              Math.Abs(triggerLocalY) < Math.Abs(min - errorMargin);
-            return triggerLocalY < (max + errorMargin) && triggerLocalY > (min - errorMargin);
+            return new TriggerInfo(false);
         }
     }
 }
