@@ -44,7 +44,6 @@ namespace Custom.Scripts.Plotter
         
         public int dotsAmount;
         
-        // Start is called before the first frame update
         public void Start()
         {
             _rectTransform = gameObject.GetComponent<RectTransform>();
@@ -179,7 +178,7 @@ namespace Custom.Scripts.Plotter
                 newFx = rect.yMin;
             }
             
-            return new Vector2(-newX, -newFx);
+            return new Vector2(- newX, - newFx);
         }
 
         private void SetDots(Func<float, float> func)
@@ -195,7 +194,7 @@ namespace Custom.Scripts.Plotter
 
             float stepSize = (_maxX - _minX) / dotsAmount;
             float x = _minX;
-            float delta = triggerInfo.SignalStart - _minX;
+            float delta = - triggerInfo.SignalStart + _minX;
 
             for (int i = 0; i < dotsAmount; i++)
             {
@@ -231,8 +230,8 @@ namespace Custom.Scripts.Plotter
         {
             float stepSize = (_maxX - _minX) / dotsAmount;
             float x = FuncMinimum(func);
-            var triggerLocalY = TriggerLevelIndicator.transform.localPosition.y;
-            var errorMargin = 1f;
+            var triggerLocalY = - TriggerLevelIndicator.transform.localPosition.y;
+            var errorMargin = 5f;
             
             while (x < _maxX)
             {
