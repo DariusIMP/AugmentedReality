@@ -23,24 +23,22 @@ namespace Custom.Scripts
         {
             if (_displayInfoMode)
             {
-                if (!_selectionLocked)
-                {
-                    var cam = camera.transform;
-                    var ray = new Ray(cam.position, cam.forward);
-                    RaycastHit hit;
+                var cam = camera.transform;
+                var ray = new Ray(cam.position, cam.forward);
+                RaycastHit hit;
 
-                    if (!Physics.Raycast(ray, out hit))
+                if (!Physics.Raycast(ray, out hit))
+                {
+                    DeselectAll();
+                }
+                else
+                {
+                    var selected = FindSelectedObject(hit);
+                    if (_selection != selected)
                     {
-                        if (_selection != null)
-                        {
-                            DeselectObject();
-                        }
+                        DeselectAll();
                     }
-                    else
-                    {
-                        var selected = FindSelectedObject(hit);
-                        _selection = selected;
-                    }
+                    _selection = selected;
                 }
             }
         }
@@ -51,6 +49,16 @@ namespace Custom.Scripts
             selectionRenderer.material = selectableMaterial;
             _selection = null;
             _selectedObject.GetComponent<DisplayMenu>().HideMenu();
+        }
+
+        private void DeselectAll()
+        {
+            _selection = null;
+            foreach (var element in selectableElements)
+            {
+                element.GetComponent<Renderer>().material = selectableMaterial;
+                element.GetComponent<DisplayMenu>().HideMenu();
+            }
         }
 
         private Transform FindSelectedObject(RaycastHit hit)
@@ -70,6 +78,7 @@ namespace Custom.Scripts
             }
             return null;
         }
+        
         public void InfoDisplayModeToggle()
         {
             if (!_displayInfoMode)
@@ -107,19 +116,14 @@ namespace Custom.Scripts
 
         private void SetMaterials()
         {
-            if (!_displayInfoMode)
+            SetSelectableElementsMaterials(!_displayInfoMode ? selectableMaterial : defaultMaterial);
+        }
+
+        private void SetSelectableElementsMaterials(Material material)
+        {
+            foreach (GameObject element in selectableElements)
             {
-                foreach (GameObject element in selectableElements)
-                {
-                    element.GetComponent<Renderer>().material = selectableMaterial;
-                }
-            }
-            else
-            {
-                foreach (GameObject element in selectableElements)
-                {
-                    element.GetComponent<Renderer>().material = defaultMaterial;
-                }
+                element.GetComponent<Renderer>().material = material;
             }
         }
     }

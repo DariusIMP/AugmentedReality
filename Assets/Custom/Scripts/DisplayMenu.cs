@@ -24,7 +24,8 @@ namespace Custom.Scripts
 
         public void ShowMenu()
         {
-            menuDisplay.SetActive(true);
+            if (!menuDisplay.activeSelf)
+                menuDisplay.SetActive(true);
         }
     
         public void Action() {
