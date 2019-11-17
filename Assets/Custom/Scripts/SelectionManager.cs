@@ -1,4 +1,5 @@
 ﻿using System;
+using plib.Util;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,28 +19,30 @@ namespace Custom.Scripts
         public Camera camera;
         public GameObject aimingDot;
         public GameObject[] selectableElements;
+        public GameObject blockInfoButton;
 
         private void Update()
         {
-            if (_displayInfoMode)
-            {
-                var cam = camera.transform;
-                var ray = new Ray(cam.position, cam.forward);
-                RaycastHit hit;
+            if (!_displayInfoMode) return;
+            if (_selectionLocked) return;
+                
+            var cam = camera.transform;
+            var ray = new Ray(cam.position, cam.forward);
+            RaycastHit hit;
 
-                if (!Physics.Raycast(ray, out hit))
+            if (!Physics.Raycast(ray, out hit))
+            {
+                DeselectAll();
+            }
+            else
+            {
+                var selected = FindSelectedObject(hit);
+                if (_selection != selected)
                 {
                     DeselectAll();
                 }
-                else
-                {
-                    var selected = FindSelectedObject(hit);
-                    if (_selection != selected)
-                    {
-                        DeselectAll();
-                    }
-                    _selection = selected;
-                }
+
+                _selection = selected;
             }
         }
 
@@ -86,6 +89,7 @@ namespace Custom.Scripts
                 aimingDot.SetActive(true);
                 SetMaterials();
                 _displayInfoMode = true;
+                blockInfoButton.SetActive(true);
             }
             else
             {
@@ -93,8 +97,8 @@ namespace Custom.Scripts
                 _displayInfoMode = false;
                 _selectionLocked = false;
                 aimingDot.SetActive(false);
+                blockInfoButton.SetActive(false);
             }
-            
         }
 
         public void SelectionLockToggle()
@@ -103,6 +107,7 @@ namespace Custom.Scripts
             {
                 _selectionLocked = false;
                 aimingDot.SetActive(true);
+                blockInfoButton.GetComponentInChildren<Text>().text = "Bloquear información";
             }
             else
             {
@@ -110,6 +115,7 @@ namespace Custom.Scripts
                 {
                     _selectionLocked = true;
                     aimingDot.SetActive(false);
+                    blockInfoButton.GetComponentInChildren<Text>().text = "Desbloquear información";
                 }
             }
         }

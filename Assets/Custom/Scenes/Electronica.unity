@@ -8657,6 +8657,7 @@ MonoBehaviour:
   - {fileID: 1134366785}
   - {fileID: 2131859736}
   - {fileID: 141978117}
+  blockInfoButton: {fileID: 1994756612}
 --- !u!4 &1537848983
 Transform:
   m_ObjectHideFlags: 0
@@ -8830,17 +8831,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1537848982}
         m_MethodName: InfoDisplayModeToggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1994756617}
-        m_MethodName: ToggleActive
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10120,8 +10110,6 @@ GameObject:
   - component: {fileID: 1994756616}
   - component: {fileID: 1994756615}
   - component: {fileID: 1994756614}
-  - component: {fileID: 1994756617}
-  - component: {fileID: 1994756618}
   m_Layer: 5
   m_Name: BlockInfoButton
   m_TagString: Untagged
@@ -10200,17 +10188,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1994756618}
-        m_MethodName: ToggleText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1994756615
@@ -10250,32 +10227,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994756612}
   m_CullTransparentMesh: 0
---- !u!114 &1994756617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994756612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a95e0a044abfc473394c6c61eb343e4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1994756618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994756612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e18494b21bd9d2d4ab3e34c9a50270b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  untoggledText: "Bloquear informaci\xF3n"
-  toggledText: "Desbloquear informaci\xF3n"
 --- !u!1 &2013719813
 GameObject:
   m_ObjectHideFlags: 0
