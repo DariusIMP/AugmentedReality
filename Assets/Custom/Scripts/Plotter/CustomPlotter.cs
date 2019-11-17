@@ -34,21 +34,24 @@ namespace Custom.Scripts.Plotter
         //Unit: seconds
         private readonly float[] _amplitudeScale = {0.001f, 0.002f, 0.005f, 0.01f, 0.02f,
             0.05f, 0.1f, 0.2f, 0.5f, 1, 2, 5};
-        
-        [Range(-100,100)]
-        private float _triggerLevel = 0f;
-        
+
+        private float _ampScale;
+        private float _timeScale;
+
         public GameObject TriggerLevelIndicator;
         public GameObject AmplitudeSlider;
         public GameObject TimeBaseSlider;
-        
+        public GameObject TriggerSlider;
+        public GameObject VerticalDisplacementSlider;
+
         public int dotsAmount;
-        
+
         public void Start()
         {
             _rectTransform = gameObject.GetComponent<RectTransform>();
             _lineRenderer = gameObject.GetComponent<LineRenderer>();
             _lineRenderer.useWorldSpace = false;
+            
             LoadScales();
             SetSinusoidalSignal();
         }
@@ -60,20 +63,22 @@ namespace Custom.Scripts.Plotter
             
             LoadTimeBaseScale();
             ShowTimeBaseScale();
+            
+            ShowTriggerLevelVoltage(TriggerSlider.GetComponent<Slider>().value);
         }
 
         private void LoadAmplitudeScale()
         {
-            var ampScale = _amplitudeScale[(int)AmplitudeSlider.GetComponent<Slider>().value];
-            _maxY = Verticaldivs / 2f * ampScale;
+            _ampScale = _amplitudeScale[(int)AmplitudeSlider.GetComponent<Slider>().value];
+            _maxY = Verticaldivs / 2f * _ampScale;
             _minY = -_maxY;
         }
 
         private void LoadTimeBaseScale()
         {
-            var timeScale = _timeBaseScale[(int) TimeBaseSlider.GetComponent<Slider>().value];
-            _timeBaseMultiplier = timeScale;
-            _maxX = Horizontaldivs / 2f * timeScale;
+            _timeScale = _timeBaseScale[(int) TimeBaseSlider.GetComponent<Slider>().value];
+            _timeBaseMultiplier = _timeScale;
+            _maxX = Horizontaldivs / 2f * _timeScale;
             _minX = -_maxX;
         }
 
@@ -88,15 +93,26 @@ namespace Custom.Scripts.Plotter
             AmplitudeSlider.GetComponentInChildren<Text>().text = 
             _amplitudeScale[(int) AmplitudeSlider.GetComponent<Slider>().value] + "V";
         }
+
+        private void ShowTriggerLevelVoltage(float triggerLevel)
+        {
+            var triggerVoltage = (float) Math.Round(triggerLevel / 100 * Verticaldivs / 2 * _ampScale, 4);
+            TriggerSlider.GetComponentInChildren<Text>().text = triggerVoltage + "V";
+        }
+
+        private void ShowVerticalDisplacementVoltage()
+        {
+            
+        }
         
         public void VaryTriggerLevel(float triggerLevel)
         {
-            _triggerLevel = triggerLevel;
             var triggerLevelPos = TriggerLevelIndicator.transform.localPosition;
             triggerLevelPos.y = - triggerLevel / 100 * _rectTransform.rect.y;
             TriggerLevelIndicator.transform.localPosition = triggerLevelPos;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
+            ShowTriggerLevelVoltage(triggerLevel);
         }
         
         public void ToggleAcDcCoupling()
@@ -123,6 +139,7 @@ namespace Custom.Scripts.Plotter
             _minY = -_maxY;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
+            ShowTriggerLevelVoltage(TriggerSlider.GetComponent<Slider>().value);
         }
 
         public void SetSquareSignal()
@@ -194,11 +211,11 @@ namespace Custom.Scripts.Plotter
 
             float stepSize = (_maxX - _minX) / dotsAmount;
             float x = _minX;
-            float delta = - triggerInfo.SignalStart + _minX;
+            float delta = + triggerInfo.SignalStart - _minX;
 
             for (int i = 0; i < dotsAmount; i++)
             {
-                var fx = func(x - delta);
+                var fx = func(x + delta);
                 _lineRenderer.SetPosition(i, AdjustCoordinateToCanvasSize(x, fx));
                 x += stepSize;
             }
