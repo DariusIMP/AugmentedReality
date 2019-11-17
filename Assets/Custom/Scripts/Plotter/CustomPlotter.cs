@@ -53,6 +53,8 @@ namespace Custom.Scripts.Plotter
             _lineRenderer.useWorldSpace = false;
             
             LoadScales();
+            ShowTriggerLevelVoltage();
+            ShowVerticalDisplacementVoltage();
             SetSinusoidalSignal();
         }
 
@@ -63,8 +65,6 @@ namespace Custom.Scripts.Plotter
             
             LoadTimeBaseScale();
             ShowTimeBaseScale();
-            
-            ShowTriggerLevelVoltage(TriggerSlider.GetComponent<Slider>().value);
         }
 
         private void LoadAmplitudeScale()
@@ -94,15 +94,16 @@ namespace Custom.Scripts.Plotter
             _amplitudeScale[(int) AmplitudeSlider.GetComponent<Slider>().value] + "V";
         }
 
-        private void ShowTriggerLevelVoltage(float triggerLevel)
+        private void ShowTriggerLevelVoltage()
         {
+            var triggerLevel = TriggerSlider.GetComponent<Slider>().value;
             var triggerVoltage = (float) Math.Round(triggerLevel / 100 * Verticaldivs / 2 * _ampScale, 4);
             TriggerSlider.GetComponentInChildren<Text>().text = triggerVoltage + "V";
         }
 
         private void ShowVerticalDisplacementVoltage()
         {
-            
+            VerticalDisplacementSlider.GetComponentInChildren<Text>().text = Math.Round(_verticalDisplacement, 4) + "V";
         }
         
         public void VaryTriggerLevel(float triggerLevel)
@@ -112,7 +113,17 @@ namespace Custom.Scripts.Plotter
             TriggerLevelIndicator.transform.localPosition = triggerLevelPos;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
-            ShowTriggerLevelVoltage(triggerLevel);
+            ShowTriggerLevelVoltage();
+        }
+        
+        public void VaryVerticalDisplacement(float vd)
+        {
+            _verticalDisplacement = vd * _ampScale;
+            _signal.verticalDisplacement = _verticalDisplacement;
+            _lineRenderer.positionCount = 0;
+            _signal.Reset();
+            SetDots(_signal.SignalFunction);
+            ShowVerticalDisplacementVoltage();
         }
         
         public void ToggleAcDcCoupling()
@@ -139,7 +150,8 @@ namespace Custom.Scripts.Plotter
             _minY = -_maxY;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
-            ShowTriggerLevelVoltage(TriggerSlider.GetComponent<Slider>().value);
+            ShowTriggerLevelVoltage();
+            VaryVerticalDisplacement(VerticalDisplacementSlider.GetComponent<Slider>().value);
         }
 
         public void SetSquareSignal()
@@ -162,15 +174,6 @@ namespace Custom.Scripts.Plotter
         {
             var directCurrent = 1f;
             _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent, _rectTransform);
-            SetDots(_signal.SignalFunction);
-        }
-
-        public void DisplaceVertically(float vd)
-        {
-            _verticalDisplacement = vd;
-            _signal.verticalDisplacement = vd;
-            _lineRenderer.positionCount = 0;
-            _signal.Reset();
             SetDots(_signal.SignalFunction);
         }
 
