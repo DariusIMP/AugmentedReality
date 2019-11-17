@@ -13,12 +13,15 @@ namespace Custom.Scripts.Plotter
         private float R = 1000f;
         private float C = 0.001f;
         private float adjustmentFactor = 0f;
+        private float _maxFx, _minFx;
+
         public AlmostSquareSignal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier, 
             float directCurrent,
             RectTransform rectTransform) :
             base(horizontalDisplacement, verticalDisplacement, timeBaseMultiplier, directCurrent)
         {
             _rectTransform = rectTransform;
+            CalculateExtremes();
             CalculateAdjustmentFactor();
         }
 
@@ -61,15 +64,30 @@ namespace Custom.Scripts.Plotter
                 }
             }
 
+            if (fx > _maxFx)
+            {
+                fx = _maxFx;
+            }
+
+            if (fx < _minFx)
+            {
+                fx = _minFx;
+            }
+
             var dc = acDcCoupling ? directCurrent : 0f;
             return fx - adjustmentFactor + verticalDisplacement + dc;
         }
 
         private void CalculateAdjustmentFactor()
         {
-            float max = (float) (v0 * (1 - Math.Exp(-(1000 - vertex) * timeBaseMultiplier / (R * C))));
-            float min = (float) (v0 * (1 + Math.Exp(-(1000 - vertex) * timeBaseMultiplier / (R * C)))) - max;
-            adjustmentFactor = (max - min) / 2;
+            adjustmentFactor = (_maxFx - _minFx) / 2;
+        }
+
+        private void CalculateExtremes()
+        {
+            _maxFx = (float) (v0 * (1 - Math.Exp(-(1000 - vertex) * timeBaseMultiplier / (R * C))));
+            _minFx = (float) (v0 * (1 + Math.Exp(-(1000 - vertex) * timeBaseMultiplier / (R * C)))) - _maxFx;
+            Debug.Log("MinFx: " + _minFx + " -- MaxFx: " + _maxFx);
         }
     }
 }
