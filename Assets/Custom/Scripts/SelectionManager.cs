@@ -98,6 +98,7 @@ namespace Custom.Scripts
                 _selectionLocked = false;
                 aimingDot.SetActive(false);
                 blockInfoButton.SetActive(false);
+                DeselectAll();
             }
         }
 
