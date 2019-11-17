@@ -97,9 +97,16 @@ namespace Custom.Scripts
                 _displayInfoMode = false;
                 _selectionLocked = false;
                 aimingDot.SetActive(false);
-                blockInfoButton.SetActive(false);
-                DeselectAll();
+                _selection = null;
+                _selectedObject.GetComponent<DisplayMenu>().HideMenu();
+                DeactivateBlockInfoButton();
             }
+        }
+
+        private void DeactivateBlockInfoButton()
+        {
+            blockInfoButton.GetComponentInChildren<Text>().text = "Bloquear información";
+            blockInfoButton.SetActive(false);
         }
 
         public void SelectionLockToggle()
