@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PositionSliderTranslator : MonoBehaviour
+public class ConcaveMirrorPositionTranslator : MonoBehaviour
 {
+    public ConcaveMirrorBehaviour Mirror;
 
-    public ConvergingLensBehaviour Lens;
-    
 
     public void OnValueChanged(float value)
     {
         if (value == 0)
         {
-            Lens.PositionFarFromLens();
+            Mirror.PositionFarFromLens();
         }
         else if (value == 1)
         {
-            Lens.PositionNearFromLens();
+            Mirror.PositionNearFromLens();
         }
     }
 

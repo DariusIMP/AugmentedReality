@@ -63,7 +63,7 @@ public class LensRaysBehaviour : RaysBehaviour
     }
 
 
-    public void PositionRaysForVirtualImage()
+    public void PositionRaysForNearPosition()
     {
         Vector3 planeNormal = Lens.GetPlaneNormal();
         Vector3 lensPosition = Lens.transform.localPosition;

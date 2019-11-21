@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ConvexRaysBehaviour : RaysBehaviour
 {
+    public Vector3 OriginPoint;
 
     public Vector3 ConvergentPoint { get; private set; }
 

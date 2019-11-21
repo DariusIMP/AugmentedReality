@@ -27,13 +27,29 @@ public class ConcaveMirrorBehaviour : IMirrorBehaviour
     private void Start()
     {
         RaysBehaviour.Initialize(RealObject, this);
-        PositionVirtualImage();
+        PositionVirtualImage(RaysBehaviour.FarOriginPoint);
     }
 
-    private void PositionVirtualImage()
+    
+    public void PositionFarFromLens()
+    {
+        RaysBehaviour.PositionRaysForFarPosition();
+        PositionVirtualImage(RaysBehaviour.FarOriginPoint);
+        RealObject.transform.localPosition = new Vector3(0, 0, RaysBehaviour.FarOriginPoint.z);
+    }
+
+    public void PositionNearFromLens()
+    {
+        RaysBehaviour.PositionRaysForNearPosition();
+        PositionVirtualImage(RaysBehaviour.NearOriginPoint);
+        RealObject.transform.localPosition = new Vector3(0, 0, RaysBehaviour.NearOriginPoint.z);
+    }
+
+
+    private void PositionVirtualImage(Vector3 originPoint)
     {
         Vector3 convergingPoint = RaysBehaviour.ConvergingPoint;
-        float imageScale = (convergingPoint.y / RaysBehaviour.OriginPoint.y) * RealObject.transform.localScale.y;
+        float imageScale = (convergingPoint.y / originPoint.y) * RealObject.transform.localScale.y;
 
         Vector3 targetPos = convergingPoint;
         targetPos.y = 0;

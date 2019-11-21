@@ -6,7 +6,6 @@ public abstract class RaysBehaviour : MonoBehaviour
 {
 
     public Material RayMaterial, VirtualRayMaterial;
-    public Vector3 OriginPoint;
     public float RayWidth = 0.003f;
 
     public Vector3 ConvergingPoint { get; protected set; }
