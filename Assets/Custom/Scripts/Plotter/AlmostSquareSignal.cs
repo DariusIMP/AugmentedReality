@@ -6,13 +6,13 @@ namespace Custom.Scripts.Plotter
     public class AlmostSquareSignal : Signal
     {
         private RectTransform _rectTransform;
-        private bool signalGrowing = true;
-        private float vertex = 0f;
-        private float peak;
-        private float v0 = 2f;
-        private float R = 1000f;
-        private float C = 0.001f;
-        private float adjustmentFactor = 0f;
+        private bool _signalGrowing = true;
+        private float _vertex = 0f;
+        private float _peak;
+        private float v0 = 4f;
+        private float R = 0.001f;
+        private float C = 0.025f;
+        private float _adjustmentFactor = 0f;
         private float _maxFx, _minFx;
 
         public AlmostSquareSignal(float horizontalDisplacement, float verticalDisplacement, float timeBaseMultiplier, 
@@ -33,9 +33,9 @@ namespace Custom.Scripts.Plotter
 
         public override void Reset()
         {
-            vertex = 0f;
-            peak = 0f;
-            signalGrowing = true;
+            _vertex = 0f;
+            _peak = 0f;
+            _signalGrowing = true;
             CalculateAdjustmentFactor();
         }
         
@@ -44,23 +44,23 @@ namespace Custom.Scripts.Plotter
             float fx;
             
             x = x * 3 - _rectTransform.rect.x;
-            if (signalGrowing)
+            if (_signalGrowing)
             {
-                fx = (float) (v0 * (1 - Math.Exp(-(x - vertex ) * timeBaseMultiplier / (R * C))));
-                if (Math.Abs(Derivative(t => (float) (v0 * (1 - Math.Exp(-t * timeBaseMultiplier / (R * C)))), x - vertex)) < 0.001)
+                fx = (float) (v0 * (1 - Math.Exp(-(x - _vertex ) * timeBaseMultiplier / (R * C))));
+                if (Math.Abs(Derivative(t => (float) (v0 * (1 - Math.Exp(-t * timeBaseMultiplier / (R * C)))), x - _vertex)) < 0.0005)
                 {
-                    signalGrowing = false;
-                    vertex = x;
-                    peak = fx;
+                    _signalGrowing = false;
+                    _vertex = x;
+                    _peak = fx;
                 }
             }
             else
             {
-                fx = (float) (v0 * (1 + Math.Exp(-(x - vertex) * timeBaseMultiplier / (R * C)))) - peak;
-                if (Math.Abs(Derivative(t => (float) (v0 * (1 + Math.Exp(-t * timeBaseMultiplier / (R * C)))), x - vertex)) < 0.001)
+                fx = (float) (v0 * (1 + Math.Exp(-(x - _vertex) * timeBaseMultiplier / (R * C)))) - _peak;
+                if (Math.Abs(Derivative(t => (float) (v0 * (1 + Math.Exp(-t * timeBaseMultiplier / (R * C)))), x - _vertex)) < 0.0005)
                 {
-                    signalGrowing = true;
-                    vertex = x;
+                    _signalGrowing = true;
+                    _vertex = x;
                 }
             }
 
@@ -75,19 +75,18 @@ namespace Custom.Scripts.Plotter
             }
 
             var dc = acDcCoupling ? directCurrent : 0f;
-            return fx - adjustmentFactor + verticalDisplacement + dc;
+            return fx - _adjustmentFactor + verticalDisplacement + dc;
         }
 
         private void CalculateAdjustmentFactor()
         {
-            adjustmentFactor = (_maxFx - _minFx) / 2;
+            _adjustmentFactor = (_maxFx - _minFx) / 2;
         }
 
         private void CalculateExtremes()
         {
-            _maxFx = (float) (v0 * (1 - Math.Exp(-(1000 - vertex) * timeBaseMultiplier / (R * C))));
-            _minFx = (float) (v0 * (1 + Math.Exp(-(1000 - vertex) * timeBaseMultiplier / (R * C)))) - _maxFx;
-            Debug.Log("MinFx: " + _minFx + " -- MaxFx: " + _maxFx);
+            _maxFx = (float) (v0 * (1 - Math.Exp(-(1000 - _vertex) * timeBaseMultiplier / (R * C))));
+            _minFx = (float) (v0 * (1 + Math.Exp(-(1000 - _vertex) * timeBaseMultiplier / (R * C)))) - _maxFx;
         }
     }
 }

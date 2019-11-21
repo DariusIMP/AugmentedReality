@@ -14,7 +14,7 @@ namespace Custom.Scripts.Plotter
         
         private RectTransform _rectTransform;
         
-        private float _minX;//TODO: construir esto en base a las escalas de amplitud y de base de tiempo
+        private float _minX;
         private float _maxX;
         private float _minY;
         private float _maxY;
@@ -154,9 +154,17 @@ namespace Custom.Scripts.Plotter
             VaryVerticalDisplacement(VerticalDisplacementSlider.GetComponent<Slider>().value);
         }
 
+        private void SetScales(int amplitudeIndex, int timebaseIndex)
+        {
+            AmplitudeSlider.GetComponent<Slider>().value = amplitudeIndex;
+            TimeBaseSlider.GetComponent<Slider>().value = timebaseIndex;
+            LoadScales();
+        }
+        
         public void SetSquareSignal()
         {
             var directCurrent = 2f;
+            SetScales(1,1);
             _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent,
                 0.001f, 4f, 0.002f, -3*0.002f);
             SetDots(_signal.SignalFunction);
@@ -167,12 +175,14 @@ namespace Custom.Scripts.Plotter
             var directCurrent = 0f;
             var frecuency = 1000f;
             _signal = new SinusoidalSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, frecuency, directCurrent);
+            SetScales(8,3);
             SetDots(_signal.SignalFunction);
         }
 
         public void SetAlmostSquareSignal()
         {
             var directCurrent = 1f;
+            SetScales(9, 3);
             _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent, _rectTransform);
             SetDots(_signal.SignalFunction);
         }
