@@ -6,6 +6,7 @@ public class ConcaveMirrorBehaviour : MirrorBehaviour
 {
 
     public ConcaveRaysBehaviour RaysBehaviour;
+    public TextMesh PositionText;
     public float Radius;
 
 
@@ -28,14 +29,16 @@ public class ConcaveMirrorBehaviour : MirrorBehaviour
     {
         RaysBehaviour.Initialize(RealObject, this);
         PositionVirtualImage(RaysBehaviour.FarOriginPoint);
+        PositionText.text = string.Format("{0}cm", (int)Mathf.Round(RaysBehaviour.FarOriginPoint.z * -100));
     }
 
-    
+
     public void PositionFarFromLens()
     {
         RaysBehaviour.PositionRaysForFarPosition();
         PositionVirtualImage(RaysBehaviour.FarOriginPoint);
         RealObject.transform.localPosition = new Vector3(0, 0, RaysBehaviour.FarOriginPoint.z);
+        PositionText.text = string.Format("{0}cm", (int)Mathf.Round(RaysBehaviour.FarOriginPoint.z * -100));
     }
 
     public void PositionNearFromLens()
@@ -43,6 +46,7 @@ public class ConcaveMirrorBehaviour : MirrorBehaviour
         RaysBehaviour.PositionRaysForNearPosition();
         PositionVirtualImage(RaysBehaviour.NearOriginPoint);
         RealObject.transform.localPosition = new Vector3(0, 0, RaysBehaviour.NearOriginPoint.z);
+        PositionText.text = string.Format("{0}cm", (int)Mathf.Round(RaysBehaviour.NearOriginPoint.z * -100));
     }
 
 

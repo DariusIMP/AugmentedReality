@@ -6,6 +6,7 @@ public class ConvergingLensBehaviour : MirrorBehaviour
 {
 
     public ConvergingRaysBehaviour RaysBehaviour;
+    public TextMesh PositionText;
     public float FocalDistance = 0.5f;
 
 
@@ -13,6 +14,7 @@ public class ConvergingLensBehaviour : MirrorBehaviour
     {
         RaysBehaviour.Initialize(RealObject, this);
         PositionProjectedTarget(RaysBehaviour.FarOriginPoint);
+        PositionText.text = string.Format("{0}cm", (int)Mathf.Round(RaysBehaviour.FarOriginPoint.z * -100));
     }
 
     public Vector3 GetFocusPosition()
@@ -35,6 +37,7 @@ public class ConvergingLensBehaviour : MirrorBehaviour
         RaysBehaviour.PositionRaysForFarPosition();
         PositionProjectedTarget(RaysBehaviour.NearOriginPoint);
         RealObject.transform.localPosition = new Vector3(0, 0, RaysBehaviour.FarOriginPoint.z);
+        PositionText.text = string.Format("{0}cm", (int) Mathf.Round(RaysBehaviour.FarOriginPoint.z * -100));
     }
 
     public void PositionNearFromLens()
@@ -42,6 +45,7 @@ public class ConvergingLensBehaviour : MirrorBehaviour
         RaysBehaviour.PositionRaysForNearPosition();
         PositionProjectedTarget(RaysBehaviour.FarOriginPoint);
         RealObject.transform.localPosition = new Vector3(0, 0, RaysBehaviour.NearOriginPoint.z);
+        PositionText.text = string.Format("{0}cm", (int) Mathf.Round(RaysBehaviour.NearOriginPoint.z * -100));
     }
 
 
