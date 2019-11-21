@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class ConvexMirrorBehaviour : IMirrorBehaviour
+public class ConvexMirrorBehaviour : MirrorBehaviour
 {
     
     public ConvexRaysBehaviour RaysBehaviour;

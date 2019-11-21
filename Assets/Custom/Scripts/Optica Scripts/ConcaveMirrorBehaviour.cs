@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConcaveMirrorBehaviour : IMirrorBehaviour
+public class ConcaveMirrorBehaviour : MirrorBehaviour
 {
 
     public ConcaveRaysBehaviour RaysBehaviour;

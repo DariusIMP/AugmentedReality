@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IMirrorBehaviour : MonoBehaviour
+public class MirrorBehaviour : MonoBehaviour
 {
 
     public GameObject RealObject;
