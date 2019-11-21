@@ -98,8 +98,11 @@ namespace Custom.Scripts
                 _selectionLocked = false;
                 aimingDot.SetActive(false);
                 _selection = null;
-                _selectedObject.GetComponent<DisplayMenu>().HideMenu();
                 DeactivateBlockInfoButton();
+                if (_selectedObject != null)
+                {
+                    _selectedObject.GetComponent<DisplayMenu>().HideMenu();
+                }
             }
         }
 
