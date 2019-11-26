@@ -20,10 +20,12 @@ public class ConvexRaysBehaviour : RaysBehaviour
 
         ParallelRay = CreateRay("Parallel Ray");
         CenterRay = CreateRay("Center Ray");
+        CenterRay.SetActive(false);
         FocalRay = CreateRay("Focal Ray");
 
         ParallelVirtualRay = CreateVirtualRay("Parallel Virtual Ray");
         CenterVirtualRay = CreateVirtualRay("Center Virtual Ray");
+        CenterVirtualRay.SetActive(false);
         FocalVirtualRay = CreateVirtualRay("Focal Virtual Ray");
 
         PositionRays();     
@@ -58,7 +60,7 @@ public class ConvexRaysBehaviour : RaysBehaviour
         Vector3 focalDirection = Mirror.GetFocalPoint() - OriginPoint;
         Vector3 focalHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, OriginPoint, focalDirection)[1];
         FocalRay.GetComponent<TubeRenderer>().SetPositions(
-            new Vector3[] { OriginPoint, focalHit, 2 * focalHit - ConvergentPoint }
+            new Vector3[] { OriginPoint, focalHit, 1.5f * (focalHit - ConvergentPoint) + focalHit }
         );
 
         // Now the virtual rays

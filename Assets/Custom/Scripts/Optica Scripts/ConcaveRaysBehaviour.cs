@@ -19,6 +19,7 @@ public class ConcaveRaysBehaviour : RaysBehaviour
 
         ParallelRay = CreateRay("Parallel Ray");
         CenterRay = CreateRay("Center Ray");
+        CenterRay.SetActive(false); // Es medio confuso mostrarlo
         FocalRay = CreateRay("Focal Ray");
 
         ParallelVirtualRay = CreateVirtualRay("Parallel Virtual Ray");
@@ -47,17 +48,16 @@ public class ConcaveRaysBehaviour : RaysBehaviour
 
         // And now we set the rays points
         ParallelRay.GetComponent<TubeRenderer>().SetPositions(
-            new Vector3[] { FarOriginPoint, parallelHit, ConvergingPoint }
+            new Vector3[] { FarOriginPoint, parallelHit, 1.3f * (ConvergingPoint - parallelHit) + parallelHit }
         );
-
-        CenterRay.SetActive(true);
+        
         Vector3 centerHit = GetSphereLineIntersection(Mirror.Radius, mirrorCenter, FarOriginPoint, FarOriginPoint - mirrorCenter)[0];
         CenterRay.GetComponent<TubeRenderer>().SetPositions(
             new Vector3[] { FarOriginPoint, ConvergingPoint }
         );
         
         FocalRay.GetComponent<TubeRenderer>().SetPositions(
-            new Vector3[] { FarOriginPoint, focalHit, ConvergingPoint }
+            new Vector3[] { FarOriginPoint, focalHit, 1.3f * (ConvergingPoint - focalHit) + focalHit }
         );
 
         ParallelVirtualRay.SetActive(false);

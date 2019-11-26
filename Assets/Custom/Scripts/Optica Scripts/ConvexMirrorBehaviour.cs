@@ -33,7 +33,7 @@ public class ConvexMirrorBehaviour : MirrorBehaviour
     private void PositionVirtualImage()
     {
         Vector3 convergingPoint = RaysBehaviour.ConvergentPoint;
-        float imageHeight = convergingPoint.y - transform.position.y;
+        float imageHeight = convergingPoint.y - transform.localPosition.y;
 
         Vector3 targetPos = convergingPoint;
         targetPos.y = 0;
