@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="diverging" size="0.030000 0.030000" />
-    <ImageTarget name="convex" size="0.030000 0.030000" />
-    <ImageTarget name="converging" size="0.030000 0.030000" />
-    <ImageTarget name="concave" size="0.030000 0.030000" />
+    <ImageTarget name="converging_rect" size="0.020000 0.039987" />
+    <ImageTarget name="diverging_rect" size="0.020000 0.039987" />
+    <ImageTarget name="convex_rect" size="0.020000 0.039987" />
+    <ImageTarget name="concave_rect" size="0.020000 0.039987" />
   </Tracking>
 </QCARConfig>
