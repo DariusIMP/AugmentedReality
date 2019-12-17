@@ -11,7 +11,7 @@ namespace Custom.Scripts.Film.UI_Scripts
         public Sprite audioOnSprite;
         public Sprite audioOffSprite;
 	
-        private bool audioSet;
+        private bool audioSet = true;
 
         private void Start()
         {
