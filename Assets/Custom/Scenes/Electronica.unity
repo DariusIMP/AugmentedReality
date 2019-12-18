@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.4964127, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -929,8 +929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97bb7462d11733641b72a118646e3ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1458604144}
-  slider: {fileID: 77917317}
 --- !u!1 &95476116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,14 +2140,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 334458491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea996bb1eb4bdd543aff213744e8c4ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 164e4ca6aa0dfbc4c8c3f622a44ac45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Frames:
-  - {fileID: 21300000, guid: 3115d322540359d4895fe312e3044508, type: 3}
-  - {fileID: 21300000, guid: b0e9805f3963a0e42821f87694c741cf, type: 3}
-  - {fileID: 21300000, guid: eda948185a3b9444593abc1d620c354d, type: 3}
-  - {fileID: 21300000, guid: 47b5190592449e44f9414f16778524aa, type: 3}
+  - {fileID: 21300000, guid: f245cd30b1ed1a944941b09dbdb20f88, type: 3}
+  - {fileID: 21300000, guid: 3a9384543d25fb14fa279ed758281d75, type: 3}
+  - {fileID: 21300000, guid: 2c9a11f114162984b810fc5ea3a662b0, type: 3}
+  - {fileID: 21300000, guid: b5def1c5bda4bdd44a316d1f57b52cbf, type: 3}
   FrameDuration: 0.5
 --- !u!114 &334458494
 MonoBehaviour:
@@ -2562,14 +2560,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 394980968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea996bb1eb4bdd543aff213744e8c4ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 164e4ca6aa0dfbc4c8c3f622a44ac45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Frames:
-  - {fileID: 21300000, guid: 2174222b8f89cac4ea91df1749473219, type: 3}
-  - {fileID: 21300000, guid: abbf6989a53d7f34cb24c14c7d644c71, type: 3}
-  - {fileID: 21300000, guid: b7165f26393331643869bf1c48d32951, type: 3}
-  - {fileID: 21300000, guid: 9ef460e5f34d53c4796c10ae6dda5e4a, type: 3}
+  - {fileID: 21300000, guid: 9401bfc7d458f0b40baad3d248c42209, type: 3}
+  - {fileID: 21300000, guid: 5ef3132fcca1fbc418db146d0e8f6274, type: 3}
+  - {fileID: 21300000, guid: 4e2f057240e36314d857336347320c54, type: 3}
+  - {fileID: 21300000, guid: 462637ad3b40d6e41a88e8714d7a350f, type: 3}
   FrameDuration: 0.5
 --- !u!114 &394980971
 MonoBehaviour:
@@ -2812,8 +2810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97bb7462d11733641b72a118646e3ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1508389792}
-  slider: {fileID: 101301386}
 --- !u!1 &457875299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,7 +2951,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 457875299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c30d38a2f4b94e469c0278f7e6a5d9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 782fef81019ef9e4588378ac74f30aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerLevelIndicator: {fileID: 1514445974}
@@ -2963,7 +2959,7 @@ MonoBehaviour:
   TimeBaseSlider: {fileID: 28279264}
   TriggerSlider: {fileID: 77917315}
   VerticalDisplacementSlider: {fileID: 101301384}
-  dotsAmount: 1100
+  dotsAmount: 1000
 --- !u!222 &457875303
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3314,30 +3310,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Selectable
       objectReference: {fileID: 0}
-    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.006
@@ -3394,6 +3366,30 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2300020, guid: c2890a8404d924c5c9d0189055f3b602, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3428,7 +3424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &520333373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3809,9 +3805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f0ceb4ccafec64cba631ac131db8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxIntensity: 100
-  minIntensity: 10
-  multiplier: 100
 --- !u!108 &639954317
 Light:
   m_ObjectHideFlags: 0
@@ -4744,9 +4737,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f0ceb4ccafec64cba631ac131db8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxIntensity: 100
-  minIntensity: 10
-  multiplier: 100
 --- !u!108 &808958525
 Light:
   m_ObjectHideFlags: 0
@@ -5035,8 +5025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18494b21bd9d2d4ab3e34c9a50270b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  untoggledText: AC
-  toggledText: DC
 --- !u!1 &845883144
 GameObject:
   m_ObjectHideFlags: 0
@@ -5352,9 +5340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f0ceb4ccafec64cba631ac131db8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxIntensity: 100
-  minIntensity: 10
-  multiplier: 100
 --- !u!108 &915070545
 Light:
   m_ObjectHideFlags: 0
@@ -5714,15 +5699,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 998957590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea996bb1eb4bdd543aff213744e8c4ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 164e4ca6aa0dfbc4c8c3f622a44ac45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Frames:
-  - {fileID: 21300000, guid: b8b2d2e168c10f44991be2fc34be00fa, type: 3}
-  - {fileID: 21300000, guid: 8d3ea5d6c9e583f4b836b7e6ff04f40b, type: 3}
-  - {fileID: 21300000, guid: 09fa0255e01e2ae479e7ab5c09024d30, type: 3}
-  - {fileID: 21300000, guid: ea952364ecfff9d4399979db490893a8, type: 3}
-  - {fileID: 21300000, guid: 9accb885999eee44ba25a7a2feb6771f, type: 3}
+  - {fileID: 21300000, guid: 22da96a1ac7f64348a4e379b7c624315, type: 3}
+  - {fileID: 21300000, guid: 4faf5d2fb3929fb47af22d90e2bd4540, type: 3}
+  - {fileID: 21300000, guid: f79889afedd05d748ba57dce13a6d895, type: 3}
+  - {fileID: 21300000, guid: a5a7b61526902c84da8d4a6f60e76c16, type: 3}
+  - {fileID: 21300000, guid: 86239d2ac8b770e40a52052ee7c18d2f, type: 3}
   FrameDuration: 0.5
 --- !u!114 &998957593
 MonoBehaviour:
@@ -6481,7 +6466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1115255763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7298,18 +7283,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308748468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea996bb1eb4bdd543aff213744e8c4ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 164e4ca6aa0dfbc4c8c3f622a44ac45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Frames:
-  - {fileID: 21300000, guid: a82c490f28248ec4685d60d07e9a4a1c, type: 3}
-  - {fileID: 21300000, guid: 32015ad7bbf237847a3dc01ddf42bc9a, type: 3}
-  - {fileID: 21300000, guid: 3fbfff16f4e715c48a179eb5c5e70f22, type: 3}
-  - {fileID: 21300000, guid: 3ed2f4952785c5841ba347b836bff14d, type: 3}
-  - {fileID: 21300000, guid: 2b3c46da1ca08424dbda0a10f839d883, type: 3}
-  - {fileID: 21300000, guid: bb8ad29767e740242ac2ed39f981cad9, type: 3}
-  - {fileID: 21300000, guid: 37aeb136ac30bfe408ee4b4a26b9ef64, type: 3}
-  FrameDuration: 0.3
+  - {fileID: 21300000, guid: 2b62b1ef22a58fb489a65510bbdaba27, type: 3}
+  - {fileID: 21300000, guid: 0e3c75f32c13e704b95dd01872a0ce71, type: 3}
+  - {fileID: 21300000, guid: f99d0e6b491fd8f4fbf9b33420611ba3, type: 3}
+  - {fileID: 21300000, guid: 1fa8c56392256984ea5bc90c6242cab7, type: 3}
+  - {fileID: 21300000, guid: 894d7ca707c9c844f85746887b59dbf2, type: 3}
+  - {fileID: 21300000, guid: 756bfb2b1ec87cc4fa32a8486e824af4, type: 3}
+  - {fileID: 21300000, guid: 97cf33adc9d0f7d49a097bce11663a7f, type: 3}
+  FrameDuration: 0.5
 --- !u!114 &1308748471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7922,7 +7907,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 51263167cb0bb504dabebe35d42b703d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70ca9458d9938924b9d707c71e88b4d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9327,9 +9312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f0ceb4ccafec64cba631ac131db8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxIntensity: 100
-  minIntensity: 10
-  multiplier: 100
 --- !u!108 &1746016628
 Light:
   m_ObjectHideFlags: 0
@@ -10836,8 +10818,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 587334408}
   m_HandleRect: {fileID: 587334407}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9957955
+  m_Value: 0.9999994
+  m_Size: 0.94493294
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
