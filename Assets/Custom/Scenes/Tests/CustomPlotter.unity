@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44659364, g: 0.4964301, b: 0.5748256, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.4964127, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -464,7 +464,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 267614171}
-        m_MethodName: ExpandTimeBase
+        m_MethodName: VaryHorizontalDisplacement
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 267614171}
+      - m_Target: {fileID: 0}
         m_MethodName: SetAlmostSquareSignal
         m_Mode: 1
         m_Arguments:
@@ -615,8 +615,8 @@ GameObject:
   m_Component:
   - component: {fileID: 267614170}
   - component: {fileID: 267614173}
-  - component: {fileID: 267614171}
   - component: {fileID: 267614172}
+  - component: {fileID: 267614171}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -652,14 +652,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 267614169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ec739d824d947cfbc610fb13079078, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c30d38a2f4b94e469c0278f7e6a5d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -10
-  maxX: 10
-  minY: -10
-  maxY: 10
-  dotsAmount: 1000
+  TriggerLevelIndicator: {fileID: 0}
+  AmplitudeSlider: {fileID: 542184067}
+  TimeBaseSlider: {fileID: 0}
+  TriggerSlider: {fileID: 0}
+  VerticalDisplacementSlider: {fileID: 1300083598}
+  dotsAmount: 1100
 --- !u!120 &267614172
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1003,7 +1004,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 267614171}
+      - m_Target: {fileID: 0}
         m_MethodName: DisplaceVertically
         m_Mode: 0
         m_Arguments:
@@ -1408,7 +1409,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 267614171}
+      - m_Target: {fileID: 0}
         m_MethodName: SetSquareSignal
         m_Mode: 1
         m_Arguments:
@@ -1828,7 +1829,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 267614171}
+      - m_Target: {fileID: 0}
         m_MethodName: DisplaceHorizontally
         m_Mode: 0
         m_Arguments:
@@ -1920,7 +1921,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 267614171}
+      - m_Target: {fileID: 0}
         m_MethodName: SetSinusoidalSignal
         m_Mode: 1
         m_Arguments:

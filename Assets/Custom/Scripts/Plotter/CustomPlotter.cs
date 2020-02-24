@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using CommandInterpreter.Calculator.Container.Functions;
 using UnityEngine;
 using UnityEngine.UI;
-using Custom.Scripts.Plotter;
 
 namespace Custom.Scripts.Plotter
 {
@@ -78,7 +75,7 @@ namespace Custom.Scripts.Plotter
         {
             _timeScale = _timeBaseScale[(int) TimeBaseSlider.GetComponent<Slider>().value];
             _timeBaseMultiplier = _timeScale;
-            _maxX = Horizontaldivs / 2f * _timeScale;
+            _maxX = Horizontaldivs * _timeScale;
             _minX = -_maxX;
         }
 
@@ -119,11 +116,18 @@ namespace Custom.Scripts.Plotter
         public void VaryVerticalDisplacement(float vd)
         {
             _verticalDisplacement = vd * _ampScale;
-            _signal.verticalDisplacement = _verticalDisplacement;
             _lineRenderer.positionCount = 0;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
             ShowVerticalDisplacementVoltage();
+        }
+
+        public void VaryHorizontalDisplacement(float hd)
+        {
+            _horizontalDisplacement = hd;
+            _signal.Reset();
+            _lineRenderer.positionCount = 0;
+            SetDots(_signal.SignalFunction);
         }
         
         public void ToggleAcDcCoupling()
@@ -165,8 +169,8 @@ namespace Custom.Scripts.Plotter
         {
             var directCurrent = 2f;
             SetScales(1,1);
-            _signal = new SquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent,
-                0.001f, 4f, 0.002f, -3*0.002f);
+            _signal = new SquareSignal(_timeBaseMultiplier, 
+                directCurrent, 0.001f, 4f, 0.002f, -3*0.002f);
             SetDots(_signal.SignalFunction);
         }
 
@@ -174,7 +178,8 @@ namespace Custom.Scripts.Plotter
         {
             var directCurrent = 0f;
             var frecuency = 1000f;
-            _signal = new SinusoidalSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, frecuency, directCurrent);
+            _signal = new SinusoidalSignal(_timeBaseMultiplier, 
+                frecuency, directCurrent);
             SetScales(8,3);
             SetDots(_signal.SignalFunction);
         }
@@ -183,7 +188,8 @@ namespace Custom.Scripts.Plotter
         {
             var directCurrent = 1f;
             SetScales(9, 3);
-            _signal = new AlmostSquareSignal(_horizontalDisplacement, _verticalDisplacement, _timeBaseMultiplier, directCurrent, _rectTransform);
+            _signal = new AlmostSquareSignal(_verticalDisplacement, _timeBaseMultiplier, 
+                directCurrent, _rectTransform);
             SetDots(_signal.SignalFunction);
         }
 
@@ -224,12 +230,13 @@ namespace Custom.Scripts.Plotter
 
             float stepSize = (_maxX - _minX) / dotsAmount;
             float x = _minX;
-            float delta = + triggerInfo.SignalStart - _minX;
+            float delta = triggerInfo.SignalStart - _minX;
 
             for (int i = 0; i < dotsAmount; i++)
             {
                 var fx = func(x + delta);
-                _lineRenderer.SetPosition(i, AdjustCoordinateToCanvasSize(x, fx));
+                _lineRenderer.SetPosition(i, AdjustCoordinateToCanvasSize(x - _horizontalDisplacement, 
+                    fx + _verticalDisplacement));
                 x += stepSize;
             }
         }
