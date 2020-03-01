@@ -24,11 +24,11 @@ namespace Custom.Scripts.Plotter
         private float _timeBaseMultiplier = 1f;
         private float _directCurrent = 0f;
         
-        //Unit: volts
+        //Unit: seconds
         private readonly float[] _timeBaseScale = {0.001f, 0.002f, 0.005f, 0.01f, 0.02f,
             0.05f, 0.1f, 0.2f, 0.5f, 1, 2, 5};
 
-        //Unit: seconds
+        //Unit: volts
         private readonly float[] _amplitudeScale = {0.001f, 0.002f, 0.005f, 0.01f, 0.02f,
             0.05f, 0.1f, 0.2f, 0.5f, 1, 2, 5};
 
@@ -40,6 +40,8 @@ namespace Custom.Scripts.Plotter
         public GameObject TimeBaseSlider;
         public GameObject TriggerSlider;
         public GameObject VerticalDisplacementSlider;
+        public GameObject HorizontalDisplacementSlider;
+        public GameObject PreciseAmplitudeSlider;
 
         public int dotsAmount;
 
@@ -102,7 +104,19 @@ namespace Custom.Scripts.Plotter
         {
             VerticalDisplacementSlider.GetComponentInChildren<Text>().text = Math.Round(_verticalDisplacement, 4) + "V";
         }
-        
+
+        /**
+         * Shows the percentage of horizontal displacement.
+         * This method asumes simetry between the minimum and maximum value of the slider set in Unity.
+         */
+        private void ShowHorizontalDisplacementPercentage()
+        {
+            Slider slider = HorizontalDisplacementSlider.GetComponent<Slider>();
+            float max = slider.maxValue;
+            float x = slider.value;
+            int percentage = (int) (x / max * 100);
+            HorizontalDisplacementSlider.GetComponentInChildren<Text>().text = percentage + "%";
+        }
         public void VaryTriggerLevel(float triggerLevel)
         {
             var triggerLevelPos = TriggerLevelIndicator.transform.localPosition;
@@ -128,6 +142,7 @@ namespace Custom.Scripts.Plotter
             _signal.Reset();
             _lineRenderer.positionCount = 0;
             SetDots(_signal.SignalFunction);
+            ShowHorizontalDisplacementPercentage();
         }
         
         public void ToggleAcDcCoupling()
@@ -150,12 +165,24 @@ namespace Custom.Scripts.Plotter
         {
             LoadAmplitudeScale();
             ShowAmplitudeScale();
-            _maxY = Verticaldivs / 2f * _amplitudeScale[(int)index];
-            _minY = -_maxY;
             _signal.Reset();
             SetDots(_signal.SignalFunction);
             ShowTriggerLevelVoltage();
             VaryVerticalDisplacement(VerticalDisplacementSlider.GetComponent<Slider>().value);
+        }
+
+        /**
+         * Varies amplitude smoothly in order to precisely adjust the amplitude to a desired scale.
+         * The range of the slider should be [-0.5 , 0.5].
+         */
+        public void VaryAmplitudeSmoothly(float percentage)
+        {
+            _ampScale = _amplitudeScale[(int)AmplitudeSlider.GetComponent<Slider>().value] * (1 + percentage);
+            _maxY = (Verticaldivs / 2f * _ampScale);
+            _minY = -_maxY;
+            _signal.Reset();
+            SetDots(_signal.SignalFunction);
+            PreciseAmplitudeSlider.GetComponentInChildren<Text>().text = "x" + Math.Round(1 + percentage,2);
         }
 
         private void SetScales(int amplitudeIndex, int timebaseIndex)

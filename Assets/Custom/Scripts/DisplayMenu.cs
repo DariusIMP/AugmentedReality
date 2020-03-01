@@ -5,6 +5,7 @@ namespace Custom.Scripts
     public class DisplayMenu : MonoBehaviour
     {
         public GameObject menuDisplay = null;
+        public GameObject controlDisplay = null;
 
         void Start()
         {
@@ -26,6 +27,17 @@ namespace Custom.Scripts
         {
             if (!menuDisplay.activeSelf)
                 menuDisplay.SetActive(true);
+        }
+
+        public void HideControls()
+        {
+            controlDisplay.SetActive(false);
+        }
+
+        public void ShowControls()
+        {
+            if (controlDisplay.activeSelf) return;
+            controlDisplay.SetActive(true);
         }
     
         public void Action() {
