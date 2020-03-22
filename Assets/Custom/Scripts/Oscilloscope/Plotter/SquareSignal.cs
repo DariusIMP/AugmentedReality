@@ -1,6 +1,6 @@
 using System;
 
-namespace Custom.Scripts.Plotter
+namespace Custom.Scripts.Oscilloscope.Plotter
 {
     public class SquareSignal : Signal
     {
@@ -8,8 +8,9 @@ namespace Custom.Scripts.Plotter
         private float _simetryFactor;
         private float _maxFx;
         private float _minFx;
+
         public SquareSignal(float timeBaseMultiplier, float directCurrent,
-        float periodFactor, float simetryFactor, float maxFx, float minFx) : base(
+            float periodFactor, float simetryFactor, float maxFx, float minFx) : base(
             timeBaseMultiplier, directCurrent)
         {
             _periodFactor = periodFactor;
@@ -28,7 +29,6 @@ namespace Custom.Scripts.Plotter
 
         public override void Reset()
         {
-            
         }
     }
 }

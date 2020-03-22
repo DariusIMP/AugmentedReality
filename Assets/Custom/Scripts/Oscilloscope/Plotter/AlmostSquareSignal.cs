@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Custom.Scripts.Plotter
+namespace Custom.Scripts.Oscilloscope.Plotter
 {
     public class AlmostSquareSignal : Signal
     {
