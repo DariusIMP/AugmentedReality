@@ -20,6 +20,7 @@ namespace Custom.Scripts
         public GameObject aimingDot;
         public GameObject[] selectableElements;
         public GameObject blockInfoButton;
+        public GameObject infoMessage;
 
         private void Update()
         {
@@ -90,6 +91,7 @@ namespace Custom.Scripts
                 SetMaterials();
                 _displayInfoMode = true;
                 blockInfoButton.SetActive(true);
+                infoMessage.GetComponent<FadingText>().ShowFadingText();
             }
             else
             {
@@ -118,7 +120,7 @@ namespace Custom.Scripts
             {
                 _selectionLocked = false;
                 aimingDot.SetActive(true);
-                blockInfoButton.GetComponentInChildren<Text>().text = "Bloquear información";
+//                blockInfoButton.GetComponentInChildren<Text>().text = "Bloquear información";
             }
             else
             {
@@ -126,7 +128,7 @@ namespace Custom.Scripts
                 {
                     _selectionLocked = true;
                     aimingDot.SetActive(false);
-                    blockInfoButton.GetComponentInChildren<Text>().text = "Desbloquear información";
+//                    blockInfoButton.GetComponentInChildren<Text>().text = "Desbloquear información";
                 }
             }
         }

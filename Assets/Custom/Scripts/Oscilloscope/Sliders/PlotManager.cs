@@ -20,20 +20,13 @@ namespace Custom.Scripts.Oscilloscope.Sliders
     /**
      * Class to synchronize two or more sliders, if one changes, the other change equally
      * in the way set by the internal function SetSlider.
-     *
-     * This script must be placed alongside with the custom plotter.
      */
     public class PlotManager : MonoBehaviour
     {
         /** Sliders that will be synchronized. */
         public GameObject[] sliders;
 
-        private CustomPlotter plotter;
-        
-        public void Start()
-        {
-            plotter = gameObject.GetComponent<CustomPlotter>();
-        }
+        public CustomPlotter plotter;
 
         /** Communicates to all the plot listeners a vertical scale variation event happened. */
         public void BroadcastVerticalScaleVariation(int sliderValue)
