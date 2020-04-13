@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="PelotaConTexturas"/>
+</Tracking>
+
+<Assembly name="PelotaConTexturass_assembly">
+<Part name="PelotaConTexturas" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="4.10783e-14 0.00105448 7.02384" rotation="AD: -0.9413631221685241 -0.3875814409012704 1.8347458139281716 169.172">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

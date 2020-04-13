@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="PelotaTenis"/>
+</Tracking>
+
+<Assembly name="PelotaTeniss_assembly">
+<Part name="PelotaTenis" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="-3.41022e-05 -1.96585e-07 0.233295" rotation="AD: 1 -4.549234799158862e-8 -0.002809209639972239 179.998">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Plano5"/>
+</Tracking>
+
+<Assembly name="Plano5s_assembly">
+<Part name="Plano5" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="-0.235211 1.49775 25.9967" rotation="AD: -0.9613448038589699 -0.4156586632256745 0.9922669869559193 148.809">
+
+</EntryPoint>
+
+</Assembly>
+</QCARConfig>

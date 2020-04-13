@@ -11,22 +11,18 @@ La tangente del angulo del peralte es igual a la Fuerza Centrípeta sobre el Pes
 Desarrollando la fuerza centrípeta en función de la velocidad 
 
 4
-00:00:13,480 --> 00:00:16,733
+00:00:13,480 --> 00:00:16,999
 y el peso en función de la masa y la aceleración de la gravedad, 
 
 5
-00:00:16,730 --> 00:00:17,688
-nos queda:
+00:00:17,000 --> 00:00:23,933
+nos queda que la tangente de tetha es igual a la masa por la velocidad al cuadrado sobre el radio por la masa por la gravedad.
 
 6
-00:00:17,680 --> 00:00:23,933
-que la tangente de tetha es igual a la masa por la velocidad al cuadrado sobre el radio por la masa por la gravedad.
-
-7
 00:00:24,133 --> 00:00:29,311
 Y a partir de eso podemos despejar el módulo de la velocidad.
 
-8
+7
 00:00:29,644 --> 00:00:35,733
 Es interesante ver cómo la velocidad no depende de la masa, solo del ángulo de peralte y del radio.
 

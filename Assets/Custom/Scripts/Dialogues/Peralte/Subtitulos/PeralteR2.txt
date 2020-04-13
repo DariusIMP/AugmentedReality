@@ -12,7 +12,7 @@ Para que las fuerzas verticales se anulen deben cancelarse la componente vertica
 
 4
 00:00:16,620 --> 00:00:23,933
-Entonces en la componente y, nos queda que el peso mas la fuerza de rozamiento en y es igual a la normal en y.
+Entonces en la componente Y, nos queda que el peso mas la fuerza de rozamiento en y es igual a la normal en Y.
 
 5
 00:00:24,422 --> 00:00:27,755

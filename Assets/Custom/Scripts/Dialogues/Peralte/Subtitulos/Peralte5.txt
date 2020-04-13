@@ -1,12 +1,12 @@
 ﻿1
-00:00:00,000 --> 00:00:04,800
+00:00:00,500 --> 00:00:05,500
 Horizontalmente, la componente X de la normal será la fuerza centrípeta. 
 
 2
-00:00:04,800 --> 00:00:09,488
+00:00:05,500 --> 00:00:10,000
 Esto tiene mucho sentido: la normal es la fuerza que ejerce la pista sobre el auto. 
 
 3
-00:00:09,488 --> 00:00:11,480
+00:00:10,500 --> 00:00:14,000
 Está fuerza es la que va a hacer que el auto mantenga la trayectoria circular.
 

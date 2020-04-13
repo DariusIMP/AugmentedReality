@@ -95,21 +95,21 @@ namespace Film.Peralte_Film
 
         private IEnumerator AparicionDeLasDescomposicionesDeLaNormalEnX()
         {
-            yield return new WaitForSecondsRealtime(29f);        
+            yield return new WaitForSecondsRealtime(13f);        
             NormalX.SetActive(true);
             StartCoroutine(FadingEffects.ShowImageFading(1f, NormalX.GetComponent<Image>()));
         }
 
         private IEnumerator AparicionDeLasDescomposicionesDeLaNormalEnY()
         {
-            yield return new WaitForSecondsRealtime(30f);
+            yield return new WaitForSecondsRealtime(14f);
             NormalY.SetActive(true);       
             StartCoroutine(FadingEffects.ShowImageFading(1f, NormalY.GetComponent<Image>()));
         }
 
         private IEnumerator AparicionDeLaFormulaDePesoIgualANormal()
         {
-            yield return new WaitForSecondsRealtime(34f);
+            yield return new WaitForSecondsRealtime(17f);
             FormulaSRoz1.SetActive(true);
             StartCoroutine(FadingEffects.ShowImageFading(1f, FormulaSRoz1.GetComponent<Image>()));
         }

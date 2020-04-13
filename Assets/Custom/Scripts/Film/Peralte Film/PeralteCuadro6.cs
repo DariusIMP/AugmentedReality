@@ -108,7 +108,7 @@ namespace Film.Peralte_Film
 
         private IEnumerator AparicionDeLaFormula9()
         {
-            yield return new WaitForSecondsRealtime(17f);
+            yield return new WaitForSecondsRealtime(23f);
             FormulaSRoz4.SetActive(true);
             StartCoroutine(FadingEffects.ShowImageFading(1f, FormulaSRoz4.GetComponent<Image>()));
         }

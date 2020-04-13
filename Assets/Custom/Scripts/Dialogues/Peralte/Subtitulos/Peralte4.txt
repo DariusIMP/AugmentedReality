@@ -1,36 +1,20 @@
 ﻿1
-00:00:00,000 --> 00:00:05,600
-Como decíamos hace un rato, para que haya el MCU tenemos dos condiciones, 
-
-2
-00:00:05,600 --> 00:00:10,733
-que la fuerza vertical sea nula y que la horizontal vaya hacia el centro de la circunferencia
-
-3
-00:00:10,730 --> 00:00:13,911
-y sea mv²/R. 
-
-4
-00:00:14,422 --> 00:00:16,400
+00:00:01,000 --> 00:00:02,700
 Descompongamos las fuerzas.
 
-5
-00:00:16,400 --> 00:00:21,444
-Para esto tenemos que destacar que el sistema de referencia se hace considerando el centro de la curva;
+2
+00:00:02,700 --> 00:00:08,100
+Para esto tenemos que destacar que el sistema de referencia se hace considerando el centro de la curva
 
-6
-00:00:21,440 --> 00:00:25,933
- es un error común orientar el sistema de referencia respecto de la pendiente del peralte. 
-
-7
-00:00:26,444 --> 00:00:30,933
+4
+00:00:08,444 --> 00:00:13,000
 Entonces la normal se descompone en una componente X y una componente Y.
 
-8
-00:00:31,355 --> 00:00:35,111
+5
+00:00:13,500 --> 00:00:17,111
 La sumatoria de las fuerzas en la dirección vertical es efectivamente cero:
 
-9
-00:00:35,110 --> 00:00:38,244
+6
+00:00:17,110 --> 00:00:20,300
  el peso y la componente Y de la normal se cancelan.
 
